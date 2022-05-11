@@ -1,0 +1,7 @@
+import ar.com.mytrips.Trip
+
+model {
+	Trip trip
+}
+
+json g.render(trip, [resolveTemplate: false])

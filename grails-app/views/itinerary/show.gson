@@ -1,0 +1,7 @@
+import ar.com.mytrips.destination.Itinerary
+
+model {
+	Itinerary itinerary
+}
+
+json tmpl.full(itinerary)

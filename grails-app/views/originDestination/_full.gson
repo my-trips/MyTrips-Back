@@ -1,0 +1,13 @@
+import ar.com.mytrips.OriginDestination
+
+model {
+	OriginDestination originDestination
+}
+
+json {
+	id originDestination?.id
+	name originDestination?.name
+	date originDestination?.date
+	image originDestination?.image
+	transport originDestination?.transport
+}

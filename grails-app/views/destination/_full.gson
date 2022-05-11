@@ -1,0 +1,17 @@
+import ar.com.mytrips.destination.Destination
+
+model {
+	Destination destination
+}
+
+json {
+	id destination?.id
+	relevance destination?.relevance
+	transport destination?.transport
+	depart destination?.depart
+	arrive destination?.arrive
+	color destination?.color
+	images destination?.images
+	place g.render(template:"/place/full", model:[place:destination.place])
+	days g.render(template:"/day/full", collection: destination.days, var:'day')
+}

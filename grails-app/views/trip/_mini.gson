@@ -1,0 +1,13 @@
+import ar.com.mytrips.Trip
+
+model {
+	Trip trip
+}
+
+json {
+	id trip.id
+	totalDays trip.totalDays
+	startDestination g.render(template:"/originDestination/full", model:[originDestination:trip.startDestination])
+	endDestination g.render(template:"/originDestination/full", model:[originDestination:trip.endDestination])
+	destinations g.render(template:"/destination/full", collection: trip.destinations, var:'destination')
+}

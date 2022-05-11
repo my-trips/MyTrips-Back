@@ -1,0 +1,7 @@
+import ar.com.mytrips.destination.Day
+
+model {
+	Day day
+}
+
+json tmpl.full(day)

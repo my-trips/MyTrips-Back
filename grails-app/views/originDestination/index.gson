@@ -1,0 +1,8 @@
+import ar.com.mytrips.OriginDestination
+
+model {
+	Iterable<OriginDestination> originDestinationList
+}
+
+json tmpl.full(originDestinationList ?: [])
+

@@ -1,0 +1,8 @@
+import ar.com.mytrips.destination.Day
+
+model {
+	Iterable<Day> days
+}
+
+json tmpl.full(days ?: [])
+

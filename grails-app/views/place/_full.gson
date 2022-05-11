@@ -1,0 +1,19 @@
+import ar.com.mytrips.destination.Place
+
+model {
+	Place place
+}
+
+json {
+	id place.id
+	placeId place.placeId
+	relevance place.relevance
+	name place.name
+	placeName place.placeName
+	latitude place.latitude
+	longitude place.longitude
+	district place.district
+	region place.region
+	country place.country
+	bbox place.bbox
+}

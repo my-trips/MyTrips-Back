@@ -1,0 +1,8 @@
+import ar.com.mytrips.Trip
+
+model {
+	Iterable<Trip> tripList
+}
+
+json tmpl.mini(tripList ?: [])
+

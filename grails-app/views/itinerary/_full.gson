@@ -1,0 +1,17 @@
+import ar.com.mytrips.destination.Itinerary
+
+model {
+	Itinerary itinerary
+}
+
+json {
+
+	id itinerary.id
+	title itinerary.title
+	description itinerary.description
+	name itinerary.name
+	snippet itinerary.snippet
+	longitude itinerary.longitude
+	latitude itinerary.latitude
+	images itinerary.images
+}
