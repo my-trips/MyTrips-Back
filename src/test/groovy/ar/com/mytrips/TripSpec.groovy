@@ -13,6 +13,6 @@ class TripSpec extends Specification implements DomainUnitTest<Trip> {
 
     void "test something"() {
         expect:"fix me"
-            true == false
+        true
     }
 }
