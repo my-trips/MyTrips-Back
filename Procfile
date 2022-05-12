@@ -1,1 +1,1 @@
-web: cd build ; java -Dgrails.env=heroku -jar ../build/server/webapp-runner-*.jar --expand-war --port $PORT libs/*.war
+web: java -Dgrails.env=heroku -jar webapp-runner-*.jar --expand-war --port $PORT build/libs/*.war
