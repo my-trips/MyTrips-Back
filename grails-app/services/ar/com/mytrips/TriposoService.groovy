@@ -1,9 +1,6 @@
 package ar.com.mytrips
 
-import ar.com.mytrips.request.TriposoDayPlanner
-import ar.com.mytrips.request.TriposoDayPlannerResponse
-import ar.com.mytrips.request.TriposoLocation
-import ar.com.mytrips.request.TriposoLocationResponse
+import ar.com.mytrips.request.*
 import grails.config.Config
 import grails.core.support.GrailsConfigurationAware
 import io.micronaut.http.HttpRequest
@@ -19,46 +16,31 @@ class TriposoService implements GrailsConfigurationAware {
     String account
     String token
     BlockingHttpClient client
-    ModelResolverService modelResolverService
-
-    @Override
-    void setConfiguration(Config co) {
-        account = co.getProperty('triposo.account', String)
-        token = co.getProperty('triposo.token', String)
-        setupHttpClient("https://www.triposo.com")
-    }
-
-    void setupHttpClient(String url) {
-        this.client = HttpClient.create(url.toURL()).toBlocking()
-    }
-
-
 
     TriposoLocation getLocation(String country, String place) {
-        try {
-            def params = [
-                    part_of: country,
-                    tag_labels: "city",
-                    count: 1,
-                    fields: "name,id,snippet,parent_id,score,type,images",
-                    annotate: "trigram:${place}",
-                    trigram: ">=1",
-                    order_by: "-score",
-            ]
-            def request = HttpRequest.GET(triposoUri("location.json", params))
-            request.headers([
-                "X-Triposo-Account": account,
-                "X-Triposo-Token": token,
-            ])
-            def response = client.retrieve(request, TriposoLocationResponse)
-            if(!response.results.isEmpty()){
-                return response.results.first()
-            }
+        def params = [
+                part_of: country,
+                tag_labels: "city",
+                count: 1,
+                fields: "name,id,snippet,parent_id,score,type,images",
+                annotate: "trigram:${place}",
+                trigram: ">=1",
+                order_by: "-score",
+        ]
+        def location = get("location.json", params, TriposoLocationResponse)
+        return !location.isEmpty()? location.first():null
+    }
 
-        } catch (HttpClientResponseException e) {
-            e.printStackTrace()
-            return null
-        }
+    List<TriposoAttraction> getAttractions(String locationId) {
+        def params = [
+                tag_labels:
+                        "poitype-Canal|city|poitype-Church|poitype-City_hall|diving|history|poitype-Lake|poitype-Mausoleum|location|poitype-Mountain_pass|poitype-Obelisk|poitype-Necropolis|poitype-Park|poitype-Palace|shopping|topattractions|poitype-Tower|poitype-Volcano|poitype-View_point",
+                location_id: locationId.replaceAll(" ", "_"),
+                count: 10,
+                fields: "id,name,coordinates,facebook_id,score,intro,images,price_tier",
+                order_by: "-score",
+        ]
+        return get("poi.json", params, TriposoAttractionResponse)
     }
 
     TriposoDayPlanner getDayPlanner(String country, String locationId, LocalDateTime startDate, LocalDateTime endDate, Boolean findLocation=true) {
@@ -70,24 +52,36 @@ class TriposoService implements GrailsConfigurationAware {
                 end_date: endDate.toLocalDate().toString(),
                 departure_time:endDate.toLocalTime().toString(),
             ]
-            def request = HttpRequest.GET(triposoUri("day_planner.json", params))
-            request.headers([
-                    "X-Triposo-Account": account,
-                    "X-Triposo-Token": token,
-            ])
-            def planner = client.retrieve(request, TriposoDayPlannerResponse)
-            if(!planner.results.isEmpty()){
-                return planner.results.first()
-            }
+            def planner = get("day_planner.json", params, TriposoDayPlannerResponse)
+            !planner.isEmpty()? planner.first():null
         } catch (HttpClientResponseException e) {
             e.printStackTrace()
             if(findLocation){
                 def location = getLocation(country, locationId)
                 return getDayPlanner(country, location.id, startDate, endDate, false)
             }
-            return null
+            throw e
         }
     }
+
+    public <T> List<T> get(String path, Map<String, Object> params, Class<TriposoResponse<T>> returnType) {
+        try {
+            def request = HttpRequest.GET(triposoUri(path, params))
+            request.headers([
+                    "X-Triposo-Account": account,
+                    "X-Triposo-Token": token,
+            ])
+            def response = client.retrieve(request, returnType)
+            if(!response.results.isEmpty()){
+                return response.results
+            }
+
+        } catch (HttpClientResponseException e) {
+            e.printStackTrace()
+            throw e
+        }
+    }
+
 
     URI triposoUri(String path, Map<String, Object> params) {
         UriBuilder uriBuilder = UriBuilder.of("/api/20220411/$path")
@@ -95,5 +89,16 @@ class TriposoService implements GrailsConfigurationAware {
             uriBuilder.queryParam(key, value)
         }
         uriBuilder.build()
+    }
+
+    @Override
+    void setConfiguration(Config co) {
+        account = co.getProperty('triposo.account', String)
+        token = co.getProperty('triposo.token', String)
+        setupHttpClient("https://www.triposo.com")
+    }
+
+    void setupHttpClient(String url) {
+        this.client = HttpClient.create(url.toURL()).toBlocking()
     }
 }

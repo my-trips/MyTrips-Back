@@ -1,0 +1,7 @@
+import ar.com.mytrips.request.TriposoAttraction
+
+model {
+    List<TriposoAttraction> list
+}
+
+json tmpl.attraction(list ?: [])

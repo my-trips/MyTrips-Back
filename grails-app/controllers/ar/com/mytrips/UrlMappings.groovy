@@ -26,5 +26,8 @@ class UrlMappings {
             patch "/$id"(action: "patch")
             post "/$id/$action"()
         }
+
+        "/api/location/attractions/$location"(controller: 'location', action: "attractions", method: 'GET')
+        "/api/location/$country/$city"(controller: 'location', action: "location", method: 'GET')
     }
 }

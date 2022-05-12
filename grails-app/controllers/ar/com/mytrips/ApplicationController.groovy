@@ -1,14 +1,12 @@
 package ar.com.mytrips
 
 import grails.core.GrailsApplication
-import grails.plugins.*
 
-class ApplicationController implements PluginManagerAware {
+class ApplicationController {
 
     GrailsApplication grailsApplication
-    GrailsPluginManager pluginManager
 
     def index() {
-        [grailsApplication: grailsApplication, pluginManager: pluginManager]
+        [grailsApplication: grailsApplication]
     }
 }

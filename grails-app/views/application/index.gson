@@ -1,11 +1,13 @@
-import grails.core.*
-import grails.util.*
-import grails.plugins.*
-import org.grails.core.artefact.*
+import grails.core.GrailsApplication
+import grails.core.GrailsClass
+import grails.util.Environment
+import grails.util.GrailsUtil
+import org.grails.core.artefact.ControllerArtefactHandler
+import org.grails.core.artefact.DomainClassArtefactHandler
+import org.grails.core.artefact.ServiceArtefactHandler
 
 model {
 	GrailsApplication grailsApplication	
-	GrailsPluginManager pluginManager
 }
 
 json {
@@ -26,8 +28,5 @@ json {
         name c.fullName
         logicalPropertyName c.logicalPropertyName
     }
-    plugins pluginManager.allPlugins, { GrailsPlugin plugin ->
-    	name plugin.name
-    	version plugin.version
-    }
+
 }

@@ -1,0 +1,7 @@
+import ar.com.mytrips.request.TriposoLocation
+
+model {
+    TriposoLocation triposoLocation
+}
+
+json g.render(triposoLocation)

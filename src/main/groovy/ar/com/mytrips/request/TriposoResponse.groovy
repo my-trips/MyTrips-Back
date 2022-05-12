@@ -6,11 +6,29 @@ import io.micronaut.core.annotation.Introspected
 
 import java.time.LocalDate
 
+@Introspected
+@CompileStatic
+interface TriposoResponse<T>{
+    List<T> getResults()
+}
+
 
 @Introspected
 @CompileStatic
-class TriposoLocationResponse {
+class TriposoLocationResponse implements TriposoResponse<TriposoLocation>{
     List<TriposoLocation> results
+}
+
+@Introspected
+@CompileStatic
+class TriposoAttractionResponse implements TriposoResponse<TriposoAttraction>{
+    List<TriposoAttraction> results
+}
+
+@Introspected
+@CompileStatic
+class TriposoDayPlannerResponse implements TriposoResponse<TriposoDayPlanner> {
+    List<TriposoDayPlanner> results
 }
 
 @Introspected
@@ -32,13 +50,6 @@ class TriposoImage {
     @JsonProperty("source_url")
     String sourceUrl
 
-}
-
-
-@Introspected
-@CompileStatic
-class TriposoDayPlannerResponse {
-    List<TriposoDayPlanner> results
 }
 
 @Introspected
@@ -78,4 +89,20 @@ class TriposoPoi {
     Long longitude
     @JsonProperty("coordinates.latitude")
     Long latitude
+}
+
+@Introspected
+@CompileStatic
+class TriposoAttraction {
+    String name
+    String id
+    String intro
+    @JsonProperty("coordinates.longitude")
+    Long longitude
+    @JsonProperty("coordinates.latitude")
+    Long latitude
+    List<TriposoImage> images
+    BigDecimal score
+    @JsonProperty("facebook_id")
+    String facebookId
 }
