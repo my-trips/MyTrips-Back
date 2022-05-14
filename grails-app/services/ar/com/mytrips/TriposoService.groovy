@@ -60,7 +60,7 @@ class TriposoService implements GrailsConfigurationAware {
                 def location = getLocation(country, locationId)
                 return getDayPlanner(country, location.id, startDate, endDate, false)
             }
-            throw e
+            return null
         }
     }
 
@@ -75,10 +75,10 @@ class TriposoService implements GrailsConfigurationAware {
             if(!response.results.isEmpty()){
                 return response.results
             }
-
+            return []
         } catch (HttpClientResponseException e) {
             e.printStackTrace()
-            throw e
+            return []
         }
     }
 

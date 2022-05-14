@@ -31,7 +31,7 @@ class TripController implements ModelRequestResolver {
     }
 
     protected  <T> T assertExistence(T object, String message){
-        if(!object || (object.hasProperty("deleted") && object?.deleted)){
+        if(!object){
             throw ServiceException.badRequest(message)
         }
         return object

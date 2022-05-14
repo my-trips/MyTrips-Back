@@ -19,7 +19,7 @@ class TripService {
         trip.destinations.forEach{
             def dayPlanner = triposoService.getDayPlanner(it.place.country, it.place.name, it.arrive, it.depart)
             if(dayPlanner){
-                it.setDataFromPanner(dayPlanner, trip)
+                it.setDataFromPlanner(dayPlanner, trip)
             }
         }
         trip.save()

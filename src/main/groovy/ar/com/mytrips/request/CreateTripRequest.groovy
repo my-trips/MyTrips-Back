@@ -56,7 +56,7 @@ class DestinationCommand  implements ModelRequest<Destination> {
         def params = changes()
         params.place = place.toModel()
         params.trip = trip
-        new Destination(params)
+        Destination.create(params)
     }
 
     @Override

@@ -116,7 +116,7 @@ environments:
             pooled: true
             properties:
                 maximumPoolSize: 50
-            logSql: true
+            logSql: false
 
     test:
         dataSource:
