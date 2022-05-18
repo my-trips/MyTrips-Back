@@ -2,13 +2,10 @@ package ar.com.mytrips
 
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.request.CreateTripRequest
-import grails.gorm.transactions.ReadOnly
-import grails.rest.*
-import grails.converters.*
-
+import grails.converters.JSON
 import grails.gorm.transactions.Transactional
 
-@ReadOnly
+@Transactional
 class TripController implements ModelRequestResolver {
 
     TripService tripService
@@ -23,7 +20,12 @@ class TripController implements ModelRequestResolver {
         respond  trip, view: 'show'
     }
 
-    @Transactional
+    def delete(String id) {
+        def trip = assertExistence(tripService.get(id), "El trip no existe")
+        tripService.delete(trip)
+        render(contentType: "application/json", text: [:] as JSON)
+    }
+
     def save() {
         def request = getBody(CreateTripRequest)
         def trip = tripService.create(request.toModel())

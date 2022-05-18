@@ -18,7 +18,9 @@ info:
         name: '@info.app.name@'
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
-
+micronaut:
+    server:
+        read-timeout: 120
 
 spring:
     jmx:

@@ -18,13 +18,14 @@ class Destination {
     String color
     Place place
 
+
     static belongsTo = [trip: Trip]
 
     static hasMany = [images: String, days:Day]
 
     static mapping = {
         id generator: 'uuid'
-        days sort: "date", order: "asc"
+        days sort: "date", order: "asc", cascade: 'all-delete-orphan'
     }
 
     static mappedBy = [days: "destination"]

@@ -10,6 +10,7 @@ class Trip {
     String id
     OriginDestination startDestination
     OriginDestination endDestination
+    Boolean deleted = false
 
 
     static hasMany = [destinations: Destination]
@@ -17,13 +18,14 @@ class Trip {
     static constraints = {
         startDestination nullable: true
         endDestination nullable: true
+        deleted nullable: false
     }
 
     static mapping = {
         id generator: 'uuid'
-        startDestination cascade: 'all'
-        endDestination cascade: 'all'
-        destinations sort: 'relevance'
+        startDestination cascade: 'all-delete-orphan'
+        endDestination cascade: 'all-delete-orphan'
+        destinations sort: 'relevance', cascade: 'all-delete-orphan'
     }
 
     static mappedBy = [destinations: 'trip']

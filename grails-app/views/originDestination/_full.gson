@@ -7,6 +7,7 @@ model {
 json {
 	id originDestination?.id
 	name originDestination?.name
+	country originDestination?.country
 	date originDestination?.date
 	image originDestination?.image
 	transport originDestination?.transport

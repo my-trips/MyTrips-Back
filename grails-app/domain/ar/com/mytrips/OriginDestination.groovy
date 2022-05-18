@@ -6,6 +6,7 @@ class OriginDestination {
 
     String id
     String name
+    String country
     LocalDate date
     String image
     TransportType transport

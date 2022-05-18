@@ -22,6 +22,7 @@ class CreateTripRequest implements ModelRequest<Trip> {
 
 class OriginDestinationCommand implements ModelRequest<OriginDestination> {
     String name
+    String country
     String date
     TransportType transport
 

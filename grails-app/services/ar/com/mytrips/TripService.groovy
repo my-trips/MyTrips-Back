@@ -1,18 +1,20 @@
 package ar.com.mytrips
 
 import grails.gorm.services.Service
+import javax.transaction.Transactional
 
 @Service(Trip)
+@Transactional
 class TripService {
     TriposoService triposoService
 
 
     def get(String id) {
-        Trip.get(id)
+        Trip.findByIdAndDeleted(id, false)
     }
 
     def list(Integer max = 25, Integer offset = 0 ) {
-        Trip.findAll([max:max, offset:offset])
+        Trip.findAllByDeleted(false, [max:max, offset:offset])
     }
 
     Trip create(Trip trip){
@@ -25,4 +27,8 @@ class TripService {
         trip.save()
     }
 
+    def delete(Trip trip) {
+        trip.deleted = true
+        trip.save()
+    }
 }
