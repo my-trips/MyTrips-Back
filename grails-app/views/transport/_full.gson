@@ -1,0 +1,17 @@
+import ar.com.mytrips.destination.Transport
+
+model {
+	Transport transport
+}
+
+json {
+	id transport?.id
+	type transport.type
+	depart transport.depart
+	arrive transport.arrive
+	line transport.line
+	confirmation transport.confirmation
+	number transport.number
+	departLocation transport.departLocation
+	arriveLocation transport.arriveLocation
+}

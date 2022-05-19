@@ -1,0 +1,7 @@
+import ar.com.mytrips.destination.Transport
+
+model {
+	Transport transport
+}
+
+json tmpl.full(transport)

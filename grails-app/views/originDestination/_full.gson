@@ -10,5 +10,5 @@ json {
 	country originDestination?.country
 	date originDestination?.date
 	image originDestination?.image
-	transport originDestination?.transport
+	transport originDestination?.transport? g.render(template:"/transport/full", model:[transport:originDestination?.transport]) : null
 }

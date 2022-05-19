@@ -1,20 +1,16 @@
 package ar.com.mytrips.destination
 
-import ar.com.mytrips.TransportType
+
 import ar.com.mytrips.Trip
 import ar.com.mytrips.request.TriposoDayPlanner
-import org.springframework.validation.BindingResult
 
-import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
 class Destination {
 
     String id
     Integer relevance
-    TransportType transport
-    LocalDateTime depart
-    LocalDateTime arrive
+    Transport transport
     String color
     Place place
 
@@ -41,8 +37,8 @@ class Destination {
     }
 
     protected def generateDays(){
-        days = (0..(arrive.until(depart, ChronoUnit.DAYS)-1)).collect {
-            new Day(date: arrive.toLocalDate().plusDays(it), destination: this)
+        days = (0..(transport.arrive.until(transport.depart, ChronoUnit.DAYS)-1)).collect {
+            new Day(date: transport.arrive.toLocalDate().plusDays(it), destination: this)
         }
     }
 

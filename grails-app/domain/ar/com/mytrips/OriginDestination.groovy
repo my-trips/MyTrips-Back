@@ -1,5 +1,7 @@
 package ar.com.mytrips
 
+import ar.com.mytrips.destination.Transport
+
 import java.time.LocalDate
 
 class OriginDestination {
@@ -9,10 +11,11 @@ class OriginDestination {
     String country
     LocalDate date
     String image
-    TransportType transport
+    Transport transport
 
     static constraints = {
         image nullable: true
+        transport nullable: true
     }
     static mapping = {
         id generator: 'uuid'
