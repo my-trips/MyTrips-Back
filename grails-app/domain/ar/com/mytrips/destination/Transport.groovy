@@ -5,7 +5,7 @@ import ar.com.mytrips.TransportType
 import java.time.LocalDateTime
 
 class Transport {
-
+    String id
     TransportType type
     LocalDateTime depart
     LocalDateTime arrive

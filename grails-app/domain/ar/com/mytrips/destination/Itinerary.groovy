@@ -25,6 +25,7 @@ class Itinerary {
     static mapping = {
         description type: "text"
         snippet type: "text"
+        images joinTable:[name:'itinerary_images', key:'itinerary_id', column:'image', type:"text"]
         id generator: 'uuid'
     }
 

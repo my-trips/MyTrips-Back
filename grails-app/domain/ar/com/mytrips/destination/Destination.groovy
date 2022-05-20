@@ -22,6 +22,7 @@ class Destination {
     static mapping = {
         id generator: 'uuid'
         days sort: "date", order: "asc", cascade: 'all-delete-orphan'
+        images joinTable:[name:'destination_images', key:'destination_id', column:'image', type:"text"]
     }
 
     static mappedBy = [days: "destination"]

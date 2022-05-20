@@ -2,6 +2,8 @@ package ar.com.mytrips
 
 import grails.gorm.services.Service
 import javax.transaction.Transactional
+import static grails.async.Promises.*
+
 
 @Service(Trip)
 @Transactional
@@ -18,12 +20,17 @@ class TripService {
     }
 
     Trip create(Trip trip){
-        trip.destinations.forEach{
-            def dayPlanner = triposoService.getDayPlanner(it.place.country, it.place.name, it.transport.arrive, it.transport.depart)
-            if(dayPlanner){
-                it.setDataFromPlanner(dayPlanner, trip)
+        def tasks = trip.destinations.collect{destination ->
+            task {
+                def dayPlanner = triposoService.getDayPlanner(
+                    destination.place.country, destination.place.name, destination.transport.arrive, destination.transport.depart
+                )
+                if (dayPlanner) {
+                    destination.setDataFromPlanner(dayPlanner, trip)
+                }
             }
         }
+        waitAll(tasks)
         trip.save()
     }
 

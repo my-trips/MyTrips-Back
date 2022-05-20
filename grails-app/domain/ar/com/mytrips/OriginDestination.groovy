@@ -19,5 +19,6 @@ class OriginDestination {
     }
     static mapping = {
         id generator: 'uuid'
+        image type: "text"
     }
 }
