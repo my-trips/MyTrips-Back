@@ -1,6 +1,7 @@
 package ar.com.mytrips.destination
 
-
+import ar.com.mytrips.Cost
+import ar.com.mytrips.Currency
 import ar.com.mytrips.Trip
 import ar.com.mytrips.request.TriposoDayPlanner
 
@@ -51,5 +52,10 @@ class Destination {
             def day = days.find {day->  day.date == it.date}
             day?.itinerary =  it.itineraryItems.collect{Itinerary.fromTriposo(it)}
         }
+    }
+
+    Map<Currency, Cost> addCost(Map<Currency, Cost> cost){
+        transport.cost?.accumulate(cost)
+        cost
     }
 }

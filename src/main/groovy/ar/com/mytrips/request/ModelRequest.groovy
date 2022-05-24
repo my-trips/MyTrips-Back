@@ -43,13 +43,8 @@ trait ModelRequest<T> extends Validateable{
 
     def setJson( JSONObject json){
         requestJson = json
-        //TODO copypasteado por ahora. Refactorear
         commandProperties().each {
             if(requestJson.has(it.key as String)){
-                if(it.value instanceof ModelRequest){
-                    def nested =  (it.value as ModelRequest)
-                    nested.setJson(requestJson[it.key] as JSONObject)
-                }
                 switch (it.value) {
                     case ModelRequest:
                         def nested =  (it.value as ModelRequest)

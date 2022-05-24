@@ -1,5 +1,6 @@
 package ar.com.mytrips.request
 
+import ar.com.mytrips.Cost
 import ar.com.mytrips.OriginDestination
 import ar.com.mytrips.TransportType
 import ar.com.mytrips.Trip
@@ -7,8 +8,6 @@ import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.destination.Place
 import ar.com.mytrips.destination.Transport
 import io.micronaut.core.annotation.Introspected
-
-import java.time.LocalDateTime
 
 class CreateTripRequest implements ModelRequest<Trip> {
     OriginDestinationCommand startDestination
@@ -31,7 +30,7 @@ class OriginDestinationCommand implements ModelRequest<OriginDestination> {
 
     static constraints = {
         transport nullable: true
-        name(blank: false, minSize: 6)
+        name(blank: false)
         date nullable: false
     }
 
@@ -102,6 +101,7 @@ class TransportCommand  implements ModelRequest<Transport>  {
     String number
     String departLocation
     String arriveLocation
+    Cost cost
 
     static constraints = {
         id nullable: true
@@ -110,6 +110,7 @@ class TransportCommand  implements ModelRequest<Transport>  {
         departLocation nullable: true
         arriveLocation nullable: true
         number nullable: true
+        cost nullable: true
     }
 
     @Override

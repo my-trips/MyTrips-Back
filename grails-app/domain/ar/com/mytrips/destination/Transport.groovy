@@ -1,5 +1,6 @@
 package ar.com.mytrips.destination
 
+import ar.com.mytrips.Cost
 import ar.com.mytrips.TransportType
 
 import java.time.LocalDateTime
@@ -14,6 +15,7 @@ class Transport {
     String number
     String departLocation
     String arriveLocation
+    Cost cost
 
     static constraints = {
         confirmation nullable: true
@@ -21,7 +23,9 @@ class Transport {
         departLocation nullable: true
         arriveLocation nullable: true
         number nullable: true
+        cost nullable: true
     }
+    static embedded = ['cost']
 
     static mapping = {
         id generator: 'uuid'

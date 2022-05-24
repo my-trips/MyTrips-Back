@@ -10,4 +10,5 @@ json {
 	startDestination g.render(template:"/originDestination/full", model:[originDestination:trip.startDestination])
 	endDestination g.render(template:"/originDestination/full", model:[originDestination:trip.endDestination])
 	destinations g.render(template:"/destination/full", collection: trip.destinations, var:'destination')
+	totalCost trip.totalCost.collect { [currency: it?.key, value: it?.value?.amount]}
 }

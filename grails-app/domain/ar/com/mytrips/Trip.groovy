@@ -12,7 +12,6 @@ class Trip {
     OriginDestination endDestination
     Boolean deleted = false
 
-
     static hasMany = [destinations: Destination]
 
     static constraints = {
@@ -27,7 +26,6 @@ class Trip {
         endDestination cascade: 'all-delete-orphan'
         destinations sort: 'relevance', cascade: 'all-delete-orphan'
     }
-
     static mappedBy = [destinations: 'trip']
 
 
@@ -35,5 +33,12 @@ class Trip {
         this.startDestination = startDestination
         this.endDestination = endDestination
         totalDays = startDestination.date.until(endDestination.date, ChronoUnit.DAYS).toInteger()
+    }
+
+    Map<Currency, Cost> getTotalCost(){
+        Map<Currency, Cost> cost = [:]
+        startDestination.transport?.cost?.accumulate(cost)
+        destinations.each {it.addCost(cost) }
+        cost
     }
 }

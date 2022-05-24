@@ -14,4 +14,8 @@ json {
 	number transport.number
 	departLocation transport.departLocation
 	arriveLocation transport.arriveLocation
+	cost  {
+		currency transport.cost?.currency
+		amount transport.cost?.amount
+	}
 }
