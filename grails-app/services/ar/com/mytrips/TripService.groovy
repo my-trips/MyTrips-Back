@@ -1,5 +1,6 @@
 package ar.com.mytrips
 
+import ar.com.mytrips.exception.ServiceException
 import grails.gorm.services.Service
 import javax.transaction.Transactional
 import static grails.async.Promises.*
@@ -9,17 +10,19 @@ import static grails.async.Promises.*
 @Transactional
 class TripService {
     TriposoService triposoService
+    UserService userService
 
 
     def get(String id) {
-        Trip.findByIdAndDeleted(id, false)
+        Trip.findByIdAndOwnerAndDeleted(id, userService.currentUser, false)
     }
 
     def list(Integer max = 25, Integer offset = 0 ) {
-        Trip.findAllByDeleted(false, [max:max, offset:offset])
+        Trip.findAllByOwnerAndDeleted(userService.currentUser,false, [max:max, offset:offset])
     }
 
     Trip create(Trip trip){
+        trip.owner = userService.getCurrentUser()
         def tasks = trip.destinations.collect{destination ->
             task {
                 def dayPlanner = triposoService.getDayPlanner(
@@ -35,6 +38,9 @@ class TripService {
     }
 
     def delete(Trip trip) {
+        if(userService.currentUser != trip.owner){
+            throw ServiceException.forbidden("invalidUser")
+        }
         trip.deleted = true
         trip.save()
     }

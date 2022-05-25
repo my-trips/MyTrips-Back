@@ -1,5 +1,6 @@
 package ar.com.mytrips
 
+import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
 
 import java.time.temporal.ChronoUnit
@@ -11,6 +12,7 @@ class Trip {
     OriginDestination startDestination
     OriginDestination endDestination
     Boolean deleted = false
+    User owner
 
     static hasMany = [destinations: Destination]
 

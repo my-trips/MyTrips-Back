@@ -4,6 +4,7 @@ import ar.com.mytrips.Cost
 import ar.com.mytrips.OriginDestination
 import ar.com.mytrips.TransportType
 import ar.com.mytrips.Trip
+import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.destination.Place
 import ar.com.mytrips.destination.Transport
@@ -121,5 +122,17 @@ class TransportCommand  implements ModelRequest<Transport>  {
     @Override
     Map<String, Closure> getTransformations() {
         ["arrive": STRING_TO_DATETIME, "depart": STRING_TO_DATETIME]
+    }
+}
+
+class CreateUserRequest implements ModelRequest<User> {
+    String firstName
+    String lastName
+    String email
+    String password
+
+    @Override
+    User toModel() {
+        new User(changes())
     }
 }

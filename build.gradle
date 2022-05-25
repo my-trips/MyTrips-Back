@@ -61,7 +61,9 @@ dependencies {
     runtimeOnly "org.glassfish.web:el-impl:2.2.1-b05"
     runtimeOnly "com.h2database:h2"
     runtimeOnly "org.apache.tomcat:tomcat-jdbc"
-    runtimeOnly "javax.xml.bind:jaxb-api:2.3.1"
+    runtimeOnly 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+    implementation "org.grails.plugins:spring-security-rest:3.0.1"
+    implementation 'org.grails.plugins:spring-security-core:5.0.0'
     testImplementation "io.micronaut:micronaut-inject-groovy"
     testImplementation "org.grails:grails-gorm-testing-support"
     testImplementation "org.mockito:mockito-core"
@@ -69,7 +71,7 @@ dependencies {
     testImplementation "org.grails:grails-web-testing-support"
     testImplementation "org.grails:views-json-testing-support"
     testImplementation "org.hibernate.validator:hibernate-validator:6.1.7.Final"
-    runtimeOnly "mysql:mysql-connector-java:6.0.6"
+    runtimeOnly 'mysql:mysql-connector-java:8.0.29'
 
 }
 

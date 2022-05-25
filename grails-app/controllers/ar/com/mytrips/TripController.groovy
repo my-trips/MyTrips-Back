@@ -4,11 +4,14 @@ import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.request.CreateTripRequest
 import grails.converters.JSON
 import grails.gorm.transactions.Transactional
+import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional
+@Secured("ROLE_USER")
 class TripController implements ModelRequestResolver {
 
     TripService tripService
+
 
     def list(Integer max, Integer offset) {
         def trips = tripService.list(max, offset)

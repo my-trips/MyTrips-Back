@@ -13,6 +13,20 @@ grails:
             # Whether to translate GORM events into Reactor events
             # Disabled by default for performance reasons
             events: false
+    plugin:
+        springsecurity:
+            rest:
+                token:
+                    storage:
+                        jwt:
+                            secret: Zi4QdNQkN3Wd4R1nCq1oLrS32CKTiC9t
+            userLookup:
+                usernamePropertyName: email
+                userDomainClassName: ar.com.mytrips.auth.User
+                authorityJoinClassName: ar.com.mytrips.auth.UserRole
+            authority:
+                className: ar.com.passto.salesportal.auth.Role
+            password.bcrypt.logrounds: 5
 info:
     app:
         name: '@info.app.name@'
@@ -20,7 +34,7 @@ info:
         grailsVersion: '@info.app.grailsVersion@'
 micronaut:
     server:
-        read-timeout: 120
+        read-timeout: 120s
 
 spring:
     jmx:
@@ -39,6 +53,9 @@ spring:
                 - '**/*.gson'
                 - 'logback.groovy'
                 - '*.properties'
+
+
+
 environments:
     development:
         management:
@@ -92,6 +109,7 @@ grails:
 triposo:
     account: WP88UG5L
     token: eorhs0i8im61daqgl7ez3evn3787niru
+
 
 ---
 hibernate:
