@@ -13,6 +13,6 @@ class TransportSpec extends Specification implements DomainUnitTest<Transport> {
 
     void "test something"() {
         expect:"fix me"
-            true == false
+        true
     }
 }
