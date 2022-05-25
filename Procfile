@@ -1,1 +1,1 @@
-web: ls ; java -Dgrails.env=heroku -jar webapp-runner.jar --expand-war --port $PORT ./build/libs/*.war
+web: java -Dgrails.env=$ENV -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/*.jar
