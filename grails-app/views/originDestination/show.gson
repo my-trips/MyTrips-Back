@@ -1,7 +1,0 @@
-import ar.com.mytrips.OriginDestination
-
-model {
-	OriginDestination originDestination
-}
-
-json tmpl.full(originDestination)

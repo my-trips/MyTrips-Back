@@ -104,7 +104,7 @@ trait ModelRequest<T> extends Validateable{
     }
 
     private Set<Map.Entry<String, Object>> commandProperties(){
-        def excludedProperites = ["keys", "transformations", "class", "hash","errors", "constraints", "constraintsMap", "STRING_TO_DATE", "STRING_TO_TIME" ]
+        def excludedProperites = ["keys", "transformations", "class", "hash","errors", "constraints", "constraintsMap", "STRING_TO_DATE", "STRING_TO_TIME", "STRING_TO_DATETIME" ]
         properties.entrySet().findAll { !excludedProperites.contains(it.key)} as Set<Map.Entry<String, Object>>
     }
 }

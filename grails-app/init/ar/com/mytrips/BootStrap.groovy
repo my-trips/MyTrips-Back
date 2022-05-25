@@ -23,13 +23,6 @@ class BootStrap {
 
             user = new User(email: 'user@gmail.com', password: 'password')
             userService.save(user)
-
-            UserRole.create user, adminRole
-
-            UserRole.withSession {
-                it.flush()
-                it.clear()
-            }
         }
 
     }

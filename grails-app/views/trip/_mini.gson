@@ -6,9 +6,9 @@ model {
 
 json {
 	id trip.id
-	totalDays trip.totalDays
-	startDestination g.render(template:"/originDestination/full", model:[originDestination:trip.startDestination])
-	endDestination g.render(template:"/originDestination/full", model:[originDestination:trip.endDestination])
 	destinations g.render(template:"/destination/full", collection: trip.destinations, var:'destination')
+	totalDays trip.totalDays
+	startDate trip.startDate
+	endDate trip.endDate
 	totalCost trip.totalCost.collect { [currency: it?.key, value: it?.value?.amount]}
 }

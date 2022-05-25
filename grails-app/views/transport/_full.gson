@@ -1,3 +1,4 @@
+import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.destination.Transport
 
 model {
@@ -18,4 +19,7 @@ json {
 		currency transport.cost?.currency
 		amount transport.cost?.amount
 	}
+
+	origin transport.origin?.place?.name
+	destination transport.destination?.place?.name
 }

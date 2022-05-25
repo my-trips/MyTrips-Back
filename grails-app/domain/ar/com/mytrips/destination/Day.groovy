@@ -1,7 +1,10 @@
 package ar.com.mytrips.destination
 
+import grails.compiler.GrailsCompileStatic
+
 import java.time.LocalDate
 
+@GrailsCompileStatic
 class Day {
 
     String id

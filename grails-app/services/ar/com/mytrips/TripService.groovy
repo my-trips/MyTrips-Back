@@ -23,10 +23,10 @@ class TripService {
 
     Trip create(Trip trip){
         trip.owner = userService.getCurrentUser()
-        def tasks = trip.destinations.collect{destination ->
+        def tasks = trip.destinationsWithoutOrigin.collect{destination ->
             task {
                 def dayPlanner = triposoService.getDayPlanner(
-                    destination.place.country, destination.place.name, destination.transport.arrive, destination.transport.depart
+                    destination.place.country, destination.place.name, destination.arriveDate, destination.departDate
                 )
                 if (dayPlanner) {
                     destination.setDataFromPlanner(dayPlanner, trip)

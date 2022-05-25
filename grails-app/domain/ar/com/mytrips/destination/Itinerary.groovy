@@ -1,7 +1,9 @@
 package ar.com.mytrips.destination
 
 import ar.com.mytrips.request.TriposoItinerary
+import grails.compiler.GrailsCompileStatic
 
+@GrailsCompileStatic
 class Itinerary {
     String id
     String title
@@ -31,7 +33,7 @@ class Itinerary {
 
     static Itinerary fromTriposo(TriposoItinerary itinerary){
         return new Itinerary(title: itinerary.title, description: itinerary.description, name: itinerary.poi.name,
-        snippet: itinerary.poi.snippet, images: itinerary.poi.images.collect{it.sourceUrl}, latitude: itinerary.poi.latitude,
+        snippet: itinerary.poi.snippet, images: itinerary.poi.images.collect{it.sourceUrl}.toSet(), latitude: itinerary.poi.latitude,
         longitude: itinerary.poi.longitude)
     }
 }

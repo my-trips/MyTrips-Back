@@ -1,5 +1,8 @@
 package ar.com.mytrips.destination
 
+import grails.compiler.GrailsCompileStatic
+
+@GrailsCompileStatic
 class Place {
 
     String id
@@ -23,6 +26,9 @@ class Place {
         district nullable: true
         region nullable: true
         country nullable: true
+        bbox nullable: true
+        placeId nullable: true
+        relevance nullable: true
     }
     static mapping = {
         id generator: 'uuid'
