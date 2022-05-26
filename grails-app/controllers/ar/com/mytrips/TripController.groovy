@@ -1,6 +1,6 @@
 package ar.com.mytrips
 
-import ar.com.mytrips.exception.ServiceException
+
 import ar.com.mytrips.request.CreateTripRequest
 import grails.converters.JSON
 import grails.gorm.transactions.Transactional
@@ -33,12 +33,5 @@ class TripController implements ModelRequestResolver {
         def request = getBody(CreateTripRequest)
         def trip = tripService.create(request.toModel())
         respond  trip, view: 'show'
-    }
-
-    protected  <T> T assertExistence(T object, String message){
-        if(!object){
-            throw ServiceException.badRequest(message)
-        }
-        return object
     }
 }

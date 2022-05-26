@@ -8,7 +8,6 @@ import java.time.temporal.ChronoUnit
 
 class Trip {
 
-    Integer totalDays
     String id
     Boolean deleted = false
     User owner
@@ -31,14 +30,16 @@ class Trip {
         destinations.forEach{
             it.trip = this
             if(prevDestination){
-//                it.arriveTransport = prevDestination.departTransport
                 prevDestination.departTransport?.destination = it
             }
             prevDestination = it
         }
 
         this.destinations = destinations
-        totalDays = startDate.until(endDate, ChronoUnit.DAYS).toInteger()
+    }
+
+    Integer getTotalDays(){
+        startDate.until(endDate, ChronoUnit.DAYS).toInteger()
     }
 
     LocalDate getStartDate(){
