@@ -20,6 +20,7 @@ class UrlMappings {
         "/api/location/attractions/$location"(controller: 'location', action: "attractions", method: 'GET')
         "/api/location/$country/$city"(controller: 'location', action: "location", method: 'GET')
 
-        "/api/trip/$tripId/destination/$destinationId/plusDays"(controller: 'destination', action: "update", method: 'GET')
+        "/api/trip/$tripId/destination/$destinationId/plusDay"(controller: 'destination', action: "plusDay", method: 'GET')
+        "/api/trip/$tripId/destination/$destinationId/minusDay"(controller: 'destination', action: "minusDay", method: 'GET')
     }
 }

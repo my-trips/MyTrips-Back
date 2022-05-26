@@ -20,6 +20,7 @@ class Destination {
     LocalDateTime arriveDate
     LocalDateTime departDate
     Transport departTransport
+    List<Day> days
 
     static belongsTo = [trip: Trip]
 
@@ -53,7 +54,7 @@ class Destination {
         if(arriveDate && departDate){
             days = (0..(arriveDate.until(departDate, ChronoUnit.DAYS)-1)).collect {
                 new Day(date: arriveDate.toLocalDate().plusDays(it), destination: this)
-            }.toSet()
+            }
         }
     }
 
