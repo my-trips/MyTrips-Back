@@ -6,6 +6,7 @@ model {
 
 json {
 	id trip.id
+	image trip.image
 	destinations g.render(template:"/destination/full", collection: trip.destinations, var:'destination')
 	totalDays trip.totalDays
 	startDate trip.startDate

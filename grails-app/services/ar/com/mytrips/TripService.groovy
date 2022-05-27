@@ -1,7 +1,13 @@
 package ar.com.mytrips
 
+import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.exception.ServiceException
+import ar.com.mytrips.external.TriposoService
+import ar.com.mytrips.external.UnsplashService
+import grails.events.annotation.Publisher
+import grails.events.annotation.Subscriber
 import grails.gorm.services.Service
+
 import javax.transaction.Transactional
 import static grails.async.Promises.*
 
@@ -10,6 +16,7 @@ import static grails.async.Promises.*
 @Transactional
 class TripService {
     TriposoService triposoService
+    UnsplashService unsplashService
     UserService userService
 
 
@@ -23,18 +30,39 @@ class TripService {
 
     Trip create(Trip trip){
         trip.owner = userService.getCurrentUser()
-        def tasks = trip.destinationsWithoutOrigin.collect{destination ->
-            task {
-                def dayPlanner = triposoService.getDayPlanner(
-                    destination.place.country, destination.place.name, destination.arriveDate, destination.departDate
-                )
-                if (dayPlanner) {
-                    destination.setDataFromPlanner(dayPlanner, trip)
-                }
-            }
+        trip.destinations.each {
+            it.trip = trip
         }
-        waitAll(tasks)
+        trip.image = unsplashService.getImage(trip.firstDestination.place.name)
         trip.save()
+        publishSuggestedItinerary(trip)
+        trip
+    }
+
+    @Publisher("SuggestedItinerary")
+    protected List<String> publishSuggestedItinerary(Trip trip) {
+        trip.destinations*.id
+    }
+
+    @Subscriber('SuggestedItinerary')
+    def loadSuggestedItinerary(List<String> destinationId) {
+        task {
+            def tasks = tasks(destinationId.collect { id ->
+                return {
+                    Destination.withNewTransaction {
+                        def destination = Destination.findById(id)
+                        def dayPlanner = triposoService.getDayPlanner(destination)
+                        if (dayPlanner) {
+                            destination.setDataFromPlanner(dayPlanner)
+                        }
+                        destination.save(flush:true)
+                        destination
+                    }
+                }
+            })
+            tasks.get()
+        }
+
     }
 
     def delete(Trip trip) {

@@ -106,3 +106,24 @@ class TriposoAttraction {
     @JsonProperty("facebook_id")
     String facebookId
 }
+
+
+@Introspected
+@CompileStatic
+class UnsplashImage {
+    UnsplashImageUrl urls
+    String id
+    String description
+}
+
+@Introspected
+@CompileStatic
+class UnsplashImageUrl {
+    String full
+}
+
+@Introspected
+@CompileStatic
+class UnsplashResponse {
+    List<UnsplashImage> results
+}

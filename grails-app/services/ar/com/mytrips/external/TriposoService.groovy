@@ -1,5 +1,6 @@
-package ar.com.mytrips
+package ar.com.mytrips.external
 
+import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.request.*
 import grails.config.Config
 import grails.core.support.GrailsConfigurationAware
@@ -8,8 +9,6 @@ import io.micronaut.http.client.BlockingHttpClient
 import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.http.uri.UriBuilder
-
-import java.time.LocalDateTime
 
 class TriposoService implements GrailsConfigurationAware {
 
@@ -43,22 +42,22 @@ class TriposoService implements GrailsConfigurationAware {
         return get("poi.json", params, TriposoAttractionResponse)
     }
 
-    TriposoDayPlanner getDayPlanner(String country, String locationId, LocalDateTime startDate, LocalDateTime endDate, Boolean findLocation=true) {
+    TriposoDayPlanner getDayPlanner(Destination destination, Boolean findLocation=true) {
         try {
             def params = [
-                location_id: locationId.replaceAll(" ", "_"),
-                start_date: startDate.toLocalDate().toString(),
-                arrival_time:startDate.toLocalTime().toString(),
-                end_date: endDate.toLocalDate().toString(),
-                departure_time:endDate.toLocalTime().toString(),
+                location_id: destination.place.name.replaceAll(" ", "_"),
+                start_date: destination.arriveDate.toLocalDate().toString(),
+                arrival_time: destination.arriveDate.toLocalTime().toString(),
+                end_date: destination.departDate.toLocalDate().toString(),
+                departure_time:destination.departDate.toLocalTime().toString(),
             ]
-            def planner = get("day_planner.json", params, TriposoDayPlannerResponse)
+            List<TriposoDayPlanner> planner = get("day_planner.json", params, TriposoDayPlannerResponse)
             !planner.isEmpty()? planner.first():null
         } catch (HttpClientResponseException e) {
             e.printStackTrace()
             if(findLocation){
-                def location = getLocation(country, locationId)
-                return getDayPlanner(country, location.id, startDate, endDate, false)
+                def location = getLocation(destination.place.country, destination.place.name)
+                return getDayPlanner(destination, false)
             }
             return null
         }

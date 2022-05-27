@@ -11,11 +11,13 @@ class Trip {
     String id
     Boolean deleted = false
     User owner
+    String image
 
     static hasMany = [destinations: Destination]
 
     static constraints = {
         deleted nullable: false
+        image nullable: true
     }
 
     static mapping = {
@@ -48,6 +50,10 @@ class Trip {
 
     LocalDate getEndDate(){
         destinations.max { it.relevance}?.arriveDate?.toLocalDate()
+    }
+
+    Destination getFirstDestination(){
+        destinationsWithoutOrigin.first()
     }
 
     Set<Destination> getDestinationsWithoutOrigin(){
