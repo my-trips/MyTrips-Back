@@ -11,5 +11,6 @@ json {
 	totalDays trip.totalDays
 	startDate trip.startDate
 	endDate trip.endDate
+	lastUpdated trip.lastUpdated?.toString()
 	totalCost trip.totalCost.collect { [currency: it?.key, value: it?.value?.amount]}
 }

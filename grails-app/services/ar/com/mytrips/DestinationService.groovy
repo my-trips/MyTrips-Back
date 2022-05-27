@@ -31,8 +31,8 @@ class DestinationService {
             def dayNew = new Day(date: lastDay.date.plusDays(days), itinerary: [], destination: destination)
             destination.days.add(dayNew)
         }
+        trip.changeLastUpdated()
         trip.save()
-        destination.save(flush:true)
     }
 
     def minusDay(Destination destination, Trip trip) {
@@ -54,7 +54,7 @@ class DestinationService {
                 destination.days.remove(lastDay)
             }
         }
+        trip.changeLastUpdated()
         trip.save()
-        destination.save(flush:true)
     }
 }
