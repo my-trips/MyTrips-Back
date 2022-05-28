@@ -30,8 +30,8 @@ class DestinationService {
             destinNext.addToImages("")
             destinNext.save()
         }
+        trip.changeLastUpdated()
         trip.save()
-        destination.save(flush:true)
     }
 
     def minusDay(Destination destination, Trip trip) {
@@ -57,7 +57,7 @@ class DestinationService {
                 destinNext.save()
             }
         }
+        trip.changeLastUpdated()
         trip.save()
-        destination.save(flush:true)
     }
 }

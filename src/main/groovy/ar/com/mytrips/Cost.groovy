@@ -21,8 +21,6 @@ class Cost {
     }
 
     Map<Currency, Cost> accumulate(Map<Currency, Cost> accu){
-        if(amount == 0)  return accu
-
         if(accu.containsKey(currency)){
             accu[currency] = plus(accu[currency])
         }else{

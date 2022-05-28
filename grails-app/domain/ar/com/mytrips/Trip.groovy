@@ -4,6 +4,7 @@ import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
 
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
 class Trip {
@@ -11,11 +12,15 @@ class Trip {
     String id
     Boolean deleted = false
     User owner
+    String image
+    LocalDateTime lastUpdated
 
     static hasMany = [destinations: Destination]
 
     static constraints = {
         deleted nullable: false
+        image nullable: true
+        lastUpdated nullable: true
     }
 
     static mapping = {
@@ -50,6 +55,10 @@ class Trip {
         destinations.max { it.relevance}?.arriveDate?.toLocalDate()
     }
 
+    Destination getFirstDestination(){
+        destinationsWithoutOrigin.first()
+    }
+
     Set<Destination> getDestinationsWithoutOrigin(){
         def totalDestinations = destinations.size()
         destinations.findAll {it.relevance > 1 && it.relevance < totalDestinations }
@@ -59,5 +68,16 @@ class Trip {
         Map<Currency, Cost> cost = [:]
         destinations.each {it.addCost(cost) }
         cost
+    }
+
+    def beforeInsert() {
+        changeLastUpdated()
+    }
+    def beforeUpdate() {
+        changeLastUpdated()
+    }
+
+    def changeLastUpdated() {
+        lastUpdated = LocalDateTime.now()
     }
 }

@@ -16,7 +16,7 @@ class Day {
     static hasMany = [itinerary: Itinerary]
     static mapping = {
         id generator: 'uuid'
-        itinerary cascade: 'all-delete-orphan'
+        itinerary cascade: 'all'
     }
 
     LocalDate plusDay(Integer day) {

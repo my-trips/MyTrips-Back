@@ -28,9 +28,9 @@ class Destination {
 
     static mapping = {
         id generator: 'uuid'
-        days sort: "date", order: "asc", cascade: 'all-delete-orphan'
-        departTransport cascade: 'all-delete-orphan'
-        images joinTable:[name:'destination_images', key:'destination_id', column:'image', type:"text"]
+        days sort: "date", order: "asc", cascade: 'all'
+        departTransport cascade: 'all'
+        images cascade: "all", joinTable:[name:'destination_images', key:'destination_id', column:'image', type:"text"]
     }
 
     static mappedBy = [days: "destination", departTransport: "origin"]
@@ -107,8 +107,7 @@ class Destination {
         }
     }
 
-    def setDataFromPlanner(TriposoDayPlanner dayPlanner, Trip trip) {
-        this.trip = trip
+    def setDataFromPlanner(TriposoDayPlanner dayPlanner) {
         place.placeId = dayPlanner.location.id
         images = dayPlanner.location.images.collect{ it.sourceUrl}.toSet()
         dayPlanner.days.collect { TriposoDay it ->
