@@ -59,7 +59,7 @@ class Destination {
       departTransport.destination
     }
 
-    protected def plusDayDepartDate(Integer day) {
+    def plusDayDepartDate(Integer day) {
         departDate = departDate.plusDays(day)
     }
 
@@ -84,11 +84,18 @@ class Destination {
     }
 
     def removeFirstDay() {
-        this.days.removeAt(0)
+        def day = firstDay
+        removeDay(day)
     }
 
     def removeLastDay(){
-        this.days.removeLast()
+        def day = lastDay
+        removeDay(day)
+    }
+
+    def removeDay(Day day){
+        removeFromDays(day)
+        day.delete()
     }
 
     def addFirstDayMinusDay() {

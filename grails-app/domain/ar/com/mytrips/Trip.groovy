@@ -70,6 +70,11 @@ class Trip {
         cost
     }
 
+    Boolean isNotLastDestination(Destination destination) {
+        def positionLast = destinations.size() - 1
+        destination.relevance !== positionLast
+    }
+    
     def beforeInsert() {
         changeLastUpdated()
     }

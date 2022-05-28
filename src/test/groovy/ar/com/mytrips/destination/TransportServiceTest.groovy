@@ -3,7 +3,9 @@ package ar.com.mytrips.destination
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class TransportSpec extends Specification implements DomainUnitTest<Transport> {
+class TransportServiceTest extends Specification implements DomainUnitTest<Transport> {
+
+    private Transport transport
 
     def setup() {
     }
