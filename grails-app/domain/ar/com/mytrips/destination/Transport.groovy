@@ -45,8 +45,8 @@ class Transport {
             origin.departDate = depart
         }
 
-        if(destination){
-            destination.arriveDate = arrive
+        if(destination && destination.arriveDate != arrive ){
+            destination.updateArriveDate(arrive)
         }
     }
 }

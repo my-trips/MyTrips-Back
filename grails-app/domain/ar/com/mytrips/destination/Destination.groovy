@@ -51,8 +51,39 @@ class Destination {
     }
 
     def plusDay(Integer days) {
-        plusDayDepartDate(days)
-        addLastDayPlusDay()
+        def safeDays = days
+        def destinNext = nextDestination()
+
+        if(trip.isNotLastDestination(this)) {
+            safeDays = Math.min(destinNext.days.size()-1, days)
+            destinNext.removeFirstNDay(safeDays)
+        }
+
+        plusDayDepartDate(safeDays)
+        addToLastDay(safeDays)
+        destinNext.plusDayArriveDate(days)
+    }
+
+    def minusDay(Integer days) {
+        if (!(this.days.size() === 1)){
+            minusDayDepartDate(days)
+            removeLastNDay(days)
+            def destinNext = nextDestination()
+            destinNext.minusDayArriveDate(days)
+
+            if(trip.isNotLastDestination(this)) {
+                destinNext.addToFirstDay(days)
+            }
+        }
+    }
+
+    def updateArriveDate(LocalDateTime newDate){
+        if(arriveDate.dayOfMonth < newDate.dayOfMonth){
+            removeFirstNDay(1)
+        }else if(arriveDate.dayOfMonth > newDate.dayOfMonth){
+            addToFirstDay()
+        }
+        arriveDate = newDate
     }
 
     Destination nextDestination() {
@@ -83,14 +114,16 @@ class Destination {
         this.days.first()
     }
 
-    def removeFirstDay() {
-        def day = firstDay
-        removeDay(day)
+    def removeFirstNDay(Integer n) {
+        days.take(n).forEach{ day ->
+            removeDay(day)
+        }
     }
 
-    def removeLastDay(){
-        def day = lastDay
-        removeDay(day)
+    def removeLastNDay(Integer n){
+        days.takeRight(n).forEach{ day ->
+            removeDay(day)
+        }
     }
 
     def removeDay(Day day){
@@ -98,12 +131,16 @@ class Destination {
         day.delete()
     }
 
-    def addFirstDayMinusDay() {
-        this.days.add(0, new Day(date: this.getFirstDay().minusDay(1), itinerary: [], destination: this))
+    def addToLastDay(Integer n=1) {
+        (1..n).each {
+            addToDays(new Day(date: lastDay.plusDay(1), itinerary: [], destination: this))
+        }
     }
 
-     def addLastDayPlusDay() {
-        addToDays(new Day(date: this.getLastDay().plusDay(1), itinerary: [], destination: this))
+    def addToFirstDay(Integer n = 1) {
+        (1..n).each {
+            this.days.add(0, new Day(date: firstDay.minusDay(1), itinerary: [], destination: this))
+        }
     }
 
     protected def generateDays(){
@@ -119,12 +156,13 @@ class Destination {
         images = dayPlanner.location.images.collect{ it.sourceUrl}.toSet()
         dayPlanner.days.collect { TriposoDay it ->
             def day = days.find {day->  day.date == it.date}
-            day?.itinerary =  it.itineraryItems.collect{Itinerary.fromTriposo(it)}.toSet()
+            day?.itinerary =  it.itineraryItems.collect{Itinerary.fromTriposo(it)}
         }
     }
 
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost){
         departTransport?.cost?.accumulate(cost)
+        days.forEach {    it.addCost(cost)}
         cost
     }
 }

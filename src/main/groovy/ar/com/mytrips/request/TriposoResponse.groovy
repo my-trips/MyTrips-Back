@@ -85,10 +85,7 @@ class TriposoPoi {
     @JsonProperty("location_id")
     String locationId
     BigDecimal score
-    @JsonProperty("coordinates.longitude")
-    Long longitude
-    @JsonProperty("coordinates.latitude")
-    Long latitude
+    TriposoCoordinates coordinates
 }
 
 @Introspected
@@ -97,14 +94,29 @@ class TriposoAttraction {
     String name
     String id
     String intro
-    @JsonProperty("coordinates.longitude")
-    Long longitude
-    @JsonProperty("coordinates.latitude")
-    Long latitude
+    TriposoCoordinates coordinates
     List<TriposoImage> images
     BigDecimal score
     @JsonProperty("facebook_id")
     String facebookId
+    @JsonProperty("booking_info")
+    TriposoBookingInfo cost
+}
+
+@Introspected
+@CompileStatic
+class TriposoCoordinates {
+    Double longitude
+    Double latitude
+}
+
+@Introspected
+@CompileStatic
+class TriposoBookingInfo {
+    @JsonProperty("price.amount")
+    Double price
+    @JsonProperty("price.currency")
+    String currency
 }
 
 

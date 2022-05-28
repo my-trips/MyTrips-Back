@@ -1,7 +1,11 @@
 package ar.com.mytrips.destination
 
+import ar.com.mytrips.Cost
+import ar.com.mytrips.Currency
 import ar.com.mytrips.request.TriposoItinerary
 import grails.compiler.GrailsCompileStatic
+
+import java.time.LocalTime
 
 @GrailsCompileStatic
 class Itinerary {
@@ -13,6 +17,9 @@ class Itinerary {
     Double longitude
     Double latitude
     String notes
+    LocalTime startTime
+    LocalTime endTime
+    Cost cost
 
     static hasMany = [images:String]
 
@@ -24,7 +31,12 @@ class Itinerary {
         snippet nullable: true
         description nullable: true
         notes nullable: true
+        startTime nullable: true
+        endTime nullable: true
+        cost nullable: true
     }
+
+    static embedded = ['cost']
 
     static mapping = {
         description type: "text"
@@ -36,7 +48,11 @@ class Itinerary {
 
     static Itinerary fromTriposo(TriposoItinerary itinerary){
         return new Itinerary(title: itinerary.title, description: itinerary.description, name: itinerary.poi.name,
-        snippet: itinerary.poi.snippet, images: itinerary.poi.images.collect{it.sourceUrl}.toSet(), latitude: itinerary.poi.latitude,
-        longitude: itinerary.poi.longitude)
+        snippet: itinerary.poi.snippet, images: itinerary.poi.images.collect{it.sourceUrl}.toSet(), latitude: itinerary.poi.coordinates?.latitude,
+        longitude: itinerary.poi.coordinates?.longitude)
+    }
+
+    Map<Currency, Cost> addCost(Map<Currency, Cost> cost) {
+        this.cost?.accumulate(cost)
     }
 }

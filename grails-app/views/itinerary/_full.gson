@@ -14,4 +14,11 @@ json {
 	longitude itinerary.longitude
 	latitude itinerary.latitude
 	images itinerary.images
+	notes itinerary.notes
+	startTime itinerary.startTime
+	endTime itinerary.endTime
+	cost  {
+		currency itinerary.cost?.currency
+		amount itinerary.cost?.amount
+	}
 }

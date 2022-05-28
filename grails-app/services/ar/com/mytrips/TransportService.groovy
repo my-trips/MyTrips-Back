@@ -14,9 +14,6 @@ class TransportService {
     def update(Trip trip, Transport transport, TransportCommand transportCommand) {
         transport.properties = transportCommand.changes()
         transport.updateDestinationDates()
-        trip.lastUpdated = LocalDateTime.now()
-        trip.changeLastUpdated()
         trip.save()
-        transport.save()
     }
 }

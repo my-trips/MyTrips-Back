@@ -1,5 +1,7 @@
 package ar.com.mytrips.destination
 
+import ar.com.mytrips.Cost
+import ar.com.mytrips.Currency
 import ar.com.mytrips.exception.ServiceException
 import grails.compiler.GrailsCompileStatic
 
@@ -11,6 +13,7 @@ class Day {
 
     String id
     LocalDate date
+    List<Itinerary> itinerary
 
     static belongsTo = [destination:Destination]
 
@@ -35,4 +38,10 @@ class Day {
         removeFromItinerary(anItinerary)
         anItinerary.delete()
     }
+
+    Map<Currency, Cost> addCost(Map<Currency, Cost> cost){
+        itinerary.forEach{it.addCost(cost)}
+        cost
+    }
+
 }

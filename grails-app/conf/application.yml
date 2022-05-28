@@ -114,6 +114,7 @@ unsplash:
 
 ---
 hibernate:
+    hibernateDirtyChecking: true
     cache:
         queries: false
         use_second_level_cache: false
