@@ -1,6 +1,6 @@
 package ar.com.mytrips
 
-
+import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.request.TransportCommand
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
@@ -10,10 +10,13 @@ import grails.plugin.springsecurity.annotation.Secured
 class TransportController implements ModelRequestResolver {
 
     TransportService transportService
+    TripService tripService
 
-    def update(String tripId) {
+    def update(String tripId, String destinationId) {
+        def trip = assertExistence(tripService.get(tripId), "El trip no existe")
+        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
         def request = getBody(TransportCommand)
-        def transport = transportService.update(request)
+        def transport = transportService.update(trip, destination.departTransport, request)
         respond  transport, view: 'show'
     }
 

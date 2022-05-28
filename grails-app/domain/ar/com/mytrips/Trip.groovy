@@ -79,5 +79,6 @@ class Trip {
 
     def changeLastUpdated() {
         lastUpdated = LocalDateTime.now()
+        save()
     }
 }
