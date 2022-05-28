@@ -50,6 +50,55 @@ class Destination {
         return destination
     }
 
+    def plusDay(Integer days) {
+        plusDayDepartDate(days)
+        addLastDayPlusDay()
+    }
+
+    Destination nextDestination() {
+      departTransport.destination
+    }
+
+    protected def plusDayDepartDate(Integer day) {
+        departDate = departDate.plusDays(day)
+    }
+
+    def minusDayDepartDate(Integer day) {
+        departDate = departDate.minusDays(day)
+    }
+
+    def minusDayArriveDate(Integer day) {
+        arriveDate = arriveDate.minusDays(day)
+    }
+
+    def plusDayArriveDate(Integer day) {
+        arriveDate = arriveDate.plusDays(day)
+    }
+
+    Day getLastDay() {
+        this.days.last()
+    }
+
+    Day getFirstDay() {
+        this.days.first()
+    }
+
+    def removeFirstDay() {
+        this.days.removeAt(0)
+    }
+
+    def removeLastDay(){
+        this.days.removeLast()
+    }
+
+    def addFirstDayMinusDay() {
+        this.days.add(0, new Day(date: this.getFirstDay().minusDay(1), itinerary: [], destination: this))
+    }
+
+     def addLastDayPlusDay() {
+        addToDays(new Day(date: this.getLastDay().plusDay(1), itinerary: [], destination: this))
+    }
+
     protected def generateDays(){
         if(arriveDate && departDate){
             days = (0..(arriveDate.until(departDate, ChronoUnit.DAYS)-1)).collect {

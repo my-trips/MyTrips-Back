@@ -1,6 +1,5 @@
 package ar.com.mytrips
 
-import ar.com.mytrips.destination.Day
 import ar.com.mytrips.destination.Destination
 import grails.gorm.services.Service
 import javax.transaction.Transactional
@@ -11,25 +10,25 @@ class DestinationService {
 
     def plusDay(Destination destination, Trip trip) {
         def days = 1
-
-        if(destination.relevance !== trip.destinations.size() - 1){
-            Destination destinNext = destination.departTransport.destination
+        if(destination.relevance !== trip.destinations.size() - 1) {
+            def destinNext = destination.nextDestination()
             if (!(destinNext.days.size() === 1)) {
-                destination.departDate = destination.departDate.plusDays(days)
-                def lastDay = destination.days[destination.days.size() - 1]
-                def dayNew = new Day(date: lastDay.date.plusDays(days), itinerary: [], destination: destination)
-                destination.days.add(dayNew)
-                destinNext.arriveDate = destinNext.arriveDate.plusDays(days)
-                def firstDay = destinNext.days[0]
-                destinNext.days.remove(firstDay)
+                destination.plusDay(days)
+                destination.addToImages("")
+
+                destinNext.plusDayArriveDate(days)
+                destinNext.removeFirstDay()
+                destinNext.addToImages("")
                 destinNext.save()
             }
-        } else {
-            destination.departDate = destination.departDate.plusDays(days)
-            destination.departTransport.destination?.arriveDate = destination.departTransport.destination?.arriveDate?.plusDays(days)
-            def lastDay = destination.days[destination.days.size() - 1]
-            def dayNew = new Day(date: lastDay.date.plusDays(days), itinerary: [], destination: destination)
-            destination.days.add(dayNew)
+        }else {
+            destination.plusDay(days)
+            destination.addToImages("")
+
+            Destination destinNext = destination.nextDestination()
+            destinNext.plusDayArriveDate(days)
+            destinNext.addToImages("")
+            destinNext.save()
         }
         trip.save()
         destination.save(flush:true)
@@ -38,20 +37,24 @@ class DestinationService {
     def minusDay(Destination destination, Trip trip) {
         def days = 1
         if (!(destination.days.size() === 1)){
-            destination.departDate = destination.departDate.minusDays(days)
+            destination.minusDayDepartDate(days)
             if(destination.relevance !== trip.destinations.size() - 1) {
-                def lastDay = destination.days[destination.days.size() - 1]
-                destination.days.remove(lastDay)
-                def destinNext = destination.departTransport.destination
-                destinNext.arriveDate = destinNext.arriveDate.minusDays(days)
+                destination.removeLastDay()
+                destination.addToImages("")
 
-                def firstDay = destinNext.days[0]
-                def dayNew = new Day(date: firstDay.date.minusDays(days), itinerary: [], destination: destinNext)
-                destinNext.days.add(0, dayNew)
+                def destinNext = destination.nextDestination()
+                destinNext.minusDayArriveDate(days)
+                destinNext.addFirstDayMinusDay()
+                destinNext.addToImages("")
+                destinNext.save()
             } else {
-                destination.departTransport.destination?.departDate = destination.departTransport.destination?.departDate?.minusDays(days)
-                def lastDay = destination.days[destination.days.size() - 1]
-                destination.days.remove(lastDay)
+                destination.removeLastDay()
+                destination.addToImages("")
+
+                Destination destinNext = destination.nextDestination()
+                destinNext.minusDayArriveDate(days)
+                destinNext.addToImages("")
+                destinNext.save()
             }
         }
         trip.save()

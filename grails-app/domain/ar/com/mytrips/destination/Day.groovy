@@ -4,6 +4,7 @@ import grails.compiler.GrailsCompileStatic
 
 import java.time.LocalDate
 
+
 @GrailsCompileStatic
 class Day {
 
@@ -16,5 +17,12 @@ class Day {
     static mapping = {
         id generator: 'uuid'
         itinerary cascade: 'all-delete-orphan'
+    }
+
+    LocalDate plusDay(Integer day) {
+        date.plusDays(day)
+    }
+    LocalDate minusDay(Integer day) {
+        date.minusDays(day)
     }
 }
