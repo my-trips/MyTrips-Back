@@ -1,5 +1,6 @@
 package ar.com.mytrips.destination
 
+import ar.com.mytrips.exception.ServiceException
 import grails.compiler.GrailsCompileStatic
 
 import java.time.LocalDate
@@ -24,5 +25,14 @@ class Day {
     }
     LocalDate minusDay(Integer day) {
         date.minusDays(day)
+    }
+
+    def removeItinerary(Itinerary anItinerary){
+        if(!itinerary.contains(anItinerary)){
+            throw ServiceException.badRequest("invalid itinerary")
+        }
+
+        removeFromItinerary(anItinerary)
+        anItinerary.delete()
     }
 }

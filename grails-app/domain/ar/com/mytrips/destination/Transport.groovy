@@ -39,4 +39,14 @@ class Transport {
         origin cascade: "all"
         destination cascade: "all"
     }
+
+    def updateDestinationDates(){
+        if(origin){
+            origin.departDate = depart
+        }
+
+        if(destination){
+            destination.arriveDate = arrive
+        }
+    }
 }

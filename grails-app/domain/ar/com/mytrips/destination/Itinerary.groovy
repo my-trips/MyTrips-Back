@@ -12,6 +12,7 @@ class Itinerary {
     String snippet
     Double longitude
     Double latitude
+    String notes
 
     static hasMany = [images:String]
 
@@ -22,6 +23,7 @@ class Itinerary {
         latitude nullable: true
         snippet nullable: true
         description nullable: true
+        notes nullable: true
     }
 
     static mapping = {
@@ -29,6 +31,7 @@ class Itinerary {
         snippet type: "text"
         images joinTable:[name:'itinerary_images', key:'itinerary_id', column:'image', type:"text"]
         id generator: 'uuid'
+        notes type: "text"
     }
 
     static Itinerary fromTriposo(TriposoItinerary itinerary){

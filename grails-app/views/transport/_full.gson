@@ -1,4 +1,3 @@
-import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.destination.Transport
 
 model {
