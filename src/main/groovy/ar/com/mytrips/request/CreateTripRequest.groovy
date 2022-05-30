@@ -91,6 +91,9 @@ class TransportCommand  implements ModelRequest<Transport>  {
         arriveLocation nullable: true
         number nullable: true
         cost nullable: true
+        type nullable: true
+        depart nullable: true
+        arrive nullable: true
     }
 
     @Override

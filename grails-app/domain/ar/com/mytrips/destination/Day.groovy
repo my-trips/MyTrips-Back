@@ -13,7 +13,7 @@ class Day {
 
     String id
     LocalDate date
-    List<Itinerary> itinerary
+    List<Itinerary> itinerary = []
 
     static belongsTo = [destination:Destination]
 

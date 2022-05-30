@@ -20,7 +20,7 @@ class Destination {
     LocalDateTime arriveDate
     LocalDateTime departDate
     Transport departTransport
-    List<Day> days
+    List<Day> days = []
 
     static belongsTo = [trip: Trip]
 
