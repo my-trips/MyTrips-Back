@@ -1,9 +1,7 @@
 package ar.com.mytrips
 
 import ar.com.mytrips.destination.Destination
-
 import javax.transaction.Transactional
-import java.time.LocalDateTime
 
 @Transactional
 class DestinationService {

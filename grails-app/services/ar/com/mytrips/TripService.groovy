@@ -7,10 +7,8 @@ import ar.com.mytrips.external.UnsplashService
 import grails.events.annotation.Publisher
 import grails.events.annotation.Subscriber
 import grails.gorm.services.Service
-
 import javax.transaction.Transactional
 import static grails.async.Promises.*
-
 
 @Service(Trip)
 @Transactional
