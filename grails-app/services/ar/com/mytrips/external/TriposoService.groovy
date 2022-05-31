@@ -1,5 +1,6 @@
 package ar.com.mytrips.external
 
+import ar.com.mytrips.Country
 import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.request.*
 import grails.config.Config
@@ -16,9 +17,9 @@ class TriposoService implements GrailsConfigurationAware {
     String token
     BlockingHttpClient client
 
-    TriposoLocation getLocation(String country, String place) {
+    TriposoLocation getLocation(Country country, String place) {
         def params = [
-                part_of: country,
+                part_of: country.name,
                 tag_labels: "city",
                 count: 1,
                 fields: "name,id,snippet,parent_id,score,type,images",

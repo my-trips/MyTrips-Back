@@ -156,7 +156,7 @@ class Destination {
         images = dayPlanner.location.images.collect{ it.sourceUrl}.toSet()
         dayPlanner.days.collect { TriposoDay it ->
             def day = days.find {day->  day.date == it.date}
-            day?.itinerary =  it.itineraryItems.collect{Itinerary.fromTriposo(it)}
+            day?.itinerary =  it.itineraryItems.collect{Itinerary.fromTriposo(it, day)}
         }
     }
 

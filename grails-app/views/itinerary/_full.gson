@@ -17,6 +17,7 @@ json {
 	notes itinerary.notes
 	startTime itinerary.startTime
 	endTime itinerary.endTime
+	score itinerary.score
 	cost  {
 		currency itinerary.cost?.currency
 		amount itinerary.cost?.amount

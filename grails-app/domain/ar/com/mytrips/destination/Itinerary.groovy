@@ -20,7 +20,9 @@ class Itinerary {
     LocalTime startTime
     LocalTime endTime
     Cost cost
+    Double score
 
+    static belongsTo = [day:Day]
     static hasMany = [images:String]
 
     static constraints = {
@@ -34,6 +36,7 @@ class Itinerary {
         startTime nullable: true
         endTime nullable: true
         cost nullable: true
+        score nullable: true
     }
 
     static embedded = ['cost']
@@ -46,8 +49,8 @@ class Itinerary {
         notes type: "text"
     }
 
-    static Itinerary fromTriposo(TriposoItinerary itinerary){
-        return new Itinerary(title: itinerary.title, description: itinerary.description, name: itinerary.poi.name,
+    static Itinerary fromTriposo(TriposoItinerary itinerary, Day day){
+        return new Itinerary(day:day, title: itinerary.title, description: itinerary.description, name: itinerary.poi.name,
         snippet: itinerary.poi.snippet, images: itinerary.poi.images.collect{it.sourceUrl}.toSet(), latitude: itinerary.poi.coordinates?.latitude,
         longitude: itinerary.poi.coordinates?.longitude)
     }

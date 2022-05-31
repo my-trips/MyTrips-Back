@@ -17,14 +17,19 @@ class UnsplashService implements GrailsConfigurationAware {
     BlockingHttpClient client
 
     String getImage(String location) {
+        def images = getImages(location)
+        return images.isEmpty() ? null : images.first()
+    }
+
+    List<String> getImages(String location, Integer elements = 1) {
         def params = [
                 query: location,
                 client_id: clientId,
-                per_page: 1,
+                per_page: elements,
                 orientation: "landscape"
         ]
         def result = get("search/photos", params)
-        return !result.isEmpty()? result.first()?.urls?.full:null
+        return result.collect{ it?.urls?.full}
     }
 
     public List<UnsplashImage> get(String path, Map<String, Object> params) {

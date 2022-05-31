@@ -15,7 +15,7 @@ import java.time.LocalTime
 @CompileStatic(TypeCheckingMode.SKIP)
 trait ModelRequest<T> extends Validateable{
 
-    static Closure STRING_TO_TIME = {String value -> value?LocalTime.parse(value):null}
+    static Closure STRING_TO_TIME = {String value -> value?LocalTime.parse(value+":00"):null}
     static Closure STRING_TO_DATE = {String value -> value?LocalDate.parse(value):null}
     static Closure STRING_TO_DATETIME = {String value -> value?LocalDateTime.parse(value):null}
 

@@ -14,6 +14,9 @@ json {
 	longitude place.longitude
 	district place.district
 	region place.region
-	country place.country
+	country {
+		name place.country?.name
+		code place.country?.code
+	}
 	bbox place.bbox
 }

@@ -1,13 +1,17 @@
 package ar.com.mytrips.request
 
 import ar.com.mytrips.Cost
+import ar.com.mytrips.Country
 import ar.com.mytrips.TransportType
 import ar.com.mytrips.Trip
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
+import ar.com.mytrips.destination.Itinerary
 import ar.com.mytrips.destination.Place
 import ar.com.mytrips.destination.Transport
 import io.micronaut.core.annotation.Introspected
+
+import java.time.LocalTime
 
 
 class CreateTripRequest implements ModelRequest<Trip> {
@@ -53,7 +57,7 @@ class DestinationCommand  implements ModelRequest<Destination> {
     }
 }
 
-class PlaceCommand  implements ModelRequest<Place>  {
+class PlaceCommand implements ModelRequest<Place>  {
     String placeId
     Integer relevance
     String name
@@ -62,12 +66,14 @@ class PlaceCommand  implements ModelRequest<Place>  {
     Double longitude
     String district
     String region
-    String country
+    CountryCommand country
     List<Double> bbox
 
     @Override
     Place toModel() {
-        new Place(changes())
+        def params = changes()
+        params.place = country.toModel()
+        new Place(params)
     }
 }
 
@@ -118,3 +124,54 @@ class CreateUserRequest implements ModelRequest<User> {
         new User(changes())
     }
 }
+
+class CountryCommand implements ModelRequest<Country>  {
+    String name
+    String code
+
+    @Override
+    Country toModel() {
+        new Country(changes())
+    }
+}
+
+class ItineraryCommand  implements ModelRequest<Itinerary>  {
+    String title
+    String description
+    String name
+    String snippet
+    Double longitude
+    Double latitude
+    String notes
+    String startTime
+    String endTime
+    Double score
+    Cost cost
+
+    static hasMany = [images:String]
+
+    static constraints = {
+        title nullable: true
+        description nullable: true
+        name  nullable: true
+        snippet nullable: true
+        longitude nullable: true
+        latitude nullable: true
+        notes nullable: true
+        endTime nullable: true
+        startTime nullable: true
+        cost nullable: true
+        score   nullable: true
+    }
+
+    @Override
+    Itinerary toModel() {
+        new Itinerary(changes())
+    }
+
+    @Override
+    Map<String, Closure> getTransformations() {
+        ["startTime": STRING_TO_TIME, "endTime": STRING_TO_TIME]
+    }
+}
+

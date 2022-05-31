@@ -1,5 +1,6 @@
 package ar.com.mytrips.destination
 
+import ar.com.mytrips.Country
 import grails.compiler.GrailsCompileStatic
 
 @GrailsCompileStatic
@@ -14,11 +15,12 @@ class Place {
     Double longitude
     String district
     String region
-    String country
+    Country country
     List<Double> bbox
 
     static hasMany = [bbox: Double]
     static belongsTo = [destination: Destination]
+    static embedded = ['country']
 
     static constraints = {
         latitude nullable: true

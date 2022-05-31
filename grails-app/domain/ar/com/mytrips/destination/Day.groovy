@@ -20,7 +20,7 @@ class Day {
     static hasMany = [itinerary: Itinerary]
     static mapping = {
         id generator: 'uuid'
-        itinerary cascade: 'all'
+        itinerary cascade: 'all', sort: 'startTime'
     }
 
     LocalDate plusDay(Integer day) {
@@ -34,9 +34,14 @@ class Day {
         if(!itinerary.contains(anItinerary)){
             throw ServiceException.badRequest("invalid itinerary")
         }
-
+        anItinerary.day = null
         removeFromItinerary(anItinerary)
         anItinerary.delete()
+    }
+
+    def addItinerary(Itinerary itinerary){
+        itinerary.day = this
+        addToItinerary(itinerary)
     }
 
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost){
