@@ -9,14 +9,13 @@ import spock.lang.Specification
 
 import java.time.LocalDateTime
 
-class DestinationServiceTest extends Specification implements DomainUnitTest<Destination> {
-
-    private DestinationService destinationService
+class ItineraryServiceTest extends Specification implements DomainUnitTest< Destination> {
+    private ItineraryService itineraryService
     private List<Destination> destinations
     private Trip trip
 
     def setup() {
-        destinationService = new DestinationService()
+        itineraryService = new ItineraryService()
 
         def destFin = new Destination(relevance: 4, color: "green", place: new Place(),
                 arriveDate: LocalDateTime.of(2020, 10, 14, 12, 50, 00),

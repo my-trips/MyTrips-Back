@@ -12,6 +12,7 @@ class TransportService {
     def update(Trip trip, Transport transport, TransportCommand transportCommand) {
         transport.properties = transportCommand.changes()
         transport.updateDestinationDates()
-        trip.save()
+        trip.changeLastUpdated()
+        transport
     }
 }
