@@ -1,18 +1,13 @@
 package ar.com.mytrips
 
 
-import ar.com.mytrips.destination.Transport
 import ar.com.mytrips.request.TransportCommand
-import grails.testing.gorm.DomainUnitTest
+import grails.testing.services.ServiceUnitTest
 
-class TransportServiceTest extends MyTripTest implements DomainUnitTest<Transport> {
+class TransportServiceTest extends MyTripServiceTest implements ServiceUnitTest<TransportService> {
 
-    private TransportService transportService
     private TransportCommand transportCommand
 
-    def setup() {
-        transportService = new TransportService()
-    }
 
     void "when update the type of transport between two destinations of a trip, it should return an updated transport"() {
         given:
@@ -23,12 +18,12 @@ class TransportServiceTest extends MyTripTest implements DomainUnitTest<Transpor
         )
 
         when:
-        def resultTransport= transportService.update(trip, transport, transportCommand)
+        def resultTransport= service.update(trip, transport, transportCommand)
 
         then:
-        resultTransport.getType() == TransportType.TRAIN
-        resultTransport.getArrive().toString() == "2022-10-10T12:50"
-        resultTransport.getDepart().toString() == "2022-10-10T12:50"
+        resultTransport.type == TransportType.TRAIN
+        resultTransport.arrive.toString() == "2022-10-10T12:50"
+        resultTransport.depart.toString() == "2022-10-10T12:50"
     }
 
     void "when update the arrival and departure dates of a transport between two destinations of a trip, it should return an updated transport"() {
@@ -40,13 +35,13 @@ class TransportServiceTest extends MyTripTest implements DomainUnitTest<Transpor
         )
 
         when:
-        def resultTransport= transportService.update(trip, transport, transportCommand)
+        def resultTransport= service.update(trip, transport, transportCommand)
 
         then:
-        resultTransport.getType() == TransportType.FLY
-        resultTransport.getArrive().toString() == "2022-10-16T12:50"
-        resultTransport.getDepart().toString() == "2022-10-12T12:50"
-        resultTransport.getOrigin().getDepartDate().toString() == "2022-10-12T12:50"
-        resultTransport.getDestination().getArriveDate().toString() == "2022-10-16T12:50"
+        resultTransport.type == TransportType.FLY
+        resultTransport.arrive.toString() == "2022-10-16T12:50"
+        resultTransport.depart.toString() == "2022-10-12T12:50"
+        resultTransport.origin.departDate.toString() == "2022-10-12T12:50"
+        resultTransport.destination.arriveDate.toString() == "2022-10-16T12:50"
     }
 }
