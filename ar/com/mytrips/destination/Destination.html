@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    
+    
+    <link rel="SHORTCUT ICON" href="../../../../img/clover.ico" />
+
+    <link rel="stylesheet" href="../../../../aui/css/aui.min.css" media="all"/>
+    <link rel="stylesheet" href="../../../../aui/css/aui-experimental.min.css" media="all"/>
+    <!--[if IE 9]><link rel="stylesheet" href="../../../../aui/css/aui-ie9.min.css" media="all"/><![endif]-->
+
+    <style type="text/css" media="all">
+        @import url('../../../../style.css');
+        @import url('../../../../tree.css');
+        
+    </style>
+
+    <script src="../../../../jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../../../../aui/js/aui.min.js" type="text/javascript"></script>
+    <script src="../../../../aui/js/aui-experimental.min.js" type="text/javascript"></script>
+    <script src="../../../../aui/js/aui-soy.min.js" type="text/javascript"></script>
+
+    <script src="../../../../package-nodes-tree.js" type="text/javascript"></script>
+    <script src="../../../../clover-tree.js" type="text/javascript"></script>
+    <script src="../../../../clover.js" type="text/javascript"></script>
+    <script src="../../../../clover-descriptions.js" type="text/javascript"></script>
+    <script src="../../../../cloud.js" type="text/javascript"></script>
+
+            <title>MyTrips-Back</title>
+    </head>
+
+<body  onload="onLoad('MyTrips-Back: ar.com.mytrips.destination.Destination.groovy')">
+    <div id="page">
+        
+        
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+        <div class="aui-header-inner">
+            <div class="aui-header-primary">
+                <h1 id="logo" class="aui-header-logo aui-header-logo-clover">
+                    <a href="http://openclover.org" title="Visit OpenClover home page"><span class="aui-header-logo-device">OpenClover</span></a>
+                </h1>
+                            </div>
+            <div class="aui-header-secondary">
+                <ul class="aui-nav">
+                    <li id="system-help-menu">
+                        <a class="aui-nav-link" title="Open online documentation" target="_blank"
+                           href="http://openclover.org/documentation">
+                            <span class="aui-icon aui-icon-small aui-iconfont-help">&#160;Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+        
+        <div class="aui-page-panel">
+            <div class="aui-page-panel-inner">
+                <div class="aui-page-panel-nav aui-page-panel-nav-clover">
+                    
+
+<div class="aui-page-header-inner" style="margin-bottom: 20px;">
+    <div class="aui-page-header-image">
+                <div class="aui-avatar aui-avatar-large aui-avatar-project">
+            <div class="aui-avatar-inner">
+                                    <img src="../../../../img/clover_logo_large.png" alt="Clover icon"/>
+                            </div>
+        </div>
+            </div>
+    <div class="aui-page-header-main" >
+        <h1>
+                                        MyTrips-Back
+                                </h1>
+    </div>
+</div>
+
+<nav class="aui-navgroup aui-navgroup-vertical">
+    <div class="aui-navgroup-inner">
+                                            <ul class="aui-nav">
+                <li class="">
+                    <a href="../../../../dashboard.html">Project overview</a>
+                </li>
+            </ul>
+        
+                <div class="aui-nav-heading packages-nav-heading">
+            <strong>Packages</strong>
+        </div>
+        <div class="aui-nav project-packages">
+            <form method="get" action="#" class="aui package-filter-container">
+                <input type="text" autocomplete="off" class="package-filter text"
+                       placeholder="Type to filter packages..." name="package-filter" id="package-filter"
+                       title="Start typing package name (or part of the name) to search through the tree. Use arrow keys and the Enter key to navigate."/>
+            </form>
+            <p class="package-filter-no-results-message hidden">
+                <small>No results found.</small>
+            </p>
+                                                <div class="packages-tree-wrapper" data-root-relative="../../../../" data-package-name="ar.com.mytrips.destination">
+                <div class="packages-tree-container"></div>
+                <div class="clover-packages-lozenges"></div>
+            </div>
+        </div>
+        
+            </div>
+</nav>                </div>
+                <section class="aui-page-panel-content">
+                    <div class="aui-page-panel-content-clover">
+
+                    
+                    <ol class="aui-nav aui-nav-breadcrumbs">
+            
+        <li><a href="../../../../dashboard.html">Project Clover database Fri Jun 3 2022 05:07:44 UTC</a></li> 
+        <li><a href="pkg-summary.html">        Package ar.com.mytrips.destination</a></li> 
+    </ol>
+    
+<h1 class="aui-h2-clover">
+            File Destination.groovy
+    </h1>
+
+
+
+
+
+
+
+
+    
+<div class="aui-tabs horizontal-tabs" id="tabs-file">
+            <div class="tabs-pane aui-tabs-pane-100-pcnt active-pane" id="tabs-file-source">
+        <div>&#160;</div>
+
+        
+                <div style="display: table; width: 100%">
+                            <div class="clover-histogram-table-cell">
+                                <div class="dashboard-widget">
+            <header class="dashboard-widget-header">
+                <h3>Coverage histogram</h3>
+            </header>
+            <div class="dashboard-widget-content">
+                <div class="aui-item clover-aui-item-histogram">
+                    <img src="../../../../img/srcFileCovDistChart8.png" alt="../../../../img/srcFileCovDistChart8.png"
+                         usemap="#srcFileCovDistChart8.png" class="clover-histogram-img"/>
+                    <map id="srcFileCovDistChart8.png" name="srcFileCovDistChart8.png">
+<area shape="rect" coords="100,24,107,66" title="8 files have 91-100% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="91,51,98,66" title="3 files have 81-90% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="82,61,89,66" title="1 file has 71-80% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="73,51,80,66" title="3 files have 61-70% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="64,61,71,66" title="1 file has 51-60% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="56,61,63,66" title="1 file has 41-50% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="47,66,54,67" title="0 files have 31-40% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="38,66,45,67" title="0 files have 21-30% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="29,66,36,67" title="0 files have 11-20% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="20,61,27,66" title="1 file has 1-10% coverage" alt="" nohref="nohref"/>
+<area shape="rect" coords="11,8,18,65" title="11 files have 0% coverage" alt="" nohref="nohref"/>
+</map><br />
+                    <span class="subtle"><strong>37% </strong>of files have more coverage</span>
+                </div>
+            </div>
+        </div>
+                    </div>
+                        <div style="display: table-cell; width: 67%;">
+                    <div class="dashboard-widget">
+        <header class="dashboard-widget-header">
+            <h3>Code metrics</h3>
+        </header>
+        <div class="dashboard-widget-content">
+                        
+
+<div id="td-header-stats" class="aui-item" style="display: ">
+<div style="display: table">
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of branches in this file">Branches:</label></div>
+        <div class="stats-box-value">20</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of statements in this file">Statements:</label></div>
+        <div class="stats-box-value">64</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of methods in this file">Methods:</label></div>
+        <div class="stats-box-value">25</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of classes in this file">Classes:</label></div>
+        <div class="stats-box-value">1</div>
+    </div>
+            <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of lines of code in this file">LOC:</label></div>
+        <div class="stats-box-value">166</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of non-comment lines of code in this file">NCLOC:</label></div>
+        <div class="stats-box-value">0</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Cyclomatic complexity is the number of paths in this file">Total complexity:</label></div>
+        <div class="stats-box-value">40</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label">
+            <label title="Complexity density is the complexity divided by the number of statements in this file">Complexity density:</label>
+        </div>
+        <div class="stats-box-value">0.62</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Number of statements per method.">Statements/Method:</label></div>
+        <div class="stats-box-value">2.56</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Number of methods per class.">Methods/Class:</label></div>
+        <div class="stats-box-value">25</div>
+    </div>
+        <div class="stats-box">
+        <div class="stats-box-label"><label title="Complexity divided by the number of methods in this file">Average method complexity:</label></div>
+        <div class="stats-box-value">1.6</div>
+    </div>
+</div>
+
+</div>
+                        
+
+<div id="td-filtered-header-stats" class="aui-item" style="display: none">
+<div style="display: table">
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of branches in this file">Branches:</label></div>
+        <div class="stats-box-value">20</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of statements in this file">Statements:</label></div>
+        <div class="stats-box-value">64</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of methods in this file">Methods:</label></div>
+        <div class="stats-box-value">25</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of classes in this file">Classes:</label></div>
+        <div class="stats-box-value">1</div>
+    </div>
+            <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of lines of code in this file">LOC:</label></div>
+        <div class="stats-box-value">166</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Total number of non-comment lines of code in this file">NCLOC:</label></div>
+        <div class="stats-box-value">0</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Cyclomatic complexity is the number of paths in this file">Total complexity:</label></div>
+        <div class="stats-box-value">40</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label">
+            <label title="Complexity density is the complexity divided by the number of statements in this file">Complexity density:</label>
+        </div>
+        <div class="stats-box-value">0.62</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Number of statements per method.">Statements/Method:</label></div>
+        <div class="stats-box-value">2.56</div>
+    </div>
+    <div class="stats-box">
+        <div class="stats-box-label"><label title="Number of methods per class.">Methods/Class:</label></div>
+        <div class="stats-box-value">25</div>
+    </div>
+        <div class="stats-box">
+        <div class="stats-box-label"><label title="Complexity divided by the number of methods in this file">Average method complexity:</label></div>
+        <div class="stats-box-value">1.6</div>
+    </div>
+</div>
+
+</div>        </div>
+    </div>
+            </div>
+        </div>
+
+        
+        
+
+
+    <h2>Classes</h2>
+
+        <table class="aui aui-table-sortable">
+        <thead>
+                        <tr>     <th>Class</th>
+    <th>Line #</th>
+
+            
+        <th class="">
+            <label  title="The total number of statements.">Total Statements</label>
+        </th>
+        
+            
+        <th class="">
+            <label  title="Cyclomatic complexity is a measure of the number of paths in your code.">Complexity</label>
+        </th>
+        
+            
+        <th class="">
+            <label  title="The amount of code that was hit at least once during testing.">TOTAL Coverage</label>
+        </th>
+        
+    
+            <th>Actions</th>
+    </tr>         </thead>
+        <tbody>
+                              <tr> <td id="Destination">
+        <span><a href="#12" title="Destination" onclick="closeDialogAndScrollTo('dialog-Destination', '12');">Destination</a></span>
+</td>
+<td>12<a name="sl-12"></a></td>
+    <td class="">64</td>
+    <td class="">40</td>
+    <td class=""><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.74311924</span>74.3%</div><div style="display: table-cell">
+ <div title="74.3% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:74.3%"></div></div></div></div></td>
+    <td><button data-dialog-id="dialog-Destination" class="aui-button aui-button-link dialog-show-button">Show methods</button></td>
+</tr>                      </tbody>
+    </table>
+
+    
+     
+        <section role="dialog" id="dialog-Destination" class="aui-layer aui-dialog2 aui-dialog2-xlarge" aria-hidden="true">
+            
+            <header class="aui-dialog2-header">
+                <h1 class="aui-dialog2-header-main">Class Destination</h1>
+                <div class="aui-dialog2-header-secondary">
+                    <input id="dialog-Destination-method-filter" class="test-filter text" type="text" name="method-filter"
+                           placeholder="Type to filter methods..." autocomplete="off"
+                           onkeyup="filterMethods('dialog-Destination-methods-body', 'dialog-Destination-method-filter');"/>
+                </div>
+            </header>
+
+            
+            <div class="aui-dialog2-content">
+
+                
+
+                <table class="aui aui-table-sortable">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                    <thead>
+                                                 <tr> <th id="Destination">
+    Class<br/>    <span><a href="#12" title="Destination" onclick="closeDialogAndScrollTo('dialog-Destination', '12');">Destination</a></span>
+</th>
+<th>Line #<br/>12<a name="sl-12"></a></th>
+    <th class=""><label  title="The total number of statements.">Total Statements</label><br/>64</th>
+    <th class=""><label  title="Cyclomatic complexity is a measure of the number of paths in your code.">Complexity</label><br/>40</th>
+    <th class=""><label  title="The amount of code that was hit at least once during testing.">TOTAL Coverage</label><br/><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.74311924</span>74.3%</div><div style="display: table-cell">
+ <div title="74.3% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:74.3%"></div></div></div></div></th>
+</tr>                     </thead>
+                    <tbody id="dialog-Destination-methods-body">
+                                                                                                            <tr id="Destination-1">
+<td id="summary-21-5">
+ <span class="sortValue">field&#160;days()</span>
+&#160;&#160;<a href="?line=29#21" title="field&#160;days()" name="sl-21" onclick="closeDialogAndScrollTo('dialog-Destination', '21');">field&#160;days()</a>
+</td>
+<td align="right"><span class="sortValue">21</span>21</td>
+<td class="" align="right"><span class="sortValue">0.0</span>0</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">-1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">-1.0</span> - </div><div style="display: table-cell">
+<div title="Empty" class="barEmpty" style="min-width:200px;"></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-2">
+<td id="summary-23-5">
+ <span class="sortValue">field&#160;belongsTo()</span>
+&#160;&#160;<a href="?line=29#23" title="field&#160;belongsTo()" name="sl-23" onclick="closeDialogAndScrollTo('dialog-Destination', '23');">field&#160;belongsTo()</a>
+</td>
+<td align="right"><span class="sortValue">23</span>23</td>
+<td class="" align="right"><span class="sortValue">0.0</span>0</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">-1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">-1.0</span> - </div><div style="display: table-cell">
+<div title="Empty" class="barEmpty" style="min-width:200px;"></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-3">
+<td id="summary-25-5">
+ <span class="sortValue">field&#160;hasMany()</span>
+&#160;&#160;<a href="?line=29#25" title="field&#160;hasMany()" name="sl-25" onclick="closeDialogAndScrollTo('dialog-Destination', '25');">field&#160;hasMany()</a>
+</td>
+<td align="right"><span class="sortValue">25</span>25</td>
+<td class="" align="right"><span class="sortValue">0.0</span>0</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">-1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">-1.0</span> - </div><div style="display: table-cell">
+<div title="Empty" class="barEmpty" style="min-width:200px;"></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-4">
+<td id="summary-27-5">
+ <span class="sortValue">field&#160;mapping()</span>
+&#160;&#160;<a href="?line=29#27" title="field&#160;mapping()" name="sl-27" onclick="closeDialogAndScrollTo('dialog-Destination', '27');">field&#160;mapping()</a>
+</td>
+<td align="right"><span class="sortValue">27</span>27</td>
+<td class="" align="right"><span class="sortValue">4.0</span>4</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-5">
+<td id="summary-34-5">
+ <span class="sortValue">field&#160;mappedBy()</span>
+&#160;&#160;<a href="?line=29#34" title="field&#160;mappedBy()" name="sl-34" onclick="closeDialogAndScrollTo('dialog-Destination', '34');">field&#160;mappedBy()</a>
+</td>
+<td align="right"><span class="sortValue">34</span>34</td>
+<td class="" align="right"><span class="sortValue">0.0</span>0</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">-1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">-1.0</span> - </div><div style="display: table-cell">
+<div title="Empty" class="barEmpty" style="min-width:200px;"></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-6">
+<td id="summary-36-5">
+ <span class="sortValue">field&#160;constraints()</span>
+&#160;&#160;<a href="?line=29#36" title="field&#160;constraints()" name="sl-36" onclick="closeDialogAndScrollTo('dialog-Destination', '36');">field&#160;constraints()</a>
+</td>
+<td align="right"><span class="sortValue">36</span>36</td>
+<td class="" align="right"><span class="sortValue">5.0</span>5</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-7">
+<td id="summary-44-5">
+ <span class="sortValue">create(Map)&#160;:&#160;Destination</span>
+&#160;&#160;<a href="?line=29#44" title="create(Map)&#160;:&#160;Destination" name="sl-44" onclick="closeDialogAndScrollTo('dialog-Destination', '44');">create(Map)&#160;:&#160;Destination</a>
+</td>
+<td align="right"><span class="sortValue">44</span>44</td>
+<td class="" align="right"><span class="sortValue">4.0</span>4</td>
+<td class="" align="right"><span class="sortValue">2.0</span>2</td>
+<td class="" align="right"><span class="sortValue">0.8333333</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.8333333</span>83.3%</div><div style="display: table-cell">
+ <div title="83.3% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:83.3%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-8">
+<td id="summary-51-5">
+ <span class="sortValue">plusDay(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#51" title="plusDay(Integer)&#160;:&#160;def" name="sl-51" onclick="closeDialogAndScrollTo('dialog-Destination', '51');">plusDay(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">51</span>51</td>
+<td class="" align="right"><span class="sortValue">8.0</span>8</td>
+<td class="" align="right"><span class="sortValue">2.0</span>2</td>
+<td class="" align="right"><span class="sortValue">0.9</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.9</span>90%</div><div style="display: table-cell">
+ <div title="90% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:90%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-9">
+<td id="summary-65-5">
+ <span class="sortValue">minusDay(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#65" title="minusDay(Integer)&#160;:&#160;def" name="sl-65" onclick="closeDialogAndScrollTo('dialog-Destination', '65');">minusDay(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">65</span>65</td>
+<td class="" align="right"><span class="sortValue">7.0</span>7</td>
+<td class="" align="right"><span class="sortValue">4.0</span>4</td>
+<td class="" align="right"><span class="sortValue">0.8181818</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.8181818</span>81.8%</div><div style="display: table-cell">
+ <div title="81.8% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:81.8%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-10">
+<td id="summary-78-5">
+ <span class="sortValue">updateArriveDate(LocalDateTime)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#78" title="updateArriveDate(LocalDateTime)&#160;:&#160;def" name="sl-78" onclick="closeDialogAndScrollTo('dialog-Destination', '78');">updateArriveDate(LocalDateTime)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">78</span>78</td>
+<td class="" align="right"><span class="sortValue">4.0</span>4</td>
+<td class="" align="right"><span class="sortValue">5.0</span>5</td>
+<td class="" align="right"><span class="sortValue">0.5</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.5</span>50%</div><div style="display: table-cell">
+ <div title="50% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:50%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-11">
+<td id="summary-87-5">
+ <span class="sortValue">nextDestination()&#160;:&#160;Destination</span>
+&#160;&#160;<a href="?line=29#87" title="nextDestination()&#160;:&#160;Destination" name="sl-87" onclick="closeDialogAndScrollTo('dialog-Destination', '87');">nextDestination()&#160;:&#160;Destination</a>
+</td>
+<td align="right"><span class="sortValue">87</span>87</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-12">
+<td id="summary-91-5">
+ <span class="sortValue">plusDayDepartDate(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#91" title="plusDayDepartDate(Integer)&#160;:&#160;def" name="sl-91" onclick="closeDialogAndScrollTo('dialog-Destination', '91');">plusDayDepartDate(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">91</span>91</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-13">
+<td id="summary-95-5">
+ <span class="sortValue">minusDayDepartDate(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#95" title="minusDayDepartDate(Integer)&#160;:&#160;def" name="sl-95" onclick="closeDialogAndScrollTo('dialog-Destination', '95');">minusDayDepartDate(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">95</span>95</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-14">
+<td id="summary-99-5">
+ <span class="sortValue">minusDayArriveDate(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#99" title="minusDayArriveDate(Integer)&#160;:&#160;def" name="sl-99" onclick="closeDialogAndScrollTo('dialog-Destination', '99');">minusDayArriveDate(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">99</span>99</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-15">
+<td id="summary-103-5">
+ <span class="sortValue">plusDayArriveDate(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#103" title="plusDayArriveDate(Integer)&#160;:&#160;def" name="sl-103" onclick="closeDialogAndScrollTo('dialog-Destination', '103');">plusDayArriveDate(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">103</span>103</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-16">
+<td id="summary-107-5">
+ <span class="sortValue">getLastDay()&#160;:&#160;Day</span>
+&#160;&#160;<a href="?line=29#107" title="getLastDay()&#160;:&#160;Day" name="sl-107" onclick="closeDialogAndScrollTo('dialog-Destination', '107');">getLastDay()&#160;:&#160;Day</a>
+</td>
+<td align="right"><span class="sortValue">107</span>107</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-17">
+<td id="summary-111-5">
+ <span class="sortValue">getFirstDay()&#160;:&#160;Day</span>
+&#160;&#160;<a href="?line=29#111" title="getFirstDay()&#160;:&#160;Day" name="sl-111" onclick="closeDialogAndScrollTo('dialog-Destination', '111');">getFirstDay()&#160;:&#160;Day</a>
+</td>
+<td align="right"><span class="sortValue">111</span>111</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-18">
+<td id="summary-115-5">
+ <span class="sortValue">removeFirstNDay(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#115" title="removeFirstNDay(Integer)&#160;:&#160;def" name="sl-115" onclick="closeDialogAndScrollTo('dialog-Destination', '115');">removeFirstNDay(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">115</span>115</td>
+<td class="" align="right"><span class="sortValue">2.0</span>2</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-19">
+<td id="summary-121-5">
+ <span class="sortValue">removeLastNDay(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#121" title="removeLastNDay(Integer)&#160;:&#160;def" name="sl-121" onclick="closeDialogAndScrollTo('dialog-Destination', '121');">removeLastNDay(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">121</span>121</td>
+<td class="" align="right"><span class="sortValue">2.0</span>2</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-20">
+<td id="summary-127-5">
+ <span class="sortValue">removeDay(Day)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#127" title="removeDay(Day)&#160;:&#160;def" name="sl-127" onclick="closeDialogAndScrollTo('dialog-Destination', '127');">removeDay(Day)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">127</span>127</td>
+<td class="" align="right"><span class="sortValue">2.0</span>2</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-21">
+<td id="summary-132-5">
+ <span class="sortValue">addToLastDay(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#132" title="addToLastDay(Integer)&#160;:&#160;def" name="sl-132" onclick="closeDialogAndScrollTo('dialog-Destination', '132');">addToLastDay(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">132</span>132</td>
+<td class="" align="right"><span class="sortValue">2.0</span>2</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-22">
+<td id="summary-138-5">
+ <span class="sortValue">addToFirstDay(Integer)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#138" title="addToFirstDay(Integer)&#160;:&#160;def" name="sl-138" onclick="closeDialogAndScrollTo('dialog-Destination', '138');">addToFirstDay(Integer)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">138</span>138</td>
+<td class="" align="right"><span class="sortValue">2.0</span>2</td>
+<td class="" align="right"><span class="sortValue">1.0</span>1</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-23">
+<td id="summary-144-5">
+ <span class="sortValue">generateDays()&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#144" title="generateDays()&#160;:&#160;def" name="sl-144" onclick="closeDialogAndScrollTo('dialog-Destination', '144');">generateDays()&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">144</span>144</td>
+<td class="" align="right"><span class="sortValue">3.0</span>3</td>
+<td class="" align="right"><span class="sortValue">3.0</span>3</td>
+<td class="" align="right"><span class="sortValue">1.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">1.0</span>100%</div><div style="display: table-cell">
+ <div title="100% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:100%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-24">
+<td id="summary-152-5">
+ <span class="sortValue">setDataFromPlanner(TriposoDayPlanner)&#160;:&#160;def</span>
+&#160;&#160;<a href="?line=29#152" title="setDataFromPlanner(TriposoDayPlanner)&#160;:&#160;def" name="sl-152" onclick="closeDialogAndScrollTo('dialog-Destination', '152');">setDataFromPlanner(TriposoDayPlanner)&#160;:&#160;def</a>
+</td>
+<td align="right"><span class="sortValue">152</span>152</td>
+<td class="" align="right"><span class="sortValue">8.0</span>8</td>
+<td class="" align="right"><span class="sortValue">2.0</span>2</td>
+<td class="" align="right"><span class="sortValue">0.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+ </tr>                                                                                                                <tr id="Destination-25">
+<td id="summary-161-5">
+ <span class="sortValue">addCost(Map&lt;Currency,&#160;Cost&gt;)&#160;:&#160;Map&lt;Currency,&#160;Cost&gt;</span>
+&#160;&#160;<a href="?line=29#161" title="addCost(Map&lt;Currency,&#160;Cost&gt;)&#160;:&#160;Map&lt;Currency,&#160;Cost&gt;" name="sl-161" onclick="closeDialogAndScrollTo('dialog-Destination', '161');">addCost(Map&lt;Currency,&#160;Cost&gt;)&#160;:&#160;Map&lt;Currency,&#160;Cost&gt;</a>
+</td>
+<td align="right"><span class="sortValue">161</span>161</td>
+<td class="" align="right"><span class="sortValue">4.0</span>4</td>
+<td class="" align="right"><span class="sortValue">4.0</span>4</td>
+<td class="" align="right"><span class="sortValue">0.0</span><div style="display: table; width: 100%">
+<div class="barGraphValue"><span class="sortValue">0.0</span>0%</div><div style="display: table-cell">
+ <div title="0% Covered"  style="min-width:200px;" class="barNegative contribBarNegative "><div class="barPositive contribBarPositive " style="width:0%"></div></div></div></div></td>
+ </tr>                                                                         </tbody>
+                </table>
+
+                <div>&#160;</div>
+                
+
+            </div>
+
+            
+            <footer class="aui-dialog2-footer">
+                <div class="aui-dialog2-footer-actions">
+                    <button class="aui-button aui-button-primary dialog-close-button"
+                            data-dialog-id="dialog-Destination">Close</button>
+                </div>
+                <div class="aui-dialog2-footer-hint">Click on a class or a method name to jump to source.</div>
+            </footer>
+        </section>
+
+     
+ 
+        
+        <div>&#160;</div>
+
+<h2>Contributing tests</h2>
+
+    <div>
+                This file is covered by 4 tests.
+        <button data-dialog-id="contr-tests-dialog" class="aui-button aui-button-link dialog-show-button">
+            Select tests to highlight the test coverage
+        </button>.
+    </div>
+
+<section role="dialog" id="contr-tests-dialog" class="aui-layer aui-dialog2 aui-dialog2-xlarge" aria-hidden="true">
+    
+    <header class="aui-dialog2-header">
+        <h1 class="aui-dialog2-header-main">Contributing tests</h1>
+        <div class="aui-dialog2-header-secondary">
+            <input id="test-filter" class="test-filter text" type="text" name="test-filter"
+                   placeholder="Type to filter tests..." autocomplete="off"
+                   onkeyup="filterTests('tests-body', 'test-filter', 3);"/>
+        </div>
+    </header>
+
+    
+    <div class="aui-dialog2-content">
+    
+
+        <p class="aui-buttons">
+            <button title="Selects all tests for this file, highlighting their coverage."
+                    class="aui-button" id="selectalltests">Select all</button>
+        </p>
+
+        <table class="aui aui-table-sortable">
+            <thead id="tests-head">
+            <tr id="testHeaderRow">
+                <th class="aui-table-column-unsortable"></th>
+                <th>
+                    <label title="The percentage of coverage contributed by each single test.">Test contribution</label>
+                </th>
+                <th>
+                    <label title="The test (or test iteration) which was executed.">Test</label>
+                </th>
+                <th>
+                    <label>Result</label>
+                </th>
+                <th class="aui-table-column-unsortable">
+                    <label>Actions</label>
+                </th>
+            </tr>
+            </thead>
+            <tbody id="tests-body">
+
+<tr id="test-11">
+<td><a name="testA-11"></a><input type="checkbox" id="cb-11" value="11" name="testMethod" autocomplete="off" title="Check to highlight coverage of this test in the source code"/></td>
+<td style="vertical-align: middle"  class="link" onclick="window.location.href='../../../../ar/com/mytrips/DestinationServiceTest_when_a_trip_is_added_a_day_to_one_of_its_destinations__it_should_return_the_updated_destination_b.html';">
+<span class="sortValue">0.24770643</span>
+<div>
+<div title="24.8% Covered" style="min-width:40px;" class="barNegative contribBarNegative contribBarNegative"><div class="barPositive contribBarPositive contribBarPositive" style="width:24.8%"></div></div></div></td>
+<td id="tc-11">  <span class="sortValue">ar.com.mytrips.DestinationServiceTest.when a trip is added a day to one of its destinations, it should return the updated destination</span><a href="../../../../ar/com/mytrips/DestinationServiceTest_when_a_trip_is_added_a_day_to_one_of_its_destinations__it_should_return_the_updated_destination_b.html" title="View Test Summary Page">ar.com.mytrips.DestinationServiceTest.when a trip is added a day to one of its destinations, it should return the updated destination</a>
+</td>
+<td>      <span class="sortValue">1</span><span class="aui-lozenge aui-lozenge-success">PASS</span>
+  </td>
+<td> <a href="../../../../ar/com/mytrips/DestinationServiceTest.html?line=7#src-7" title="View Test Source">
+ <span class="aui-icon aui-icon-small aui-iconfont-file-txt aui-icon-medium-gray"></span>
+</a>
+<a href="../../../../ar/com/mytrips/DestinationServiceTest_when_a_trip_is_added_a_day_to_one_of_its_destinations__it_should_return_the_updated_destination_b.html" title="View Test Summary Page"><span class="aui-icon aui-icon-small aui-iconfont-file-ppt aui-icon-medium-gray"></span></a>
+</td>
+</tr>
+<tr id="test-0">
+<td><a name="testA-0"></a><input type="checkbox" id="cb-0" value="0" name="testMethod" autocomplete="off" title="Check to highlight coverage of this test in the source code"/></td>
+<td style="vertical-align: middle"  class="link" onclick="window.location.href='../../../../ar/com/mytrips/DestinationServiceTest_hen_a_trip_is_subtract_a_day_to_one_of_its_destinations__it_should_return_the_updated_destination_0.html';">
+<span class="sortValue">0.24770643</span>
+<div>
+<div title="24.8% Covered" style="min-width:40px;" class="barNegative contribBarNegative contribBarNegative"><div class="barPositive contribBarPositive contribBarPositive" style="width:24.8%"></div></div></div></td>
+<td id="tc-0">  <span class="sortValue">ar.com.mytrips.DestinationServiceTest.hen a trip is subtract a day to one of its destinations, it should return the updated destination</span><a href="../../../../ar/com/mytrips/DestinationServiceTest_hen_a_trip_is_subtract_a_day_to_one_of_its_destinations__it_should_return_the_updated_destination_0.html" title="View Test Summary Page">ar.com.mytrips.DestinationServiceTest.hen a trip is subtract a day to one of its destinations, it should return the updated destination</a>
+</td>
+<td>      <span class="sortValue">1</span><span class="aui-lozenge aui-lozenge-success">PASS</span>
+  </td>
+<td> <a href="../../../../ar/com/mytrips/DestinationServiceTest.html?line=25#src-25" title="View Test Source">
+ <span class="aui-icon aui-icon-small aui-iconfont-file-txt aui-icon-medium-gray"></span>
+</a>
+<a href="../../../../ar/com/mytrips/DestinationServiceTest_hen_a_trip_is_subtract_a_day_to_one_of_its_destinations__it_should_return_the_updated_destination_0.html" title="View Test Summary Page"><span class="aui-icon aui-icon-small aui-iconfont-file-ppt aui-icon-medium-gray"></span></a>
+</td>
+</tr>
+<tr id="test-7">
+<td><a name="testA-7"></a><input type="checkbox" id="cb-7" value="7" name="testMethod" autocomplete="off" title="Check to highlight coverage of this test in the source code"/></td>
+<td style="vertical-align: middle"  class="link" onclick="window.location.href='../../../../ar/com/mytrips/TransportServiceTest_when_update_the_arrival_and_departure_dates_of_a_transport_between_two_destinations_of_a_trip__it_should_return_an_updated_transport_7.html';">
+<span class="sortValue">0.10091743</span>
+<div>
+<div title="10.1% Covered" style="min-width:40px;" class="barNegative contribBarNegative contribBarNegative"><div class="barPositive contribBarPositive contribBarPositive" style="width:10.1%"></div></div></div></td>
+<td id="tc-7">  <span class="sortValue">ar.com.mytrips.TransportServiceTest.when update the arrival and departure dates of a transport between two destinations of a trip, it should return an updated transport</span><a href="../../../../ar/com/mytrips/TransportServiceTest_when_update_the_arrival_and_departure_dates_of_a_transport_between_two_destinations_of_a_trip__it_should_return_an_updated_transport_7.html" title="View Test Summary Page">ar.com.mytrips.TransportServiceTest.when update the arrival and departure dates of a transport between two destinations of a trip, it should return an updated transport</a>
+</td>
+<td>      <span class="sortValue">1</span><span class="aui-lozenge aui-lozenge-success">PASS</span>
+  </td>
+<td> <a href="../../../../ar/com/mytrips/TransportServiceTest.html?line=29#src-29" title="View Test Source">
+ <span class="aui-icon aui-icon-small aui-iconfont-file-txt aui-icon-medium-gray"></span>
+</a>
+<a href="../../../../ar/com/mytrips/TransportServiceTest_when_update_the_arrival_and_departure_dates_of_a_transport_between_two_destinations_of_a_trip__it_should_return_an_updated_transport_7.html" title="View Test Summary Page"><span class="aui-icon aui-icon-small aui-iconfont-file-ppt aui-icon-medium-gray"></span></a>
+</td>
+</tr>
+<tr id="test-15">
+<td><a name="testA-15"></a><input type="checkbox" id="cb-15" value="15" name="testMethod" autocomplete="off" title="Check to highlight coverage of this test in the source code"/></td>
+<td style="vertical-align: middle"  class="link" onclick="window.location.href='../../../../ar/com/mytrips/TripServiceTest_when_fetch_a_trip_for_id__if_the_trip_exists_it_should_return_it_f.html';">
+<span class="sortValue">0.0091743115</span>
+<div>
+<div title="0.9% Covered" style="min-width:40px;" class="barNegative contribBarNegative contribBarNegative"><div class="barPositive contribBarPositive contribBarPositive" style="width:0.9%"></div></div></div></td>
+<td id="tc-15">  <span class="sortValue">ar.com.mytrips.TripServiceTest.when fetch a trip for id, if the trip exists it should return it</span><a href="../../../../ar/com/mytrips/TripServiceTest_when_fetch_a_trip_for_id__if_the_trip_exists_it_should_return_it_f.html" title="View Test Summary Page">ar.com.mytrips.TripServiceTest.when fetch a trip for id, if the trip exists it should return it</a>
+</td>
+<td>      <span class="sortValue">1</span><span class="aui-lozenge aui-lozenge-success">PASS</span>
+  </td>
+<td> <a href="../../../../ar/com/mytrips/TripServiceTest.html?line=41#src-41" title="View Test Source">
+ <span class="aui-icon aui-icon-small aui-iconfont-file-txt aui-icon-medium-gray"></span>
+</a>
+<a href="../../../../ar/com/mytrips/TripServiceTest_when_fetch_a_trip_for_id__if_the_trip_exists_it_should_return_it_f.html" title="View Test Summary Page"><span class="aui-icon aui-icon-small aui-iconfont-file-ppt aui-icon-medium-gray"></span></a>
+</td>
+</tr>
+
+            </tbody>
+        </table>
+
+        
+        <div>&#160;</div>
+
+    
+    </div>
+
+    
+    <footer class="aui-dialog2-footer">
+        <div class="aui-dialog2-footer-actions">
+            <button data-dialog-id="contr-tests-dialog" class="aui-button aui-button-primary dialog-close-button">Apply</button>
+        </div>
+        <div class="aui-dialog2-footer-hint">Select tests to highlight code covered by them in the source view.</div>
+    </footer>
+</section>
+
+ 
+        
+        
+
+
+
+
+
+<h2>Source view</h2>
+
+
+<div style="display: table; width: 100%;">
+    <div style="display: table-cell">
+        <button class="aui-button aui-button-link"
+                title="Toggles all methods in the source to be either expanded or collapsed."
+                onclick="toggleAllInlineMethods(this); return false;" id="method-expander">
+            Collapse all methods
+        </button>
+    </div>
+    <div style="display: table-cell">
+        <div style="text-align: right; margin-bottom: 10px">
+            <button class="aui-button aui-button-subtle" id="popupHelp">
+    <span class="aui-icon aui-icon-small aui-iconfont-help"></span>&#160;Show legend
+</button>
+<script>
+    AJS.InlineDialog(AJS.$("#popupHelp"), "helpDialog",
+            function(content, trigger, showPopup) {
+                content.css({"padding":"20px"}).html(SRC_FILE_LEGEND_TEXT);
+                showPopup();
+                return false;
+            },
+            {
+                width: 700, hideDelay: 60000
+            }
+    );
+</script>        </div>
+    </div>
+</div>
+
+<table cellspacing="0" cellpadding="0" class="srcView" width="100%">
+
+    
+<tbody> <tr id="l1">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=1#src-1">1</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-1" class="srcLine"><span class="keyword">package</span> ar.com.<a href="../../mytrips/pkg-summary.html">mytrips</a>.<a href="../destination/pkg-summary.html">destination</a></span></td>
+</tr>
+ <tr id="l2">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=2#src-2">2</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-2" class="srcLine"></span></td>
+</tr>
+ <tr id="l3">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=3#src-3">3</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-3" class="srcLine"><span class="keyword">import</span> ar.com.mytrips.Cost</span></td>
+</tr>
+ <tr id="l4">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=4#src-4">4</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-4" class="srcLine"><span class="keyword">import</span> ar.com.mytrips.Currency</span></td>
+</tr>
+ <tr id="l5">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=5#src-5">5</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-5" class="srcLine"><span class="keyword">import</span> ar.com.mytrips.Trip</span></td>
+</tr>
+ <tr id="l6">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=6#src-6">6</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-6" class="srcLine"><span class="keyword">import</span> ar.com.mytrips.request.TriposoDay</span></td>
+</tr>
+ <tr id="l7">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=7#src-7">7</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-7" class="srcLine"><span class="keyword">import</span> ar.com.mytrips.request.TriposoDayPlanner</span></td>
+</tr>
+ <tr id="l8">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=8#src-8">8</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-8" class="srcLine"></span></td>
+</tr>
+ <tr id="l9">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=9#src-9">9</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-9" class="srcLine"><span class="keyword">import</span> java.time.LocalDateTime</span></td>
+</tr>
+ <tr id="l10">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=10#src-10">10</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-10" class="srcLine"><span class="keyword">import</span> java.time.temporal.ChronoUnit</span></td>
+</tr>
+ <tr id="l11">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=11#src-11">11</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-11" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="12" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-12' onclick="toggleInlineStats(this, 'inlinestats-12');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-12" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-12'), 'inlinestats-12');return true;">
+                <td><div>
+<div title="74.3% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:74.3%"></div></div></div></td><td>74.3%</td>
+                <td class="inlineStat">Uncovered Elements: 28 (109)</td>
+                <td class="inlineStat">Complexity: 40</td>
+                <td class="inlineStat">Complexity Density: 0.62</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l12">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=12#src-12">12</a></td>
+<td align="right" class="coverageCount NoHilight "   onclick="return showTestsForLine(this, 12, 'Tests that hit Destination');" >&#160;&#160;</td>
+<td class=" srcCell" id="id-12"><span class="spacer"></span><span id="src-12" class="srcLine"><span class="keyword">class</span> <a href="../../../../ar/com/mytrips/destination/Destination.html#Destination">Destination</a> {</span></td>
+</tr>
+ <tr id="l13">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=13#src-13">13</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-13" class="srcLine"></span></td>
+</tr>
+ <tr id="l14">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=14#src-14">14</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-14" class="srcLine">    String id</span></td>
+</tr>
+ <tr id="l15">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=15#src-15">15</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-15" class="srcLine">    Integer relevance</span></td>
+</tr>
+ <tr id="l16">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=16#src-16">16</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-16" class="srcLine">    String color</span></td>
+</tr>
+ <tr id="l17">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=17#src-17">17</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-17" class="srcLine">    <a href="../../../../ar/com/mytrips/destination/Place.html#Place">Place</a> place</span></td>
+</tr>
+ <tr id="l18">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=18#src-18">18</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-18" class="srcLine">    LocalDateTime arriveDate</span></td>
+</tr>
+ <tr id="l19">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=19#src-19">19</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-19" class="srcLine">    LocalDateTime departDate</span></td>
+</tr>
+ <tr id="l20">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=20#src-20">20</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-20" class="srcLine">    <a href="../../../../ar/com/mytrips/destination/Transport.html#Transport">Transport</a> departTransport</span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="21" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-21' onclick="toggleInlineStats(this, 'inlinestats-21');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-21" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-21'), 'inlinestats-21');return true;">
+                <td><div>
+<div title="Empty" class="barEmpty" style="min-width:40px;"></div>
+</div></td><td> - </td>
+                <td class="inlineStat">Uncovered Elements: 0 (0)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: -</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l21">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=21#src-21">21</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 21, 'Tests that hit field&#160;days()');" ><span title="Line 21, Col 5: field initialised 79 times." class="nolink">&#160;79</span></td>
+<td class=" methodStart  srcCell" id="id-21"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 21,21);" id="img-21" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-21" class="srcLine"><span class="nolink" title="Line 21, Col 5: field initialised 79 times.">    List&lt;<a href="../../../../ar/com/mytrips/destination/Day.html#Day">Day</a>&gt; days = []</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-21'), 21,21);" id="e21" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l22">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=22#src-22">22</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-22" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="23" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-23' onclick="toggleInlineStats(this, 'inlinestats-23');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-23" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-23'), 'inlinestats-23');return true;">
+                <td><div>
+<div title="Empty" class="barEmpty" style="min-width:40px;"></div>
+</div></td><td> - </td>
+                <td class="inlineStat">Uncovered Elements: 0 (0)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: -</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l23">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=23#src-23">23</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 23, Col 5: field initialised 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-23"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 23,23);" id="img-23" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-23" class="srcLine"><span class="nolink" title="Line 23, Col 5: field initialised 1 time.">    <span class="keyword">static</span> belongsTo = [trip: Trip]</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-23'), 23,23);" id="e23" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l24">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=24#src-24">24</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-24" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="25" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-25' onclick="toggleInlineStats(this, 'inlinestats-25');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-25" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-25'), 'inlinestats-25');return true;">
+                <td><div>
+<div title="Empty" class="barEmpty" style="min-width:40px;"></div>
+</div></td><td> - </td>
+                <td class="inlineStat">Uncovered Elements: 0 (0)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: -</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l25">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=25#src-25">25</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 25, Col 5: field initialised 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-25"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 25,25);" id="img-25" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-25" class="srcLine"><span class="nolink" title="Line 25, Col 5: field initialised 1 time.">    <span class="keyword">static</span> hasMany = [images: String, days:<a href="../../../../ar/com/mytrips/destination/Day.html#Day">Day</a>]</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-25'), 25,25);" id="e25" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l26">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=26#src-26">26</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-26" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="27" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-27' onclick="toggleInlineStats(this, 'inlinestats-27');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-27" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-27'), 'inlinestats-27');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (4)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 0.25</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l27">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=27#src-27">27</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 27, Col 5: field initialised 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-27"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 27,32);" id="img-27" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-27" class="srcLine"><span class="nolink" title="Line 27, Col 5: field initialised 1 time.">    <span class="keyword">static</span> mapping = {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-27'), 27,32);" id="e27" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l28">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=28#src-28">28</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 28, Col 9: statement executed 5 times." class="nolink">&#160;5</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-28" class="srcLine"><span class="nolink" title="Line 28, Col 9: statement executed 5 times.">        id generator: <span class="string">'uuid'</span></span></span></td>
+</tr>
+ <tr id="l29">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=29#src-29">29</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 29, Col 9: statement executed 5 times." class="nolink">&#160;5</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-29" class="srcLine"><span class="nolink" title="Line 29, Col 9: statement executed 5 times.">        days sort: <span class="string">&quot;date&quot;</span>, order: <span class="string">&quot;asc&quot;</span>, cascade: <span class="string">'all'</span></span></span></td>
+</tr>
+ <tr id="l30">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=30#src-30">30</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 30, Col 9: statement executed 5 times." class="nolink">&#160;5</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-30" class="srcLine"><span class="nolink" title="Line 30, Col 9: statement executed 5 times.">        departTransport cascade: <span class="string">'all'</span></span></span></td>
+</tr>
+ <tr id="l31">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=31#src-31">31</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 31, Col 9: statement executed 5 times." class="nolink">&#160;5</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-31" class="srcLine"><span class="nolink" title="Line 31, Col 9: statement executed 5 times.">        images cascade: <span class="string">&quot;all&quot;</span>, joinTable:[name:<span class="string">'destination_images'</span>, key:<span class="string">'destination_id'</span>, column:<span class="string">'image'</span>, type:<span class="string">&quot;text&quot;</span>]</span></span></td>
+</tr>
+ <tr id="l32">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=32#src-32">32</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-32" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l33">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=33#src-33">33</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-33" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="34" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-34' onclick="toggleInlineStats(this, 'inlinestats-34');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-34" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-34'), 'inlinestats-34');return true;">
+                <td><div>
+<div title="Empty" class="barEmpty" style="min-width:40px;"></div>
+</div></td><td> - </td>
+                <td class="inlineStat">Uncovered Elements: 0 (0)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: -</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l34">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=34#src-34">34</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 34, Col 5: field initialised 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-34"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 34,34);" id="img-34" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-34" class="srcLine"><span class="nolink" title="Line 34, Col 5: field initialised 1 time.">    <span class="keyword">static</span> mappedBy = [days: <span class="string">&quot;destination&quot;</span>, departTransport: <span class="string">&quot;origin&quot;</span>]</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-34'), 34,34);" id="e34" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l35">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=35#src-35">35</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-35" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="36" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-36' onclick="toggleInlineStats(this, 'inlinestats-36');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-36" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-36'), 'inlinestats-36');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (5)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 0.2</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l36">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=36#src-36">36</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 36, Col 5: field initialised 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-36"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 36,42);" id="img-36" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-36" class="srcLine"><span class="nolink" title="Line 36, Col 5: field initialised 1 time.">    <span class="keyword">static</span> constraints = {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-36'), 36,42);" id="e36" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l37">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=37#src-37">37</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 37, Col 9: statement executed 10 times." class="nolink">&#160;10</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-37" class="srcLine"><span class="nolink" title="Line 37, Col 9: statement executed 10 times.">        images nullable: <span class="keyword">true</span></span></span></td>
+</tr>
+ <tr id="l38">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=38#src-38">38</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 38, Col 9: statement executed 10 times." class="nolink">&#160;10</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-38" class="srcLine"><span class="nolink" title="Line 38, Col 9: statement executed 10 times.">        departTransport nullable: <span class="keyword">true</span></span></span></td>
+</tr>
+ <tr id="l39">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=39#src-39">39</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 39, Col 9: statement executed 10 times." class="nolink">&#160;10</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-39" class="srcLine"><span class="nolink" title="Line 39, Col 9: statement executed 10 times.">        arriveDate nullable: <span class="keyword">true</span></span></span></td>
+</tr>
+ <tr id="l40">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=40#src-40">40</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 40, Col 9: statement executed 10 times." class="nolink">&#160;10</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-40" class="srcLine"><span class="nolink" title="Line 40, Col 9: statement executed 10 times.">        departDate nullable: <span class="keyword">true</span></span></span></td>
+</tr>
+ <tr id="l41">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=41#src-41">41</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 41, Col 9: statement executed 10 times." class="nolink">&#160;10</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-41" class="srcLine"><span class="nolink" title="Line 41, Col 9: statement executed 10 times.">        color nullable: <span class="keyword">true</span></span></span></td>
+</tr>
+ <tr id="l42">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=42#src-42">42</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-42" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l43">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=43#src-43">43</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-43" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="44" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-44' onclick="toggleInlineStats(this, 'inlinestats-44');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-44" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-44'), 'inlinestats-44');return true;">
+                <td><div>
+<div title="83.3% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:83.3%"></div></div></div></td><td>83.3%</td>
+                <td class="inlineStat">Uncovered Elements: 1 (6)</td>
+                <td class="inlineStat">Complexity: 2</td>
+                <td class="inlineStat">Complexity Density: 0.5</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l44">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=44#src-44">44</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 44, Col 5: method entered 51 times." class="nolink">&#160;51</span></td>
+<td class=" methodStart  srcCell" id="id-44"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 44,49);" id="img-44" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-44" class="srcLine"><span class="nolink" title="Line 44, Col 5: method entered 51 times.">    <span class="keyword">static</span> <a href="../../../../ar/com/mytrips/destination/Destination.html#Destination">Destination</a> create(Map params){</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-44'), 44,49);" id="e44" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l45">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=45#src-45">45</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 45, Col 9: statement executed 51 times." class="nolink">&#160;51</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-45" class="srcLine"><span class="nolink" title="Line 45, Col 9: statement executed 51 times.">        <span class="keyword">def</span> destination = <span class="keyword">new</span> <a href="../../../../ar/com/mytrips/destination/Destination.html#Destination">Destination</a>(params)</span></span></td>
+</tr>
+ <tr id="l46">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=46#src-46">46</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 46, Col 9: safe property call had non-null target 51 times, had null target 0 times." class="nolink">&#160;51</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-46" class="srcLineHilight"><span class="nolink" title="Line 46, Col 9: safe property call had non-null target 51 times, had null target 0 times.">        destination.departTransport?.origin = destination</span></span></td>
+</tr>
+ <tr id="l47">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=47#src-47">47</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 47, Col 9: statement executed 51 times." class="nolink">&#160;51</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-47" class="srcLine"><span class="nolink" title="Line 47, Col 9: statement executed 51 times.">        destination.generateDays()</span></span></td>
+</tr>
+ <tr id="l48">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=48#src-48">48</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 48, Col 9: statement executed 51 times." class="nolink">&#160;51</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-48" class="srcLine"><span class="nolink" title="Line 48, Col 9: statement executed 51 times.">        <span class="keyword">return</span> destination</span></span></td>
+</tr>
+ <tr id="l49">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=49#src-49">49</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-49" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l50">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=50#src-50">50</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-50" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="51" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-51' onclick="toggleInlineStats(this, 'inlinestats-51');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-51" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-51'), 'inlinestats-51');return true;">
+                <td><div>
+<div title="90% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:90%"></div></div></div></td><td>90%</td>
+                <td class="inlineStat">Uncovered Elements: 1 (10)</td>
+                <td class="inlineStat">Complexity: 2</td>
+                <td class="inlineStat">Complexity Density: 0.25</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l51">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=51#src-51">51</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 51, 'Tests that hit plusDay(Integer)&#160;:&#160;def');" ><span title="Line 51, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-51"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 51,63);" id="img-51" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-51" class="srcLine"><span class="nolink" title="Line 51, Col 5: method entered 1 time.">    <span class="keyword">def</span> plusDay(Integer days) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-51'), 51,63);" id="e51" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l52">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=52#src-52">52</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 52, 'Tests that hit line # 52');" ><span title="Line 52, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-52" class="srcLine"><span class="nolink" title="Line 52, Col 9: statement executed 1 time.">        <span class="keyword">def</span> safeDays = days</span></span></td>
+</tr>
+ <tr id="l53">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=53#src-53">53</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 53, 'Tests that hit line # 53');" ><span title="Line 53, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-53" class="srcLine"><span class="nolink" title="Line 53, Col 9: statement executed 1 time.">        <span class="keyword">def</span> destinNext = nextDestination()</span></span></td>
+</tr>
+ <tr id="l54">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=54#src-54">54</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-54" class="srcLine"></span></td>
+</tr>
+ <tr id="l55">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=55#src-55">55</a></td>
+<td align="right" class="coverageCount Bad hitByTest"   onclick="return showTestsForLine(this, 55, 'Tests that hit line # 55');" ><span title="Line 55, Col 12: true branch executed 1 time, false branch executed 0 times." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-55" class="srcLineHilight"><span class="nolink" title="Line 55, Col 12: true branch executed 1 time, false branch executed 0 times.">        <span class="keyword">if</span>(trip.isNotLastDestination(<span class="keyword">this</span>)) {</span></span></td>
+</tr>
+ <tr id="l56">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=56#src-56">56</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 56, 'Tests that hit line # 56');" ><span title="Line 56, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-56" class="srcLine"><span class="nolink" title="Line 56, Col 13: statement executed 1 time.">            safeDays = Math.min(destinNext.days.size()-1, days)</span></span></td>
+</tr>
+ <tr id="l57">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=57#src-57">57</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 57, 'Tests that hit line # 57');" ><span title="Line 57, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-57" class="srcLine"><span class="nolink" title="Line 57, Col 13: statement executed 1 time.">            destinNext.removeFirstNDay(safeDays)</span></span></td>
+</tr>
+ <tr id="l58">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=58#src-58">58</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-58" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l59">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=59#src-59">59</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-59" class="srcLine"></span></td>
+</tr>
+ <tr id="l60">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=60#src-60">60</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 60, 'Tests that hit line # 60');" ><span title="Line 60, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-60" class="srcLine"><span class="nolink" title="Line 60, Col 9: statement executed 1 time.">        plusDayDepartDate(safeDays)</span></span></td>
+</tr>
+ <tr id="l61">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=61#src-61">61</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 61, 'Tests that hit line # 61');" ><span title="Line 61, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-61" class="srcLine"><span class="nolink" title="Line 61, Col 9: statement executed 1 time.">        addToLastDay(safeDays)</span></span></td>
+</tr>
+ <tr id="l62">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=62#src-62">62</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 62, 'Tests that hit line # 62');" ><span title="Line 62, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-62" class="srcLine"><span class="nolink" title="Line 62, Col 9: statement executed 1 time.">        destinNext.plusDayArriveDate(days)</span></span></td>
+</tr>
+ <tr id="l63">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=63#src-63">63</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-63" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l64">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=64#src-64">64</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-64" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="65" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-65' onclick="toggleInlineStats(this, 'inlinestats-65');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-65" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-65'), 'inlinestats-65');return true;">
+                <td><div>
+<div title="81.8% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:81.8%"></div></div></div></td><td>81.8%</td>
+                <td class="inlineStat">Uncovered Elements: 2 (11)</td>
+                <td class="inlineStat">Complexity: 4</td>
+                <td class="inlineStat">Complexity Density: 0.57</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l65">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=65#src-65">65</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 65, 'Tests that hit minusDay(Integer)&#160;:&#160;def');" ><span title="Line 65, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-65"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 65,76);" id="img-65" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-65" class="srcLine"><span class="nolink" title="Line 65, Col 5: method entered 1 time.">    <span class="keyword">def</span> minusDay(Integer days) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-65'), 65,76);" id="e65" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l66">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=66#src-66">66</a></td>
+<td align="right" class="coverageCount Bad hitByTest"   onclick="return showTestsForLine(this, 66, 'Tests that hit line # 66');" ><span title="Line 66, Col 13: true branch executed 1 time, false branch executed 0 times." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-66" class="srcLineHilight"><span class="nolink" title="Line 66, Col 13: true branch executed 1 time, false branch executed 0 times.">        <span class="keyword">if</span> (!(<span class="keyword">this</span>.days.size() === 1)){</span></span></td>
+</tr>
+ <tr id="l67">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=67#src-67">67</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 67, 'Tests that hit line # 67');" ><span title="Line 67, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-67" class="srcLine"><span class="nolink" title="Line 67, Col 13: statement executed 1 time.">            minusDayDepartDate(days)</span></span></td>
+</tr>
+ <tr id="l68">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=68#src-68">68</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 68, 'Tests that hit line # 68');" ><span title="Line 68, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-68" class="srcLine"><span class="nolink" title="Line 68, Col 13: statement executed 1 time.">            removeLastNDay(days)</span></span></td>
+</tr>
+ <tr id="l69">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=69#src-69">69</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 69, 'Tests that hit line # 69');" ><span title="Line 69, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-69" class="srcLine"><span class="nolink" title="Line 69, Col 13: statement executed 1 time.">            <span class="keyword">def</span> destinNext = nextDestination()</span></span></td>
+</tr>
+ <tr id="l70">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=70#src-70">70</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 70, 'Tests that hit line # 70');" ><span title="Line 70, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-70" class="srcLine"><span class="nolink" title="Line 70, Col 13: statement executed 1 time.">            destinNext.minusDayArriveDate(days)</span></span></td>
+</tr>
+ <tr id="l71">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=71#src-71">71</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-71" class="srcLine"></span></td>
+</tr>
+ <tr id="l72">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=72#src-72">72</a></td>
+<td align="right" class="coverageCount Bad hitByTest"   onclick="return showTestsForLine(this, 72, 'Tests that hit line # 72');" ><span title="Line 72, Col 16: true branch executed 1 time, false branch executed 0 times." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-72" class="srcLineHilight"><span class="nolink" title="Line 72, Col 16: true branch executed 1 time, false branch executed 0 times.">            <span class="keyword">if</span>(trip.isNotLastDestination(<span class="keyword">this</span>)) {</span></span></td>
+</tr>
+ <tr id="l73">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=73#src-73">73</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 73, 'Tests that hit line # 73');" ><span title="Line 73, Col 17: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-73" class="srcLine"><span class="nolink" title="Line 73, Col 17: statement executed 1 time.">                destinNext.addToFirstDay(days)</span></span></td>
+</tr>
+ <tr id="l74">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=74#src-74">74</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-74" class="srcLine">            }</span></td>
+</tr>
+ <tr id="l75">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=75#src-75">75</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-75" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l76">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=76#src-76">76</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-76" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l77">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=77#src-77">77</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-77" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="78" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-78' onclick="toggleInlineStats(this, 'inlinestats-78');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-78" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-78'), 'inlinestats-78');return true;">
+                <td><div>
+<div title="50% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:50%"></div></div></div></td><td>50%</td>
+                <td class="inlineStat">Uncovered Elements: 4 (8)</td>
+                <td class="inlineStat">Complexity: 5</td>
+                <td class="inlineStat">Complexity Density: 1.25</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l78">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=78#src-78">78</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 78, 'Tests that hit updateArriveDate(LocalDateTime)&#160;:&#160;def');" ><span title="Line 78, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-78"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 78,85);" id="img-78" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-78" class="srcLine"><span class="nolink" title="Line 78, Col 5: method entered 1 time.">    <span class="keyword">def</span> updateArriveDate(LocalDateTime newDate){</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-78'), 78,85);" id="e78" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l79">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=79#src-79">79</a></td>
+<td align="right" class="coverageCount Bad hitByTest"   onclick="return showTestsForLine(this, 79, 'Tests that hit line # 79');" ><span title="Line 79, Col 12: true branch executed 1 time, false branch executed 0 times." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-79" class="srcLineHilight"><span class="nolink" title="Line 79, Col 12: true branch executed 1 time, false branch executed 0 times.">        <span class="keyword">if</span>(arriveDate.dayOfMonth &lt; newDate.dayOfMonth){</span></span></td>
+</tr>
+ <tr id="l80">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=80#src-80">80</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 80, 'Tests that hit line # 80');" ><span title="Line 80, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-80" class="srcLine"><span class="nolink" title="Line 80, Col 13: statement executed 1 time.">            removeFirstNDay(1)</span></span></td>
+</tr>
+ <tr id="l81">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=81#src-81">81</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 81, Col 18: true branch executed 0 times, false branch executed 0 times." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-81" class="srcLineHilight"><span class="nolink" title="Line 81, Col 18: true branch executed 0 times, false branch executed 0 times.">        }<span class="keyword">else</span> <span class="keyword">if</span>(arriveDate.dayOfMonth &gt; newDate.dayOfMonth){</span></span></td>
+</tr>
+ <tr id="l82">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=82#src-82">82</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 82, Col 13: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-82" class="srcLineHilight"><span class="nolink" title="Line 82, Col 13: statement not executed.">            addToFirstDay()</span></span></td>
+</tr>
+ <tr id="l83">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=83#src-83">83</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-83" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l84">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=84#src-84">84</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 84, 'Tests that hit line # 84');" ><span title="Line 84, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-84" class="srcLine"><span class="nolink" title="Line 84, Col 9: statement executed 1 time.">        arriveDate = newDate</span></span></td>
+</tr>
+ <tr id="l85">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=85#src-85">85</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-85" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l86">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=86#src-86">86</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-86" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="87" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-87' onclick="toggleInlineStats(this, 'inlinestats-87');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-87" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-87'), 'inlinestats-87');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (1)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l87">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=87#src-87">87</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 87, 'Tests that hit nextDestination()&#160;:&#160;Destination');" ><span title="Line 87, Col 5: method entered 2 times." class="nolink">&#160;2</span></td>
+<td class=" methodStart  srcCell" id="id-87"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 87,89);" id="img-87" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-87" class="srcLine"><span class="nolink" title="Line 87, Col 5: method entered 2 times.">    <a href="../../../../ar/com/mytrips/destination/Destination.html#Destination">Destination</a> nextDestination() {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-87'), 87,89);" id="e87" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l88">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=88#src-88">88</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 88, 'Tests that hit line # 88');" ><span title="Line 88, Col 7: statement executed 2 times." class="nolink">&#160;2</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-88" class="srcLine"><span class="nolink" title="Line 88, Col 7: statement executed 2 times.">      departTransport.destination</span></span></td>
+</tr>
+ <tr id="l89">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=89#src-89">89</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-89" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l90">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=90#src-90">90</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-90" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="91" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-91' onclick="toggleInlineStats(this, 'inlinestats-91');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-91" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-91'), 'inlinestats-91');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (1)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l91">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=91#src-91">91</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 91, 'Tests that hit plusDayDepartDate(Integer)&#160;:&#160;def');" ><span title="Line 91, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-91"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 91,93);" id="img-91" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-91" class="srcLine"><span class="nolink" title="Line 91, Col 5: method entered 1 time.">    <span class="keyword">def</span> plusDayDepartDate(Integer day) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-91'), 91,93);" id="e91" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l92">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=92#src-92">92</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 92, 'Tests that hit line # 92');" ><span title="Line 92, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-92" class="srcLine"><span class="nolink" title="Line 92, Col 9: statement executed 1 time.">        departDate = departDate.plusDays(day)</span></span></td>
+</tr>
+ <tr id="l93">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=93#src-93">93</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-93" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l94">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=94#src-94">94</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-94" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="95" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-95' onclick="toggleInlineStats(this, 'inlinestats-95');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-95" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-95'), 'inlinestats-95');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (1)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l95">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=95#src-95">95</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 95, 'Tests that hit minusDayDepartDate(Integer)&#160;:&#160;def');" ><span title="Line 95, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-95"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 95,97);" id="img-95" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-95" class="srcLine"><span class="nolink" title="Line 95, Col 5: method entered 1 time.">    <span class="keyword">def</span> minusDayDepartDate(Integer day) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-95'), 95,97);" id="e95" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l96">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=96#src-96">96</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 96, 'Tests that hit line # 96');" ><span title="Line 96, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-96" class="srcLine"><span class="nolink" title="Line 96, Col 9: statement executed 1 time.">        departDate = departDate.minusDays(day)</span></span></td>
+</tr>
+ <tr id="l97">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=97#src-97">97</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-97" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l98">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=98#src-98">98</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-98" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="99" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-99' onclick="toggleInlineStats(this, 'inlinestats-99');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-99" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-99'), 'inlinestats-99');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (1)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l99">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=99#src-99">99</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 99, 'Tests that hit minusDayArriveDate(Integer)&#160;:&#160;def');" ><span title="Line 99, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-99"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 99,101);" id="img-99" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-99" class="srcLine"><span class="nolink" title="Line 99, Col 5: method entered 1 time.">    <span class="keyword">def</span> minusDayArriveDate(Integer day) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-99'), 99,101);" id="e99" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l100">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=100#src-100">100</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 100, 'Tests that hit line # 100');" ><span title="Line 100, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-100" class="srcLine"><span class="nolink" title="Line 100, Col 9: statement executed 1 time.">        arriveDate = arriveDate.minusDays(day)</span></span></td>
+</tr>
+ <tr id="l101">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=101#src-101">101</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-101" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l102">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=102#src-102">102</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-102" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="103" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-103' onclick="toggleInlineStats(this, 'inlinestats-103');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-103" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-103'), 'inlinestats-103');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (1)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l103">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=103#src-103">103</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 103, 'Tests that hit plusDayArriveDate(Integer)&#160;:&#160;def');" ><span title="Line 103, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-103"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 103,105);" id="img-103" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-103" class="srcLine"><span class="nolink" title="Line 103, Col 5: method entered 1 time.">    <span class="keyword">def</span> plusDayArriveDate(Integer day) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-103'), 103,105);" id="e103" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l104">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=104#src-104">104</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 104, 'Tests that hit line # 104');" ><span title="Line 104, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-104" class="srcLine"><span class="nolink" title="Line 104, Col 9: statement executed 1 time.">        arriveDate = arriveDate.plusDays(day)</span></span></td>
+</tr>
+ <tr id="l105">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=105#src-105">105</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-105" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l106">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=106#src-106">106</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-106" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="107" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-107' onclick="toggleInlineStats(this, 'inlinestats-107');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-107" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-107'), 'inlinestats-107');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (1)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l107">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=107#src-107">107</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 107, 'Tests that hit getLastDay()&#160;:&#160;Day');" ><span title="Line 107, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-107"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 107,109);" id="img-107" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-107" class="srcLine"><span class="nolink" title="Line 107, Col 5: method entered 1 time.">    <a href="../../../../ar/com/mytrips/destination/Day.html#Day">Day</a> getLastDay() {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-107'), 107,109);" id="e107" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l108">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=108#src-108">108</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 108, 'Tests that hit line # 108');" ><span title="Line 108, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-108" class="srcLine"><span class="nolink" title="Line 108, Col 9: statement executed 1 time.">        <span class="keyword">this</span>.days.last()</span></span></td>
+</tr>
+ <tr id="l109">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=109#src-109">109</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-109" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l110">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=110#src-110">110</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-110" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="111" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-111' onclick="toggleInlineStats(this, 'inlinestats-111');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-111" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-111'), 'inlinestats-111');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (1)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l111">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=111#src-111">111</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 111, 'Tests that hit getFirstDay()&#160;:&#160;Day');" ><span title="Line 111, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-111"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 111,113);" id="img-111" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-111" class="srcLine"><span class="nolink" title="Line 111, Col 5: method entered 1 time.">    <a href="../../../../ar/com/mytrips/destination/Day.html#Day">Day</a> getFirstDay() {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-111'), 111,113);" id="e111" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l112">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=112#src-112">112</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 112, 'Tests that hit line # 112');" ><span title="Line 112, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-112" class="srcLine"><span class="nolink" title="Line 112, Col 9: statement executed 1 time.">        <span class="keyword">this</span>.days.first()</span></span></td>
+</tr>
+ <tr id="l113">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=113#src-113">113</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-113" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l114">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=114#src-114">114</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-114" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="115" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-115' onclick="toggleInlineStats(this, 'inlinestats-115');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-115" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-115'), 'inlinestats-115');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (2)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 0.5</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l115">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=115#src-115">115</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 115, 'Tests that hit removeFirstNDay(Integer)&#160;:&#160;def');" ><span title="Line 115, Col 5: method entered 2 times." class="nolink">&#160;2</span></td>
+<td class=" methodStart  srcCell" id="id-115"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 115,119);" id="img-115" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-115" class="srcLine"><span class="nolink" title="Line 115, Col 5: method entered 2 times.">    <span class="keyword">def</span> removeFirstNDay(Integer n) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-115'), 115,119);" id="e115" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l116">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=116#src-116">116</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 116, 'Tests that hit line # 116');" ><span title="Line 116, Col 9: statement executed 2 times." class="nolink">&#160;2</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-116" class="srcLine"><span class="nolink" title="Line 116, Col 9: statement executed 2 times.">        days.take(n).forEach{ day -&gt;</span></span></td>
+</tr>
+ <tr id="l117">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=117#src-117">117</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 117, 'Tests that hit line # 117');" ><span title="Line 117, Col 13: statement executed 2 times." class="nolink">&#160;2</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-117" class="srcLine"><span class="nolink" title="Line 117, Col 13: statement executed 2 times.">            removeDay(day)</span></span></td>
+</tr>
+ <tr id="l118">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=118#src-118">118</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-118" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l119">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=119#src-119">119</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-119" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l120">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=120#src-120">120</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-120" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="121" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-121' onclick="toggleInlineStats(this, 'inlinestats-121');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-121" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-121'), 'inlinestats-121');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (2)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 0.5</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l121">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=121#src-121">121</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 121, 'Tests that hit removeLastNDay(Integer)&#160;:&#160;def');" ><span title="Line 121, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-121"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 121,125);" id="img-121" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-121" class="srcLine"><span class="nolink" title="Line 121, Col 5: method entered 1 time.">    <span class="keyword">def</span> removeLastNDay(Integer n){</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-121'), 121,125);" id="e121" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l122">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=122#src-122">122</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 122, 'Tests that hit line # 122');" ><span title="Line 122, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-122" class="srcLine"><span class="nolink" title="Line 122, Col 9: statement executed 1 time.">        days.takeRight(n).forEach{ day -&gt;</span></span></td>
+</tr>
+ <tr id="l123">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=123#src-123">123</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 123, 'Tests that hit line # 123');" ><span title="Line 123, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-123" class="srcLine"><span class="nolink" title="Line 123, Col 13: statement executed 1 time.">            removeDay(day)</span></span></td>
+</tr>
+ <tr id="l124">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=124#src-124">124</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-124" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l125">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=125#src-125">125</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-125" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l126">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=126#src-126">126</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-126" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="127" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-127' onclick="toggleInlineStats(this, 'inlinestats-127');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-127" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-127'), 'inlinestats-127');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (2)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 0.5</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l127">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=127#src-127">127</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 127, 'Tests that hit removeDay(Day)&#160;:&#160;def');" ><span title="Line 127, Col 5: method entered 3 times." class="nolink">&#160;3</span></td>
+<td class=" methodStart  srcCell" id="id-127"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 127,130);" id="img-127" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-127" class="srcLine"><span class="nolink" title="Line 127, Col 5: method entered 3 times.">    <span class="keyword">def</span> removeDay(<a href="../../../../ar/com/mytrips/destination/Day.html#Day">Day</a> day){</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-127'), 127,130);" id="e127" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l128">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=128#src-128">128</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 128, 'Tests that hit line # 128');" ><span title="Line 128, Col 9: statement executed 3 times." class="nolink">&#160;3</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-128" class="srcLine"><span class="nolink" title="Line 128, Col 9: statement executed 3 times.">        removeFromDays(day)</span></span></td>
+</tr>
+ <tr id="l129">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=129#src-129">129</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 129, 'Tests that hit line # 129');" ><span title="Line 129, Col 9: statement executed 3 times." class="nolink">&#160;3</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-129" class="srcLine"><span class="nolink" title="Line 129, Col 9: statement executed 3 times.">        day.delete()</span></span></td>
+</tr>
+ <tr id="l130">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=130#src-130">130</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-130" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l131">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=131#src-131">131</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-131" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="132" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-132' onclick="toggleInlineStats(this, 'inlinestats-132');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-132" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-132'), 'inlinestats-132');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (2)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 0.5</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l132">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=132#src-132">132</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 132, 'Tests that hit addToLastDay(Integer)&#160;:&#160;def');" ><span title="Line 132, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-132"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 132,136);" id="img-132" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-132" class="srcLine"><span class="nolink" title="Line 132, Col 5: method entered 1 time.">    <span class="keyword">def</span> addToLastDay(Integer n=1) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-132'), 132,136);" id="e132" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l133">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=133#src-133">133</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 133, 'Tests that hit line # 133');" ><span title="Line 133, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-133" class="srcLine"><span class="nolink" title="Line 133, Col 9: statement executed 1 time.">        (1..n).each {</span></span></td>
+</tr>
+ <tr id="l134">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=134#src-134">134</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 134, 'Tests that hit line # 134');" ><span title="Line 134, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-134" class="srcLine"><span class="nolink" title="Line 134, Col 13: statement executed 1 time.">            addToDays(<span class="keyword">new</span> <a href="../../../../ar/com/mytrips/destination/Day.html#Day">Day</a>(date: lastDay.plusDay(1), itinerary: [], destination: <span class="keyword">this</span>))</span></span></td>
+</tr>
+ <tr id="l135">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=135#src-135">135</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-135" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l136">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=136#src-136">136</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-136" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l137">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=137#src-137">137</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-137" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="138" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-138' onclick="toggleInlineStats(this, 'inlinestats-138');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-138" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-138'), 'inlinestats-138');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (2)</td>
+                <td class="inlineStat">Complexity: 1</td>
+                <td class="inlineStat">Complexity Density: 0.5</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l138">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=138#src-138">138</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 138, 'Tests that hit addToFirstDay(Integer)&#160;:&#160;def');" ><span title="Line 138, Col 5: method entered 1 time." class="nolink">&#160;1</span></td>
+<td class=" methodStart  srcCell" id="id-138"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 138,142);" id="img-138" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-138" class="srcLine"><span class="nolink" title="Line 138, Col 5: method entered 1 time.">    <span class="keyword">def</span> addToFirstDay(Integer n = 1) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-138'), 138,142);" id="e138" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l139">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=139#src-139">139</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 139, 'Tests that hit line # 139');" ><span title="Line 139, Col 9: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-139" class="srcLine"><span class="nolink" title="Line 139, Col 9: statement executed 1 time.">        (1..n).each {</span></span></td>
+</tr>
+ <tr id="l140">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=140#src-140">140</a></td>
+<td align="right" class="coverageCount Good hitByTest"   onclick="return showTestsForLine(this, 140, 'Tests that hit line # 140');" ><span title="Line 140, Col 13: statement executed 1 time." class="nolink">&#160;1</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-140" class="srcLine"><span class="nolink" title="Line 140, Col 13: statement executed 1 time.">            <span class="keyword">this</span>.days.add(0, <span class="keyword">new</span> <a href="../../../../ar/com/mytrips/destination/Day.html#Day">Day</a>(date: firstDay.minusDay(1), itinerary: [], destination: <span class="keyword">this</span>))</span></span></td>
+</tr>
+ <tr id="l141">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=141#src-141">141</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-141" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l142">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=142#src-142">142</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-142" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l143">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=143#src-143">143</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-143" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="144" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-144' onclick="toggleInlineStats(this, 'inlinestats-144');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-144" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-144'), 'inlinestats-144');return true;">
+                <td><div>
+<div title="100% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:100%"></div></div></div></td><td>100%</td>
+                <td class="inlineStat">Uncovered Elements: 0 (5)</td>
+                <td class="inlineStat">Complexity: 3</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l144">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=144#src-144">144</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 144, Col 5: method entered 51 times." class="nolink">&#160;51</span></td>
+<td class=" methodStart  srcCell" id="id-144"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 144,150);" id="img-144" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-144" class="srcLine"><span class="nolink" title="Line 144, Col 5: method entered 51 times.">    <span class="keyword">protected</span> <span class="keyword">def</span> generateDays(){</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-144'), 144,150);" id="e144" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l145">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=145#src-145">145</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 145, Col 12: true branch executed 34 times, false branch executed 17 times." class="nolink">&#160;51</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-145" class="srcLine"><span class="nolink" title="Line 145, Col 12: true branch executed 34 times, false branch executed 17 times.">        <span class="keyword">if</span>(arriveDate &amp;&amp; departDate){</span></span></td>
+</tr>
+ <tr id="l146">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=146#src-146">146</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 146, Col 13: statement executed 34 times." class="nolink">&#160;34</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-146" class="srcLine"><span class="nolink" title="Line 146, Col 13: statement executed 34 times.">            days = (0..(arriveDate.until(departDate, ChronoUnit.DAYS)-1)).collect {</span></span></td>
+</tr>
+ <tr id="l147">
+<td align="right" class="lineCount Good"><a class="lineNumHref" href="?line=147#src-147">147</a></td>
+<td align="right" class="coverageCount Good missedByTest"   ><span title="Line 147, Col 17: statement executed 68 times." class="nolink">&#160;68</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-147" class="srcLine"><span class="nolink" title="Line 147, Col 17: statement executed 68 times.">                <span class="keyword">new</span> <a href="../../../../ar/com/mytrips/destination/Day.html#Day">Day</a>(date: arriveDate.toLocalDate().plusDays(it), destination: <span class="keyword">this</span>)</span></span></td>
+</tr>
+ <tr id="l148">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=148#src-148">148</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-148" class="srcLine">            }</span></td>
+</tr>
+ <tr id="l149">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=149#src-149">149</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-149" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l150">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=150#src-150">150</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-150" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l151">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=151#src-151">151</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-151" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="152" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-152' onclick="toggleInlineStats(this, 'inlinestats-152');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-152" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-152'), 'inlinestats-152');return true;">
+                <td><div>
+<div title="0% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:0%"></div></div></div></td><td>0%</td>
+                <td class="inlineStat">Uncovered Elements: 10 (10)</td>
+                <td class="inlineStat">Complexity: 2</td>
+                <td class="inlineStat">Complexity Density: 0.25</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l152">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=152#src-152">152</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 152, Col 5: method not entered." class="nolink">&#160;0</span></td>
+<td class=" methodStart  srcCell" id="id-152"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 152,159);" id="img-152" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-152" class="srcLineHilight"><span class="nolink" title="Line 152, Col 5: method not entered.">    <span class="keyword">def</span> setDataFromPlanner(TriposoDayPlanner dayPlanner) {</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-152'), 152,159);" id="e152" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l153">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=153#src-153">153</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 153, Col 9: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-153" class="srcLineHilight"><span class="nolink" title="Line 153, Col 9: statement not executed.">        place.placeId = dayPlanner.location.id</span></span></td>
+</tr>
+ <tr id="l154">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=154#src-154">154</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 154, Col 9: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-154" class="srcLineHilight"><span class="nolink" title="Line 154, Col 9: statement not executed.">        images = dayPlanner.location.images.collect{ it.sourceUrl}.toSet()</span></span></td>
+</tr>
+ <tr id="l155">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=155#src-155">155</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 155, Col 9: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-155" class="srcLineHilight"><span class="nolink" title="Line 155, Col 9: statement not executed.">        dayPlanner.days.collect { TriposoDay it -&gt;</span></span></td>
+</tr>
+ <tr id="l156">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=156#src-156">156</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 156, Col 13: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-156" class="srcLineHilight"><span class="nolink" title="Line 156, Col 13: statement not executed.">            <span class="keyword">def</span> day = days.find {day-&gt;  day.date == it.date}</span></span></td>
+</tr>
+ <tr id="l157">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=157#src-157">157</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 157, Col 13: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-157" class="srcLineHilight"><span class="nolink" title="Line 157, Col 13: statement not executed.">            day?.itinerary =  it.itineraryItems.collect{<a href="../../../../ar/com/mytrips/destination/Itinerary.html#Itinerary">Itinerary</a>.fromTriposo(it, day)}</span></span></td>
+</tr>
+ <tr id="l158">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=158#src-158">158</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-158" class="srcLine">        }</span></td>
+</tr>
+ <tr id="l159">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=159#src-159">159</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-159" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l160">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=160#src-160">160</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-160" class="srcLine"></span></td>
+</tr>
+<tr class="inlineStatsRow" align="right" valign="middle">
+<td class="coverageCount"><a name="161" class="nolink">&#160;</a></td>
+    <td class="coverageCount aui-icon aui-icon-small aui-iconfont-arrows-right" id='inlineStatsToggle-161' onclick="toggleInlineStats(this, 'inlinestats-161');"/>
+    <td align="center" valign="middle">
+        <table id="inlinestats-161" style="display:none;" class="inlineStats" width="100%" cellspacing="1px" cellpadding="1px">
+            <tr onclick="toggleInlineStats(document.getElementById('inlineStatsToggle-161'), 'inlinestats-161');return true;">
+                <td><div>
+<div title="0% Covered" style="min-width:40px;" class="barNegative contribBarNegative barNegative"><div class="barPositive contribBarPositive barPositive" style="width:0%"></div></div></div></td><td>0%</td>
+                <td class="inlineStat">Uncovered Elements: 8 (8)</td>
+                <td class="inlineStat">Complexity: 4</td>
+                <td class="inlineStat">Complexity Density: 1</td>
+                            </tr>
+        </table>
+    </td>
+</tr>
+<tr id="l161">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=161#src-161">161</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 161, Col 5: method not entered." class="nolink">&#160;0</span></td>
+<td class=" methodStart  srcCell" id="id-161"><img title="Method Statistics" onclick="toggleSrcRowVis(this, 161,165);" id="img-161" src="../../../../img/collapse.gif"  alt="toggle" class="icon"/><span id="src-161" class="srcLineHilight"><span class="nolink" title="Line 161, Col 5: method not entered.">    Map&lt;Currency, Cost&gt; addCost(Map&lt;Currency, Cost&gt; cost){</span><span class="foldControl" onclick="toggleSrcRowVis(document.getElementById('img-161'), 161,165);" id="e161" style="display:none;border:none;">...</span></span></td>
+</tr>
+ <tr id="l162">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=162#src-162">162</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 162, Col 9: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-162" class="srcLineHilight"><span class="nolink" title="Line 162, Col 9: statement not executed.">        departTransport?.cost?.accumulate(cost)</span></span></td>
+</tr>
+ <tr id="l163">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=163#src-163">163</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 163, Col 9: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-163" class="srcLineHilight"><span class="nolink" title="Line 163, Col 9: statement not executed.">        days.forEach {    it.addCost(cost)}</span></span></td>
+</tr>
+ <tr id="l164">
+<td align="right" class="lineCount Bad"><a class="lineNumHref" href="?line=164#src-164">164</a></td>
+<td align="right" class="coverageCount Bad missedByTest"   ><span title="Line 164, Col 9: statement not executed." class="nolink">&#160;0</span></td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-164" class="srcLineHilight"><span class="nolink" title="Line 164, Col 9: statement not executed.">        cost</span></span></td>
+</tr>
+ <tr id="l165">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=165#src-165">165</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-165" class="srcLine">    }</span></td>
+</tr>
+ <tr id="l166">
+<td align="right" class="lineCount NoHilight"><a class="lineNumHref" href="?line=166#src-166">166</a></td>
+<td align="right" class="coverageCount NoHilight "   >&#160;&#160;</td>
+<td class=" srcCell" ><span class="spacer"></span><span id="src-166" class="srcLine">}</span></td>
+</tr>
+ 
+    </tbody></table>    </div>
+</div><!-- .aui-tabs -->
+
+<script type="text/javascript"> 
+    var ol_bgclass = "overBG";
+    var ol_fgclass = "overFG";
+    var ol_cgclass = "overCaption";
+    var ol_captionfontclass= "overCaption";
+    var ol_closefontclass = "closeFont";
+    var ol_closeclick = 1;
+    var ol_close = 'X';
+    var ol_wrap = 1;
+    var rootRelPath = '../../../../';
+    var testsPerFile = -1;
+</script>
+<script src="Destination.js" type="text/javascript"></script>
+
+                        </div> <!-- class="aui-page-panel-content-clover" -->
+                    <footer id="footer" role="contentinfo">
+    <section class="footer-body">
+        <ul>
+            <li>
+                Report generated by <a target="_new" href="http://openclover.org">OpenClover</a> v 4.4.1
+                on Fri Jun 3 2022 05:07:45 UTC using coverage data from Fri Jun 3 2022 05:07:44 UTC.
+            </li>
+        </ul>
+        <ul>
+            <li>OpenClover is free and open-source software. </li>
+        </ul>
+    </section>
+</footer>                </section> <!-- class="aui-page-panel-content" -->
+            </div> <!-- class="aui-page-panel-inner" -->
+        </div> <!-- class="aui-page-panel" -->
+    </div> <!-- id="page" -->
+</body>
+</html>
