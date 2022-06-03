@@ -24,7 +24,7 @@ class TransportServiceTest extends Specification implements DomainUnitTest<Trans
         def destFin = new Destination(relevance: 4, color: "green", place: new Place(),
                 arriveDate: LocalDateTime.of(2020, 10, 14, 12, 50, 00),
                 departDate: null,
-                departTransport: new Transport(), days: [])
+                departTransport: new Transport())
 
         def paramsDestSantiago = HashMap.of("relevance", 3,
                 "color", "green", "place", new Place(),
@@ -43,8 +43,8 @@ class TransportServiceTest extends Specification implements DomainUnitTest<Trans
         def destLima = Destination.create(paramsDestLima)
 
         transport = new Transport(HashMap.of("type", TransportType.FLY,
-                    "arrive", LocalDateTime.of(2022, 10, 14, 12, 50, 00),
-                    "depart", LocalDateTime.of(2022, 10, 12, 12, 50, 00),
+                    "arrive", LocalDateTime.of(2022, 10, 10, 12, 50, 00),
+                    "depart", LocalDateTime.of(2022, 10, 10, 12, 50, 00),
                     "arriveLocation", "Lima",
                     "departLocation", "Buenos Aires",
                     "cost", new Cost(),
@@ -70,8 +70,8 @@ class TransportServiceTest extends Specification implements DomainUnitTest<Trans
         given:
         transportCommand = new TransportCommand(
                 type: TransportType.TRAIN,
-                "arrive": "2022-10-14T12:50:00.000",
-                "depart": "2022-10-12T12:50:00.000"
+                "arrive": "2022-10-10T12:50:00.000",
+                "depart": "2022-10-10T12:50:00.000"
         )
 
         when:
@@ -79,8 +79,8 @@ class TransportServiceTest extends Specification implements DomainUnitTest<Trans
 
         then:
         resultTransport.getType() == TransportType.TRAIN
-        resultTransport.getArrive().toString() == "2022-10-14T12:50"
-        resultTransport.getDepart().toString() == "2022-10-12T12:50"
+        resultTransport.getArrive().toString() == "2022-10-10T12:50"
+        resultTransport.getDepart().toString() == "2022-10-10T12:50"
     }
 
     void "when update the arrival and departure dates of a transport between two destinations of a trip, it should return an updated transport"() {
@@ -88,7 +88,7 @@ class TransportServiceTest extends Specification implements DomainUnitTest<Trans
         transportCommand = new TransportCommand(
                 type: TransportType.FLY,
                 "arrive": "2022-10-16T12:50:00.000",
-                "depart": "2022-10-10T12:50:00.000"
+                "depart": "2022-10-12T12:50:00.000"
         )
 
         when:
@@ -97,7 +97,8 @@ class TransportServiceTest extends Specification implements DomainUnitTest<Trans
         then:
         resultTransport.getType() == TransportType.FLY
         resultTransport.getArrive().toString() == "2022-10-16T12:50"
-        resultTransport.getDepart().toString() == "2022-10-10T12:50"
+        resultTransport.getDepart().toString() == "2022-10-12T12:50"
+        resultTransport.getOrigin().getDepartDate().toString() == "2022-10-12T12:50"
         resultTransport.getDestination().getArriveDate().toString() == "2022-10-16T12:50"
     }
 }

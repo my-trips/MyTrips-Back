@@ -36,7 +36,7 @@ class TripServiceTest extends Specification implements DomainUnitTest<Trip> {
 
         def destFin = new Destination(relevance: 3, color: "green", place: new Place(),
                 arriveDate: LocalDateTime.of(2022, 10, 12, 12, 50, 00), departDate: null,
-                departTransport: new Transport(), days: [])
+                departTransport: new Transport())
 
         def paramsDestLima = HashMap.of("relevance", 2,
                 "color", "yellow", "place", new Place(name: "Lima"),

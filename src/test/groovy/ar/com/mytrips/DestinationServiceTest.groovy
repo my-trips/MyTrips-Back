@@ -21,7 +21,7 @@ class DestinationServiceTest extends Specification implements DomainUnitTest<Des
         def destFin = new Destination(relevance: 4, color: "green", place: new Place(),
                 arriveDate: LocalDateTime.of(2020, 10, 14, 12, 50, 00),
                 departDate: null,
-                departTransport: new Transport(), days: [])
+                departTransport: new Transport())
 
         def paramsDestSantiago = HashMap.of("relevance", 3,
                 "color", "green", "place", new Place(),
@@ -55,7 +55,7 @@ class DestinationServiceTest extends Specification implements DomainUnitTest<Des
     def cleanup() {
     }
 
-    def "when the trip plus a day to one of its destinations, it should return the updated destination"() {
+    def "when a trip is added a day to one of its destinations, it should return the updated destination"() {
         given:
         def destination = trip.getDestinations()[1]
         def destinationNext = destination.getDepartTransport().getDestination()
@@ -73,7 +73,7 @@ class DestinationServiceTest extends Specification implements DomainUnitTest<Des
         destinationNext.getDays().size() == expectedDestNextDays
     }
 
-    def "when the trip minus a day to one of its destinations, it should return the updated destination"() {
+    def "hen a trip is subtract a day to one of its destinations, it should return the updated destination"() {
         given:
         def destination = trip.getDestinations()[1]
         def destinationNext = destination.getDepartTransport().getDestination()
