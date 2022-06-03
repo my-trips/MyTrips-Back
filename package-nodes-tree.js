@@ -9,7 +9,7 @@ var Packages = {
     "text": "ar.com.mytrips",
     "package": "ar.com.mytrips",
     "url": "ar/com/mytrips/pkg-summary.html",
-            "coverage": "66.8%",
+            "coverage": "53.3%",
         "icon": "aui-icon aui-icon-small aui-iconfont-devtools-folder-closed",
             "li_attr": {"data-is-link": "true"},
         "a_attr": {"href": "ar/com/mytrips/pkg-summary.html"},
@@ -35,10 +35,24 @@ var Packages = {
     "text": "destination",
     "package": "ar.com.mytrips.destination",
     "url": "ar/com/mytrips/destination/pkg-summary.html",
-            "coverage": "78.4%",
+            "coverage": "83.8%",
         "icon": "aui-icon aui-icon-small aui-iconfont-devtools-folder-closed",
             "li_attr": {"data-is-link": "true"},
         "a_attr": {"href": "ar/com/mytrips/destination/pkg-summary.html"},
+    "children": [
+                    ]
+},
+                                    
+                
+{
+    "id": "ar.com.mytrips.domain",
+    "text": "domain",
+    "package": "ar.com.mytrips.domain",
+    "url": "ar/com/mytrips/domain/pkg-summary.html",
+            "coverage": "100%",
+        "icon": "aui-icon aui-icon-small aui-iconfont-devtools-folder-closed",
+            "li_attr": {"data-is-link": "true"},
+        "a_attr": {"href": "ar/com/mytrips/domain/pkg-summary.html"},
     "children": [
                     ]
 },
@@ -95,6 +109,20 @@ var Packages = {
         "icon": "aui-icon aui-icon-small aui-iconfont-devtools-folder-closed",
             "li_attr": {"data-is-link": "true"},
         "a_attr": {"href": "ar/com/mytrips/rest/pkg-summary.html"},
+    "children": [
+                    ]
+},
+                                    
+                
+{
+    "id": "ar.com.mytrips.services",
+    "text": "services",
+    "package": "ar.com.mytrips.services",
+    "url": "ar/com/mytrips/services/pkg-summary.html",
+            "coverage": "100%",
+        "icon": "aui-icon aui-icon-small aui-iconfont-devtools-folder-closed",
+            "li_attr": {"data-is-link": "true"},
+        "a_attr": {"href": "ar/com/mytrips/services/pkg-summary.html"},
     "children": [
                     ]
 },
