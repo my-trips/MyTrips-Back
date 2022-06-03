@@ -4,19 +4,22 @@ import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.destination.Place
 import ar.com.mytrips.destination.Transport
+import grails.testing.gorm.DataTest
 import spock.lang.Specification
 
 import java.time.LocalDateTime
 
-class MyTripTest extends Specification {
+class MyTripServiceTest extends Specification implements  DataTest {
 
     Trip trip
     List<Destination> destinations
     Transport transport
 
+    void setupSpec() {
+        mockDomain Destination
+    }
 
     def setup() {
-
         def destFin = new Destination(relevance: 4, color: "green", place: new Place(),
                 arriveDate: LocalDateTime.of(2020, 10, 14, 12, 50),
                 departDate: null,
