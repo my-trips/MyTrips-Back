@@ -1,15 +1,26 @@
 package ar.com.mytrips
 
-import ar.com.mytrips.auth.*
+import ar.com.mytrips.auth.Role
+import ar.com.mytrips.auth.User
+import ar.com.mytrips.auth.UserRole
+import com.google.common.collect.Lists
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.plugin.springsecurity.rest.authentication.RestAuthenticationEventPublisher
+import grails.plugin.springsecurity.rest.token.AccessToken
 import grails.plugin.springsecurity.rest.token.generation.TokenGenerator
 import grails.plugin.springsecurity.rest.token.storage.TokenStorageService
-import grails.testing.gorm.DomainUnitTest
+import grails.testing.gorm.DataTest
 import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.authority.SimpleGrantedAuthority
+import org.springframework.security.core.userdetails.UserDetails
 import spock.lang.Specification
 
-class UserServiceTest extends Specification implements DomainUnitTest<User> {
+class UserServiceTest extends Specification implements DataTest {
+
+    Class<?>[] getDomainClassesToMock(){
+        return [User, Role, UserRole] as Class[]
+    }
 
     private SpringSecurityService springSecurityService
     private AuthenticationManager authenticationManager
@@ -18,48 +29,13 @@ class UserServiceTest extends Specification implements DomainUnitTest<User> {
     private RestAuthenticationEventPublisher authenticationEventPublisher
     private UserService userService
     private User user
-    private Role role
-/*
-
-    User getCurrentUser(){
-        springSecurityService.currentUser as User
-    }
-
-    AccessToken save(User user){
-        if(User.findByEmail(user.email) != null){
-            throw ServiceException.badRequest("duplicateEmail", [email: user.email])
-        }
-        def plainPassword = user.password
-        user.password = springSecurityService.encodePassword(user.password)
-        user.save()
-
-        def role = Role.defaultRole
-        UserRole.create user, role
-        authenticate(user, plainPassword)
-    }
-
-    private AccessToken authenticate(User user, String password){
-        def authorities = user.authorities.collect { new SimpleGrantedAuthority(it.authority) }
-
-        def usernameAuth= new UsernamePasswordAuthenticationToken(user.email, password, authorities);
-        def auth = authenticationManager.authenticate(usernameAuth)
-        SecurityContextHolder.getContext().setAuthentication(auth);
-
-        def accessToken = tokenGenerator.generateAccessToken(auth.principal as UserDetails)
-        tokenStorageService.storeToken(accessToken.accessToken, auth.principal as UserDetails)
-        authenticationEventPublisher.publishTokenCreation(accessToken)
-        SecurityContextHolder.context.setAuthentication(accessToken)
-        accessToken
-    }
-}
-*/
 
     def setup() {
 
         userService = new UserService()
-        userService.setAuthenticationManager(authenticationManager)
-        userService.setTokenGenerator(tokenGenerator)
+        tokenStorageService = Mock()
         userService.setTokenStorageService(tokenStorageService)
+        authenticationEventPublisher = Mock()
         userService.setAuthenticationEventPublisher(authenticationEventPublisher)
 
         user = new User(HashMap.of("firstName", "Susan",
@@ -71,22 +47,36 @@ class UserServiceTest extends Specification implements DomainUnitTest<User> {
         springSecurityService.encodePassword(user.password) >> "ENCODE_PASSWORD"
         userService.setSpringSecurityService(springSecurityService)
 
-        role = new Role(HashMap.of("authority", "ROLE_USER"))
+        authenticationManager = Mock()
+        def authority = Lists.newArrayList(new SimpleGrantedAuthority("ROLE_NO_ROLES"))
+        def userName = new UsernamePasswordAuthenticationToken("rosisusa@gmail.com", "Susan12#", authority)
+        authenticationManager.authenticate(_ as UsernamePasswordAuthenticationToken) >> userName
+        userService.setAuthenticationManager(authenticationManager)
+
+        def role = new Role(HashMap.of("authority", "ROLE_USER"))
         role.save()
+
+        tokenGenerator = Mock()
+        tokenGenerator.generateAccessToken(_ as UserDetails) >> new AccessToken("TOKEN")
+        userService.setTokenGenerator(tokenGenerator)
     }
 
     def cleanup() { }
 
-    void "when create a trip, it should return a complete trip"() {
+    void "when create a user, it should return accessToken"() {
         when:
         def accessToken = userService.save(user)
 
         then:
-        accessToken.toString() != null
-        resultTrip.getOwner().getFirstName() == "Susan"
-        resultTrip.getImage() == "IMAGE_LIMA_URL"
-        resultTrip.getDestinations().size() == 3
-        resultTrip.getDestinations().stream().allMatch(dest -> dest.getTrip().is(trip))
+        accessToken.getAccessToken() == "TOKEN"
+        user.getId() == 1
     }
 
+    void "when create a user, but there exists a user with the same email, it should throw an exception"() {
+        when:
+        def accessToken = userService.save(user)
+
+        then:
+        accessToken.getAccessToken() == "TOKEN"
+    }
 }
