@@ -16,8 +16,8 @@ class UserController implements ModelRequestResolver {
     def save() {
         def userRequest = getBody(CreateUserRequest)
         def user = userRequest.toModel()
-        def authToken = userService.save(user)
-        render model: [user:user, token: authToken], view: 'save'
+        userService.save(user)
+        render model: [user:user], view: 'save'
     }
 
 
