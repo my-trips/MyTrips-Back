@@ -1,11 +1,9 @@
 package ar.com.mytrips.auth
 
-import grails.compiler.GrailsCompileStatic
 import grails.gorm.DetachedCriteria
 import groovy.transform.ToString
 import org.apache.commons.lang.builder.HashCodeBuilder
 
-@GrailsCompileStatic
 @ToString(cache=true, includeNames=true, includePackage=false)
 class UserRole implements Serializable {
 

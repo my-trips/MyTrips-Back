@@ -3,12 +3,10 @@ package ar.com.mytrips.destination
 import ar.com.mytrips.Cost
 import ar.com.mytrips.Currency
 import ar.com.mytrips.exception.ServiceException
-import grails.compiler.GrailsCompileStatic
 
 import java.time.LocalDate
 
 
-@GrailsCompileStatic
 class Day {
 
     String id

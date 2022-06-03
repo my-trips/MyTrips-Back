@@ -1,11 +1,13 @@
 buildscript {
     repositories {
         maven { url "https://repo.grails.org/grails/core" }
+        gradlePluginPortal()
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
         classpath "org.grails.plugins:views-gradle:2.2.1"
         classpath "org.grails.plugins:hibernate5:7.2.2"
+        classpath 'com.bmuschko:gradle-clover-plugin:3.0.3'
     }
 }
 
@@ -17,7 +19,8 @@ apply plugin:"idea"
 apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"org.grails.plugins.views-json"
-apply plugin: 'jacoco'
+apply plugin: 'com.bmuschko.clover'
+
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
@@ -73,7 +76,7 @@ dependencies {
     testImplementation "org.grails:views-json-testing-support"
     testImplementation "org.hibernate.validator:hibernate-validator:6.1.7.Final"
     runtimeOnly 'mysql:mysql-connector-java:8.0.29'
-
+    clover 'org.openclover:clover:4.4.1'
 }
 
 bootRun {
@@ -98,8 +101,18 @@ tasks.withType(Test) {
     useJUnitPlatform()
 }
 
-jacocoTestReport {
-    reports {
-        csv.enabled true
+clover {
+    excludes = ['**/Application.groovy',
+                '**/BootStrap.groovy',
+                '**/UrlMappings.groovy',
+                '**/*GrailsPlugin.groovy',
+                '**/*Mock.groovy',
+    ]
+
+//    targetPercentage = '85%'
+
+    testIncludes = ['**/*Test.groovy']
+    report {
+        html = true
     }
 }

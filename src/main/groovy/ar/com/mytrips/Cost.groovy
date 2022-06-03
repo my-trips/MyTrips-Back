@@ -1,8 +1,5 @@
 package ar.com.mytrips
 
-import java.text.DecimalFormat
-import java.text.NumberFormat
-
 class Cost {
 
     Currency currency
@@ -44,14 +41,4 @@ enum Currency {
     COP,
     MXN,
     PEN;
-
-    DecimalFormat getFormat(){
-        NumberFormat.getCurrencyInstance() as DecimalFormat
-    }
-
-    String format(Number number){
-        def decimalFormat = format
-        decimalFormat.setPositivePrefix(decimalFormat.getPositivePrefix() + " ")
-        decimalFormat.format(number)
-    }
 }

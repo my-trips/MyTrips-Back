@@ -1,9 +1,7 @@
 package ar.com.mytrips.destination
 
 import ar.com.mytrips.Country
-import grails.compiler.GrailsCompileStatic
 
-@GrailsCompileStatic
 class Place {
 
     String id

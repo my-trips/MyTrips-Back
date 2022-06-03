@@ -5,12 +5,10 @@ import ar.com.mytrips.Currency
 import ar.com.mytrips.Trip
 import ar.com.mytrips.request.TriposoDay
 import ar.com.mytrips.request.TriposoDayPlanner
-import grails.compiler.GrailsCompileStatic
 
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
-@GrailsCompileStatic
 class Destination {
 
     String id

@@ -1,8 +1,6 @@
 package ar.com.mytrips.auth
 
-import grails.compiler.GrailsCompileStatic
 
-@GrailsCompileStatic
 class User {
 
     String firstName
