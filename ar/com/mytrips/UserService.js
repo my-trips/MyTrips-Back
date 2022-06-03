@@ -1,10 +1,10 @@
 var clover = new Object();
 
 // JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
-clover.pageData = {"classes":[{"el":58,"id":315,"methods":[{"el":30,"sc":5,"sl":28},{"el":43,"sc":5,"sl":32},{"el":57,"sc":5,"sl":45}],"name":"UserService","sl":19}]}
+clover.pageData = {"classes":[{"el":30,"id":303,"methods":[{"el":17,"sc":5,"sl":15},{"el":29,"sc":5,"sl":19}],"name":"UserService","sl":10}]}
 
 // JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
-clover.testTargets = {"test_13":{"methods":[{"sl":32},{"sl":45}],"name":"when create a user, it should return an access token","pass":true,"statements":[{"sl":33},{"sl":36},{"sl":37},{"sl":38},{"sl":40},{"sl":41},{"sl":42},{"sl":46},{"sl":48},{"sl":49},{"sl":50},{"sl":52},{"sl":53},{"sl":54},{"sl":55},{"sl":56}]},"test_5":{"methods":[{"sl":32}],"name":"when create a user, but there exists a user with the same email, it should throw an exception","pass":true,"statements":[{"sl":33}]}}
+clover.testTargets = {"test_14":{"methods":[{"sl":19}],"name":"when create a user, but there exists a user with the same email, it should throw an exception","pass":true,"statements":[{"sl":20}]},"test_15":{"methods":[{"sl":19}],"name":"when create a user, it should return an access token","pass":true,"statements":[{"sl":20},{"sl":23},{"sl":24},{"sl":25},{"sl":27},{"sl":28}]}}
 
 // JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
-clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [5, 13], [5, 13], [], [], [13], [13], [13], [], [13], [13], [13], [], [], [13], [13], [], [13], [13], [13], [], [13], [13], [13], [13], [13], [], []]
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [14, 15], [14, 15], [], [], [15], [15], [15], [], [15], [15], [], []]
