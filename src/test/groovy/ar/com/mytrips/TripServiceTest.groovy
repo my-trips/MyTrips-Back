@@ -1,24 +1,16 @@
 package ar.com.mytrips
 
 import ar.com.mytrips.auth.User
-import ar.com.mytrips.destination.Destination
-import ar.com.mytrips.destination.Place
-import ar.com.mytrips.destination.Transport
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.external.UnsplashService
 import grails.testing.gorm.DomainUnitTest
 import org.springframework.http.HttpStatus
-import spock.lang.Specification
 
-import java.time.LocalDateTime
-
-class TripServiceTest extends Specification implements DomainUnitTest<Trip> {
+class TripServiceTest extends MyTripTest implements DomainUnitTest<Trip> {
 
     private TripService tripService
     private UserService userService
     private UnsplashService unsplashService
-    private List<Destination> destinations
-    private Trip trip
     private User user
 
     def setup() {
@@ -33,33 +25,7 @@ class TripServiceTest extends Specification implements DomainUnitTest<Trip> {
         unsplashService.getImage("Lima") >> "IMAGE_LIMA_URL"
 
         tripService = new TripService(userService: userService, unsplashService: unsplashService)
-
-        def destFin = new Destination(relevance: 3, color: "green", place: new Place(),
-                arriveDate: LocalDateTime.of(2022, 10, 12, 12, 50, 00), departDate: null,
-                departTransport: new Transport())
-
-        def paramsDestLima = HashMap.of("relevance", 2,
-                "color", "yellow", "place", new Place(name: "Lima"),
-                "arriveDate", LocalDateTime.of(2022, 10, 10, 12, 50, 00),
-                "departDate",LocalDateTime.of(2022, 10, 12, 12, 50, 00),
-                "departTransport", new Transport(destination: destFin))
-
-        def destLima = Destination.create(paramsDestLima)
-
-        def paramsInit = HashMap.of("relevance", 1,
-                "color", "", "place", new Place(),
-                "departDate", LocalDateTime.of(2022, 10, 10, 12, 50, 00),
-                "departTransport", new Transport(destination: destLima))
-
-        def destInit = Destination.create(paramsInit)
-
-        destinations = [destInit, destLima, destFin]
-
-        trip = new Trip(deleted: false, lastUpdated: LocalDateTime.now())
-        trip.addDestinations(destinations)
     }
-
-    def cleanup() { }
 
     void "when create a trip, it should return a complete trip"() {
         when:
@@ -69,7 +35,7 @@ class TripServiceTest extends Specification implements DomainUnitTest<Trip> {
         resultTrip.getId() == "1"
         resultTrip.getOwner().getFirstName() == "Susan"
         resultTrip.getImage() == "IMAGE_LIMA_URL"
-        resultTrip.getDestinations().size() == 3
+        resultTrip.getDestinations().size() == 4
         resultTrip.getDestinations().stream().allMatch(dest -> dest.getTrip().is(trip))
     }
 
@@ -83,7 +49,7 @@ class TripServiceTest extends Specification implements DomainUnitTest<Trip> {
         then:
         resultTrip.getOwner().getFirstName() == "Susan"
         resultTrip.getImage() == "IMAGE_LIMA_URL"
-        resultTrip.getDestinations().size() == 3
+        resultTrip.getDestinations().size() == 4
         resultTrip.getDestinations().stream().allMatch(dest -> dest.getTrip().is(trip))
     }
 

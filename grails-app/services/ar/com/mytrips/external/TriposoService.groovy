@@ -17,9 +17,9 @@ class TriposoService implements GrailsConfigurationAware {
     String token
     BlockingHttpClient client
 
-    TriposoLocation getLocation(Country country, String place) {
+    TriposoLocation getLocation(String country, String place) {
         def params = [
-                part_of: country.name,
+                part_of: country,
                 tag_labels: "city",
                 count: 1,
                 fields: "name,id,snippet,parent_id,score,type,images",
@@ -57,7 +57,7 @@ class TriposoService implements GrailsConfigurationAware {
         } catch (HttpClientResponseException e) {
             e.printStackTrace()
             if(findLocation){
-                def location = getLocation(destination.place.country, destination.place.name)
+                def location = getLocation(destination.place.country.name, destination.place.name)
                 return getDayPlanner(destination, false)
             }
             return null
