@@ -16,7 +16,7 @@ jobs:
     - name: Run Test Coverage
       run: ./gradlew cloverGenerateReport
     - name: Check test coverage
-      id: test-coverage
+      id: coverage
       uses: johanvanhelden/gha-clover-test-coverage-check@v1
       with:
         percentage: "10"
@@ -27,7 +27,7 @@ jobs:
       with:
         label: 'Coverage'
         status: ${{ steps.coverage.outputs.coverage }}
-        path: ./badges/test-coverage.svg
+        path: badges/test-coverage.svg
         color:  ${{
                   steps.coverage.outputs.coverage > 90 && 'green'              ||
                   steps.coverage.outputs.coverage > 80 && 'yellow,green'       ||
@@ -38,11 +38,27 @@ jobs:
                   steps.coverage.outputs.coverage > 30 && 'red,red,orange'     ||
                   steps.coverage.outputs.coverage > 20 && 'red,red,red,orange' ||
                   'red' }}
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v2
+    - name: Commit badge
+      continue-on-error: true
+      env:
+        BADGE: ${{ steps.coverage.outputs.path }}
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add badges/test-coverage.svg
+        git commit -m "Update badge"
+    - name: Push badge commit
+      uses: ad-m/github-push-action@master
+      if: ${{ success() }}
       with:
-        name: test-report
-        path: build/reports/clover/html/
+        github_token: ${{ github.token }}
+        branch: ${{ steps.coverage.outputs.branch }}
+
+    - name: Deploy report 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      with:
+        branch: gh-pages
+        folder: build/reports/clover/html/
 
     - uses: akhileshns/heroku-deploy@v3.12.12
       with:

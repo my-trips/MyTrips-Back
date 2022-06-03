@@ -1,15 +1,12 @@
 import ar.com.mytrips.auth.User
-import grails.plugin.springsecurity.rest.token.AccessToken
 
 model {
-	AccessToken token
 	User user
 }
 
 json {
+	id user.id
 	username user.email
-	token_type "Bearer"
-	access_token token.accessToken
-	expires_in token.expiration
-	refresh_token token.refreshToken
+	firstName user.firstName
+	lastName user.lastName
 }

@@ -3,6 +3,7 @@ package ar.com.mytrips.auth
 
 class User {
 
+    String id
     String firstName
     String lastName
     String email
