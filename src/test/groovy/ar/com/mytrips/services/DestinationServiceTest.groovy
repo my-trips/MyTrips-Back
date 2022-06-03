@@ -1,5 +1,6 @@
-package ar.com.mytrips
+package ar.com.mytrips.services
 
+import ar.com.mytrips.DestinationService
 import grails.testing.services.ServiceUnitTest
 
 class DestinationServiceTest extends MyTripServiceTest implements ServiceUnitTest<DestinationService> {

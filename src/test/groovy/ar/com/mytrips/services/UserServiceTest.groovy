@@ -1,5 +1,6 @@
-package ar.com.mytrips
+package ar.com.mytrips.services
 
+import ar.com.mytrips.UserService
 import ar.com.mytrips.auth.Role
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.auth.UserRole

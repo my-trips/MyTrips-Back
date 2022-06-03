@@ -1,6 +1,7 @@
-package ar.com.mytrips
+package ar.com.mytrips.services
 
-
+import ar.com.mytrips.TransportService
+import ar.com.mytrips.TransportType
 import ar.com.mytrips.request.TransportCommand
 import grails.testing.services.ServiceUnitTest
 

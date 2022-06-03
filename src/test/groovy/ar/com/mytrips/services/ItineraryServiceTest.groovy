@@ -1,5 +1,6 @@
-package ar.com.mytrips
+package ar.com.mytrips.services
 
+import ar.com.mytrips.ItineraryService
 import ar.com.mytrips.destination.Itinerary
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.external.UnsplashService

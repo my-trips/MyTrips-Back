@@ -1,5 +1,7 @@
-package ar.com.mytrips
+package ar.com.mytrips.services
 
+import ar.com.mytrips.TripService
+import ar.com.mytrips.UserService
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.external.UnsplashService
@@ -35,7 +37,7 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
         resultTrip.owner.getFirstName() == "Susan"
         resultTrip.image == "IMAGE_LIMA_URL"
         resultTrip.destinations.size() == 4
-        resultTrip.destinations.every{dest -> dest.getTrip().is(trip)}
+        resultTrip.destinations.every{dest -> dest.trip.is(trip)}
     }
 
     void "when fetch a trip for id, if the trip exists it should return it"() {

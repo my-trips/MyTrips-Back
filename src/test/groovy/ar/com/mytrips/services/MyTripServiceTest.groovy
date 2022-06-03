@@ -1,5 +1,8 @@
-package ar.com.mytrips
+package ar.com.mytrips.services
 
+import ar.com.mytrips.Cost
+import ar.com.mytrips.TransportType
+import ar.com.mytrips.Trip
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.destination.Place
@@ -21,7 +24,7 @@ class MyTripServiceTest extends Specification implements  DataTest {
 
     def setup() {
         def destFin = new Destination(relevance: 4, color: "green", place: new Place(),
-                arriveDate: LocalDateTime.of(2020, 10, 14, 12, 50),
+                arriveDate: LocalDateTime.of(2022, 10, 14, 12, 50),
                 departDate: null,
                 departTransport: new Transport())
 
@@ -51,7 +54,7 @@ class MyTripServiceTest extends Specification implements  DataTest {
 
         def paramsInit = HashMap.of("relevance", 1,
                 "color", "", "place", new Place(),
-                "departDate", LocalDateTime.of(2020, 10, 10, 12, 50),
+                "departDate", LocalDateTime.of(2022, 10, 10, 12, 50),
                 "departTransport", transport)
 
         def destInit = Destination.create(paramsInit)
