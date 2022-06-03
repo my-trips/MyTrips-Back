@@ -4,7 +4,7 @@ var clover = new Object();
 clover.pageData = {"classes":[{"el":30,"id":737,"methods":[{"el":10,"sc":5,"sl":10},{"el":20,"sc":5,"sl":15},{"el":24,"sc":5,"sl":22},{"el":28,"sc":5,"sl":26}],"name":"User","sl":4}]}
 
 // JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
-clover.testTargets = {"test_0":{"methods":[{"sl":10}],"name":"when create a user, but there exists a user with the same email, it should throw an exception","pass":true,"statements":[]},"test_12":{"methods":[{"sl":10},{"sl":26}],"name":"when create a user, it should return an access token","pass":true,"statements":[{"sl":27}]}}
+clover.testTargets = {"test_0":{"methods":[{"sl":10},{"sl":26}],"name":"when create a user, it should return an access token","pass":true,"statements":[{"sl":27}]},"test_3":{"methods":[{"sl":10}],"name":"when create a user, but there exists a user with the same email, it should throw an exception","pass":true,"statements":[]}}
 
 // JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
-clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [12, 0], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [12], [12], [], [], []]
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [0, 3], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [0], [0], [], [], []]

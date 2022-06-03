@@ -114,14 +114,14 @@
                     
                     <div class="aui-page-header-main"><ol class="aui-nav aui-nav-breadcrumbs">
     
-    <li><a href="../../../dashboard.html"> Project Clover database Fri Jun 3 2022 05:14:23 UTC</a></li>
+    <li><a href="../../../dashboard.html"> Project Clover database Fri Jun 3 2022 05:18:06 UTC</a></li>
      <li><a href="test-pkg-summary.html">Package ar.com.mytrips</a></li>
-     <li><a href="test-TripServiceTest.html">Class TripServiceTest</a></li>
+     <li><a href="test-UserServiceTest.html">Class UserServiceTest</a></li>
 </ol></div>
     
 <h1 class="aui-h2-clover">
                         
-            Test when&#160;search&#160;for&#160;all&#160;trips&#160;for&#160;a&#160;user,&#160;and&#160;the&#160;user&#160;has&#160;no&#160;trips&#160;it&#160;should&#160;not&#160;return&#160;nothing.
+            Test when&#160;create&#160;a&#160;user,&#160;but&#160;there&#160;exists&#160;a&#160;user&#160;with&#160;the&#160;same&#160;email,&#160;it&#160;should&#160;throw&#160;an&#160;exception
             </h1>
 
 
@@ -138,16 +138,16 @@
     <tbody>
         <tr>
             <td>
-                <a  href="../../../ar/com/mytrips/TripServiceTest.html?line=77#src-77" >when search for all trips for a user, and the user has no trips it should not return nothing.</a>
+                <a  href="../../../ar/com/mytrips/UserServiceTest.html?line=78#src-78" >when create a user, but there exists a user with the same email, it should throw an exception</a>
             </td>
                         <td>
                                           <span class="sortValue">1</span><span class="aui-lozenge aui-lozenge-success">PASS</span>
                               </td>
             <td>
-                3 Jun 05:14:19
+                3 Jun 05:18:02
             </td>
             <td>
-                0.001            </td>
+                0.009            </td>
             <td>
                 <div></div>
                 <div class="errorMessage"></div>
@@ -162,7 +162,7 @@
         <thead>
             <tr>
                 <th style="white-space:nowrap;"><label title="A class that was directly hit by this test.">Target Class</label></th>
-                                <th colspan="4"><label title="The percentage of coverage contributed by each single test.">Coverage contributed by</label> when search for all trips for a user, and the user has no trips it should not return nothing.</th>
+                                <th colspan="4"><label title="The percentage of coverage contributed by each single test.">Coverage contributed by</label> when create a user, but there exists a user with the same email, it should throw an exception</th>
             </tr>
         </thead>
         <tbody>
@@ -170,15 +170,41 @@
 
         <tr>
         <td>
-            <span class="sortValue">ar.com.mytrips.TripService</span>
-            &#160;&#160;<a             href="../../../ar/com/mytrips/TripService.html?id=10#TripService"             title="TripService" name="sl-13">ar.com.mytrips.TripService</a>
+            <span class="sortValue">ar.com.mytrips.exception.ServiceException</span>
+            &#160;&#160;<a             href="../../../ar/com/mytrips/exception/ServiceException.html?id=3#ServiceException"             title="ServiceException" name="sl-5">ar.com.mytrips.exception.ServiceException</a>
         </td>
                 <td>
-            <span class="sortValue">0.05882353</span>5.9%
+            <span class="sortValue">0.41666666</span>41.7%
         </td>
         <td class="align-middle" style="width: 100%" colspan="3">
                         <div>
-<div title="5.9% Covered" style="min-width:40px;" class="barNegative contribBarNegative contribBarNegative"><div class="barPositive contribBarPositive contribBarPositive" style="width:5.9%"></div></div></div>        </td>
+<div title="41.7% Covered" style="min-width:40px;" class="barNegative contribBarNegative contribBarNegative"><div class="barPositive contribBarPositive contribBarPositive" style="width:41.7%"></div></div></div>        </td>
+    </tr>
+
+        <tr>
+        <td>
+            <span class="sortValue">ar.com.mytrips.UserService</span>
+            &#160;&#160;<a             href="../../../ar/com/mytrips/UserService.html?id=3#UserService"             title="UserService" name="sl-19">ar.com.mytrips.UserService</a>
+        </td>
+                <td>
+            <span class="sortValue">0.0952381</span>9.5%
+        </td>
+        <td class="align-middle" style="width: 100%" colspan="3">
+                        <div>
+<div title="9.5% Covered" style="min-width:40px;" class="barNegative contribBarNegative contribBarNegative"><div class="barPositive contribBarPositive contribBarPositive" style="width:9.5%"></div></div></div>        </td>
+    </tr>
+
+        <tr>
+        <td>
+            <span class="sortValue">ar.com.mytrips.auth.User</span>
+            &#160;&#160;<a             href="../../../ar/com/mytrips/auth/User.html?id=3#User"             title="User" name="sl-4">ar.com.mytrips.auth.User</a>
+        </td>
+                <td>
+            <span class="sortValue">0.083333336</span>8.3%
+        </td>
+        <td class="align-middle" style="width: 100%" colspan="3">
+                        <div>
+<div title="8.3% Covered" style="min-width:40px;" class="barNegative contribBarNegative contribBarNegative"><div class="barPositive contribBarPositive contribBarPositive" style="width:8.3%"></div></div></div>        </td>
     </tr>
  
         </tbody>
@@ -190,7 +216,7 @@
         <ul>
             <li>
                 Report generated by <a target="_new" href="http://openclover.org">OpenClover</a> v 4.4.1
-                on Fri Jun 3 2022 05:14:23 UTC using coverage data from Fri Jun 3 2022 05:14:23 UTC.
+                on Fri Jun 3 2022 05:18:06 UTC using coverage data from Fri Jun 3 2022 05:18:06 UTC.
             </li>
         </ul>
         <ul>
