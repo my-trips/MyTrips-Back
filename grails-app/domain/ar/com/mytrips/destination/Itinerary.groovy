@@ -3,11 +3,9 @@ package ar.com.mytrips.destination
 import ar.com.mytrips.Cost
 import ar.com.mytrips.Currency
 import ar.com.mytrips.request.TriposoItinerary
-import grails.compiler.GrailsCompileStatic
 
 import java.time.LocalTime
 
-@GrailsCompileStatic
 class Itinerary {
     String id
     String title

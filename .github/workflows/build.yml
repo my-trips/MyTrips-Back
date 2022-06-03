@@ -13,6 +13,37 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run test
       run: ./gradlew test
+    - name: Run Test Coverage
+      run: ./gradlew cloverGenerateReport
+    - name: Check test coverage
+      id: test-coverage
+      uses: johanvanhelden/gha-clover-test-coverage-check@v1
+      with:
+        percentage: "10"
+        filename: build/reports/clover/clover.xml
+    - name: Generate the badge SVG image
+      uses: emibcn/badge-action@v1
+      id: badge
+      with:
+        label: 'Coverage'
+        status: ${{ steps.coverage.outputs.coverage }}
+        path: ./badges/test-coverage.svg
+        color:  ${{
+                  steps.coverage.outputs.coverage > 90 && 'green'              ||
+                  steps.coverage.outputs.coverage > 80 && 'yellow,green'       ||
+                  steps.coverage.outputs.coverage > 70 && 'yellow'             ||
+                  steps.coverage.outputs.coverage > 60 && 'orange,yellow'      ||
+                  steps.coverage.outputs.coverage > 50 && 'orange'             ||
+                  steps.coverage.outputs.coverage > 40 && 'red,orange'         ||
+                  steps.coverage.outputs.coverage > 30 && 'red,red,orange'     ||
+                  steps.coverage.outputs.coverage > 20 && 'red,red,red,orange' ||
+                  'red' }}
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-report
+        path: build/reports/clover/html/
+
     - uses: akhileshns/heroku-deploy@v3.12.12
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
