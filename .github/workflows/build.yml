@@ -57,7 +57,7 @@ jobs:
     - name: Deploy report 🚀
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
-        branch: master
+        branch: gh-pages
         folder: build/reports/clover/html/
 
     - uses: akhileshns/heroku-deploy@v3.12.12
