@@ -16,7 +16,7 @@ jobs:
     - name: Run Test Coverage
       run: ./gradlew cloverGenerateReport
     - name: Check test coverage
-      id: test-coverage
+      id: coverage
       uses: johanvanhelden/gha-clover-test-coverage-check@v1
       with:
         percentage: "10"
