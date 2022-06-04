@@ -7,7 +7,6 @@ import groovy.transform.ToString
 @ToString(includes='authority', includeNames=true, includePackage=false)
 class Role {
 
-    String id
     String authority
 
     static constraints = {

@@ -43,11 +43,11 @@ class UserRole implements Serializable {
         }
     }
 
-    static boolean exists(String userId, String roleId) {
+    static boolean exists(String userId, Long roleId) {
         criteriaFor(userId, roleId).count()
     }
 
-    private static DetachedCriteria criteriaFor(String userId, String roleId) {
+    private static DetachedCriteria criteriaFor(String userId, Long roleId) {
         where {
             user == User.load(userId) &&
                     role == Role.load(roleId)

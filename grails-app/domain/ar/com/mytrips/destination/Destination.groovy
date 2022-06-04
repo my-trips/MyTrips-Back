@@ -3,6 +3,7 @@ package ar.com.mytrips.destination
 import ar.com.mytrips.Cost
 import ar.com.mytrips.Currency
 import ar.com.mytrips.Trip
+import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.request.TriposoDay
 import ar.com.mytrips.request.TriposoDayPlanner
 
@@ -52,6 +53,10 @@ class Destination {
         def safeDays = days
         def destinNext = nextDestination()
 
+        if (destinNext.days.size() === 1) {
+            throw ServiceException.badRequest("daysCannotBeEmpty")
+        }
+
         if(trip.isNotLastDestination(this)) {
             safeDays = Math.min(destinNext.days.size()-1, days)
             destinNext.removeFirstNDay(safeDays)
@@ -63,15 +68,16 @@ class Destination {
     }
 
     def minusDay(Integer days) {
-        if (!(this.days.size() === 1)){
-            minusDayDepartDate(days)
-            removeLastNDay(days)
-            def destinNext = nextDestination()
-            destinNext.minusDayArriveDate(days)
+        if (this.days.size() <= 1){
+            throw ServiceException.badRequest("daysCannotBeEmpty")
+        }
+        minusDayDepartDate(days)
+        removeLastNDay(days)
+        def destinNext = nextDestination()
+        destinNext.minusDayArriveDate(days)
 
-            if(trip.isNotLastDestination(this)) {
-                destinNext.addToFirstDay(days)
-            }
+        if(trip.isNotLastDestination(this)) {
+            destinNext.addToFirstDay(days)
         }
     }
 

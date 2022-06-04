@@ -19,7 +19,7 @@ class BootStrap {
     void addTestUser() {
         def user = User.findByEmail('user@gmail.com')
         if(!user){
-            def adminRole = new Role(authority: 'ROLE_USER').save()
+            new Role(authority: 'ROLE_USER').save()
 
             user = new User(email: 'user@gmail.com', password: 'password')
             userService.save(user)

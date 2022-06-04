@@ -1,7 +1,9 @@
 package ar.com.mytrips.services
 
 import ar.com.mytrips.DestinationService
+import ar.com.mytrips.exception.ServiceException
 import grails.testing.services.ServiceUnitTest
+import org.springframework.http.HttpStatus
 
 class DestinationServiceTest extends MyTripServiceTest implements ServiceUnitTest<DestinationService> {
 
@@ -23,6 +25,20 @@ class DestinationServiceTest extends MyTripServiceTest implements ServiceUnitTes
         destinationNext.days.size() == expectedDestNextDays
     }
 
+    def "when adding days, the next destination cannot run out of days"() {
+        given:
+        def destination = trip.destinationsWithoutOrigin.first()
+
+        when:
+        service.plusDay(destination, trip)
+        service.plusDay(destination, trip)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "daysCannotBeEmpty"
+    }
+
     def "hen a trip is subtract a day to one of its destinations, it should return the updated destination"() {
         given:
         def destination = trip.destinationsWithoutOrigin.first()
@@ -39,5 +55,19 @@ class DestinationServiceTest extends MyTripServiceTest implements ServiceUnitTes
         destination.days.size() == expectedDestDays
         destinationNext.arriveDate.toString() == expectedDate
         destinationNext.days.size() > expectedDestNextDays
+    }
+
+    def "by subtracting days, the previous destination cannot run out of days\n"() {
+        given:
+        def destination = trip.destinationsWithoutOrigin.first()
+
+        when:
+        service.minusDay(destination, trip)
+        service.minusDay(destination, trip)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "daysCannotBeEmpty"
     }
 }

@@ -21,6 +21,7 @@ class User {
     }
 
     static mapping = {
+        id generator: 'uuid'
         password column: '`password`'
     }
 
