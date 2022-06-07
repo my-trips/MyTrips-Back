@@ -1,10 +1,10 @@
 var clover = new Object();
 
 // JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
-clover.pageData = {"classes":[{"el":43,"id":395,"methods":[{"el":19,"sc":5,"sl":16},{"el":24,"sc":5,"sl":21},{"el":30,"sc":5,"sl":26},{"el":36,"sc":5,"sl":32},{"el":42,"sc":5,"sl":38}],"name":"TripController","sl":9}]}
+clover.pageData = {"classes":[{"el":58,"id":486,"methods":[{"el":20,"sc":5,"sl":17},{"el":25,"sc":5,"sl":22},{"el":31,"sc":5,"sl":27},{"el":37,"sc":5,"sl":33},{"el":43,"sc":5,"sl":39},{"el":50,"sc":5,"sl":45},{"el":57,"sc":5,"sl":52}],"name":"TripController","sl":9}]}
 
 // JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
 clover.testTargets = {}
 
 // JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
-clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
