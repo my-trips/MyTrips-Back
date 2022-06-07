@@ -1,5 +1,6 @@
 package ar.com.mytrips
 
+import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.external.TriposoService
@@ -18,8 +19,19 @@ class TripService {
     UserService userService
 
 
-    def get(String id) {
-        Trip.findByIdAndOwnerAndDeleted(id, userService.currentUser, false)
+    def get(String anId) {
+        Trip.where {
+            id == anId
+            deleted == false
+            (
+                owner{
+                    id == userService.currentUser.id
+                } ||
+                collaborators {
+                    id == userService.currentUser.id
+                }
+            )
+        }.get()
     }
 
     def list(Integer max = 25, Integer offset = 0 ) {
@@ -41,6 +53,21 @@ class TripService {
         def newTrip = trip.duplicate()
         newTrip.save()
         return newTrip
+    }
+
+    Trip addCollaborator(Trip trip, User user){
+        trip.addCollaborator(user)
+        trip.save()
+        return trip
+    }
+
+    Trip removeCollaborator(Trip trip, User user){
+        if(trip.owner != userService.currentUser){
+            throw ServiceException.badRequest("invalidUser")
+        }
+        trip.removeCollaborator(user)
+        trip.save()
+        return trip
     }
 
     @Publisher("SuggestedItinerary")

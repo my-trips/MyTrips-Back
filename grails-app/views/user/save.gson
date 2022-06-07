@@ -4,9 +4,6 @@ model {
 	User user
 }
 
-json {
-	id user.id
-	username user.email
-	firstName user.firstName
-	lastName user.lastName
-}
+
+json tmpl.full(user)
+

@@ -13,15 +13,15 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
     private UserService userService
     private UnsplashService unsplashService
     private User user
+    private User collaborator
 
     def setup() {
         userService = Mock()
         unsplashService = Mock()
-        user = new User(HashMap.of("firstName", "Susan",
-                "lastName", "Rosito",
-                "email", "rosisusa@gmail.com",
-                "password", "12345"))
-        userService.getCurrentUser() >> user
+        user = new User(firstName:"Susan", lastName: "Rosito", email:"rosisusa@gmail.com", password:"12345")
+        userService.currentUser >> user
+
+        collaborator = new User(firstName:"Pepe", lastName: "Argento", email:"pepe@gmail.com", password:"12345")
         unsplashService.getImage("Lima") >> "IMAGE_LIMA_URL"
 
         service.userService = userService
@@ -105,7 +105,7 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
         exception.message == "invalidUser"
     }
 
-    void "Copy a trip"() {
+    void "when a trip is copied, a new trip with the same configuration is returned"() {
         given:
             service.create(trip)
         when:
@@ -115,5 +115,91 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
         duplicatedTrip.owner == trip.owner
         duplicatedTrip.image == trip.image
         duplicatedTrip.destinations.size() == trip.destinations.size()
+    }
+
+    void "when a collaborator is added, it should should increase the list of collaborators"() {
+        given:
+            service.create(trip)
+        when:
+          service.addCollaborator(trip, collaborator)
+
+        then:
+        trip.collaborators.size() == 1
+        trip.collaborators.first() == collaborator
+    }
+
+    void "when add a collaborator that already exists, it should throw an exception"() {
+        given:
+        service.create(trip)
+        service.addCollaborator(trip, collaborator)
+
+        when:
+            service.addCollaborator(trip, collaborator)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "invalidCollaborator"
+    }
+
+    void "when the owner is added as a collaborator, it should throw an exception"() {
+        given:
+        service.create(trip)
+        when:
+        service.addCollaborator(trip, trip.owner)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "invalidCollaborator"
+    }
+
+    void "when a collaborator is removed, it should be removed from the list of collaborators"() {
+        given:
+        service.create(trip)
+        service.addCollaborator(trip, collaborator)
+
+        when:
+        service.removeCollaborator(trip, collaborator)
+
+        then:
+        trip.collaborators.isEmpty()
+    }
+
+    void "when removing a collaborator that doesn't exist, it should throw an exception"() {
+        given:
+        service.create(trip)
+        when:
+        service.removeCollaborator(trip, collaborator)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "invalidCollaborator"
+    }
+
+    void "when the owner is removed as a collaborator, it should throw an exception"() {
+        given:
+        service.create(trip)
+        when:
+        service.removeCollaborator(trip, trip.owner)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "invalidCollaborator"
+    }
+
+    void "when a non-owner user removes a collaborator, it should throw an exception"() {
+        given:
+        service.create(trip)
+        trip.owner = collaborator
+        when:
+        service.removeCollaborator(trip, collaborator)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "invalidUser"
     }
 }
