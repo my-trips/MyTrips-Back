@@ -17,4 +17,9 @@ class UserController implements ModelRequestResolver {
         userService.save(user)
         render model: [user:user], view: 'save'
     }
+
+    def search(String query, Integer max, Integer offset) {
+        def users = userService.search(query, max?: 20, offset?:0)
+        render model: [users:users], view: 'list'
+    }
 }

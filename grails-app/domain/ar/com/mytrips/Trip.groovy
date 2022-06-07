@@ -2,6 +2,7 @@ package ar.com.mytrips
 
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
+import ar.com.mytrips.exception.ServiceException
 
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -13,14 +14,16 @@ class Trip {
     Boolean deleted = false
     User owner
     String image
-    LocalDateTime lastUpdated
+    LocalDateTime lastUpdated = LocalDateTime.now()
+    Set<User> collaborators = []
 
-    static hasMany = [destinations: Destination]
+    static hasMany = [destinations: Destination, collaborators:User]
 
     static constraints = {
         deleted nullable: false
         image nullable: true
         lastUpdated nullable: true
+        collaborators nullable: true
     }
 
     static mapping = {
@@ -41,6 +44,26 @@ class Trip {
         }
 
         this.destinations = destinations
+    }
+
+    def addCollaborator(User user) {
+        if(user == owner || collaborators.contains(user)){
+            throw ServiceException.badRequest("invalidCollaborator")
+        }
+        addToCollaborators(user)
+    }
+
+    def removeCollaborator(User user) {
+        if(!collaborators.contains(user)) {
+            throw ServiceException.badRequest("invalidCollaborator")
+        }
+        removeFromCollaborators(user)
+    }
+
+    Trip duplicate(){
+        def trip = new Trip(owner: owner, image: image)
+        trip.addDestinations(destinations.collect { it.duplicate()})
+        trip
     }
 
     Integer getTotalDays(){

@@ -9,16 +9,15 @@ class Day {
 
     String id
     LocalDate date
-    List<Itinerary> itinerary = []
+    List<Activity> activities = []
     List<Stay> stay = []
 
     static belongsTo = [destination:Destination]
 
-    static hasMany = [itinerary: Itinerary, stay: Stay]
-
+    static hasMany = [activities: Activity, stay: Stay]
     static mapping = {
         id generator: 'uuid'
-        itinerary cascade: 'all', sort: 'startTime'
+        activities cascade: 'all', sort: 'startTime'
         stay cascade: 'all', sort: 'checkIn'
     }
 
@@ -29,18 +28,18 @@ class Day {
         date.minusDays(day)
     }
 
-    def removeItinerary(Itinerary anItinerary){
-        if(!itinerary.contains(anItinerary)){
-            throw ServiceException.badRequest("invalid itinerary")
+    def removeActivity(Activity activity){
+        if(!activities.contains(activity)){
+            throw ServiceException.badRequest("invalidActivity")
         }
-        anItinerary.day = null
-        removeFromItinerary(anItinerary)
-        anItinerary.delete()
+        activity.day = null
+        removeFromActivities(activity)
+        activity.delete()
     }
 
-    def addItinerary(Itinerary itinerary){
-        itinerary.day = this
-        addToItinerary(itinerary)
+    def addActivity(Activity activity){
+        activity.day = this
+        addToActivities(activity)
     }
 
     def addStay(Stay stay) {
@@ -49,8 +48,14 @@ class Day {
     }
 
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost){
-        itinerary.forEach{it.addCost(cost)}
+        activities.forEach{it.addCost(cost)}
         cost
+    }
+
+    Day duplicate(Destination destination){
+        def day = new Day(date:date, destination:destination )
+        day.activities = activities.collect{ it.duplicate(day)}
+        day
     }
 
 }

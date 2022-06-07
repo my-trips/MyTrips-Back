@@ -34,4 +34,8 @@ class Place {
         id generator: 'uuid'
     }
 
+    Place duplicate(Destination destination){
+        new Place(this.properties +  [destination: destination, id:null])
+    }
+
 }

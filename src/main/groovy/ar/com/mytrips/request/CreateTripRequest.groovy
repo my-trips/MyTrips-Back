@@ -129,7 +129,7 @@ class CountryCommand implements ModelRequest<Country>  {
     }
 }
 
-class ItineraryCommand implements ModelRequest<Itinerary>  {
+class ActivityCommand implements ModelRequest<Activity>  {
     String title
     String description
     String name
@@ -159,8 +159,8 @@ class ItineraryCommand implements ModelRequest<Itinerary>  {
     }
 
     @Override
-    Itinerary toModel() {
-        new Itinerary(changes())
+    Activity toModel() {
+        new Activity(changes())
     }
 
     @Override

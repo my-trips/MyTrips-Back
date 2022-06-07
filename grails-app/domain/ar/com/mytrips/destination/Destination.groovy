@@ -90,6 +90,14 @@ class Destination {
         arriveDate = newDate
     }
 
+    Destination duplicate(){
+        def destination = new Destination(relevance: relevance, color: color, arriveDate: arriveDate, departDate: departDate, images: images?.toList())
+        destination.place = place.duplicate(destination)
+        destination.departTransport = departTransport?.duplicate(destination)
+        destination.days = days.collect{it.duplicate(destination)}
+        destination
+    }
+
     Destination nextDestination() {
       departTransport.destination
     }
@@ -137,13 +145,13 @@ class Destination {
 
     def addToLastDay(Integer n=1) {
         (1..n).each {
-            addToDays(new Day(date: lastDay.plusDay(1), itinerary: [], destination: this))
+            addToDays(new Day(date: lastDay.plusDay(1), activities: [], destination: this))
         }
     }
 
     def addToFirstDay(Integer n = 1) {
         (1..n).each {
-            this.days.add(0, new Day(date: firstDay.minusDay(1), itinerary: [], destination: this))
+            this.days.add(0, new Day(date: firstDay.minusDay(1), activities: [], destination: this))
         }
     }
 
@@ -160,7 +168,7 @@ class Destination {
         images = dayPlanner.location.images.collect{ it.sourceUrl}.toSet()
         dayPlanner.days.collect { TriposoDay it ->
             def day = days.find {day->  day.date == it.date}
-            day?.itinerary =  it.itineraryItems.collect{Itinerary.fromTriposo(it, day)}
+            day?.activities =  it.itineraryItems.collect{Activity.fromTriposo(it, day)}
         }
     }
 

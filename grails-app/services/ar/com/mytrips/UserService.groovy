@@ -12,11 +12,15 @@ class UserService {
 
     SpringSecurityService springSecurityService
 
-    User getCurrentUser(){
+    User getCurrentUser() {
         springSecurityService.currentUser as User
     }
 
-    void save(User user){
+    User get(String id) {
+        User.get(id)
+    }
+
+    void save(User user) {
         if(User.findByEmail(user.email) != null){
             throw ServiceException.badRequest("duplicateEmail", [email: user.email])
         }
@@ -26,5 +30,10 @@ class UserService {
 
         def role = Role.defaultRole
         UserRole.create user, role
+    }
+
+    List<User> search(String query, Integer max = 20, Integer offset = 0) {
+        def filter = "${query}%"
+        User.findAllByEmailLikeOrFirstNameLikeOrLastNameLike(filter, filter, filter, [sort:"id",  max: max, offset:offset])
     }
 }

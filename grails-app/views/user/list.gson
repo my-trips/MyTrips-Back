@@ -1,0 +1,8 @@
+import ar.com.mytrips.auth.User
+
+model {
+	Iterable<User> users
+}
+
+json tmpl.full(users ?: [])
+

@@ -1,7 +1,5 @@
 import ar.com.mytrips.destination.Day
 
-import java.time.LocalDate
-
 model {
 	Day day
 }
@@ -9,5 +7,5 @@ model {
 json {
 	id day?.id
 	date day.date?.toString()
-	itinerary g.render(template:"/itinerary/full", collection: day.itinerary, var:'itinerary')
+	activities g.render(template:"/activity/full", collection: day.activities, var:'activity')
 }

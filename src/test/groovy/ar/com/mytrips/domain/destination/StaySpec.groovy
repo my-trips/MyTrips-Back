@@ -1,5 +1,6 @@
-package ar.com.mytrips.destination
+package ar.com.mytrips.domain.destination
 
+import ar.com.mytrips.destination.Stay
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
