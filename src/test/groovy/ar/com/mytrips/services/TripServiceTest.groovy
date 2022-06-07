@@ -104,4 +104,16 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
         exception.status == HttpStatus.FORBIDDEN
         exception.message == "invalidUser"
     }
+
+    void "Copy a trip"() {
+        given:
+            service.create(trip)
+        when:
+        def duplicatedTrip = service.copy(trip)
+
+        then:
+        duplicatedTrip.owner == trip.owner
+        duplicatedTrip.image == trip.image
+        duplicatedTrip.destinations.size() == trip.destinations.size()
+    }
 }

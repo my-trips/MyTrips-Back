@@ -34,4 +34,10 @@ class TripController implements ModelRequestResolver {
         def trip = tripService.create(request.toModel())
         respond  trip, view: 'show'
     }
+
+    def copy(String id) {
+        def trip = assertExistence(tripService.get(id), "El trip no existe")
+        def newTrip = tripService.copy(trip)
+        respond  newTrip, view: 'show'
+    }
 }

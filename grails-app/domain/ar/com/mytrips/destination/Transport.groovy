@@ -47,4 +47,8 @@ class Transport {
             destination.updateArriveDate(arrive)
         }
     }
+
+    Transport duplicate(Destination destination){
+        new Transport(this.properties + [origin:destination, id:null, destination:null])
+    }
 }

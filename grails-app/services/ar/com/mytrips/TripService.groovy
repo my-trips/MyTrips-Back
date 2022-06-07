@@ -33,8 +33,14 @@ class TripService {
         }
         trip.image = unsplashService.getImage(trip.firstDestination.place.name)
         trip.save()
-        publishSuggestedItinerary(trip)
+//        publishSuggestedItinerary(trip)
         trip
+    }
+
+    Trip copy(Trip trip){
+        def newTrip = trip.duplicate()
+        newTrip.save()
+        return newTrip
     }
 
     @Publisher("SuggestedItinerary")

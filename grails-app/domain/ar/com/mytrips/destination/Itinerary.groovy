@@ -56,4 +56,8 @@ class Itinerary {
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost) {
         this.cost?.accumulate(cost)
     }
+
+    Itinerary duplicate(Day day){
+        new Itinerary(this.properties + [id:null, day:day, images: images.toList()])
+    }
 }

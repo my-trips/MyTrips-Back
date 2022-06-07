@@ -1,6 +1,5 @@
 package ar.com.mytrips.external
 
-import ar.com.mytrips.Country
 import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.request.*
 import grails.config.Config
@@ -55,7 +54,7 @@ class TriposoService implements GrailsConfigurationAware {
             List<TriposoDayPlanner> planner = get("day_planner.json", params, TriposoDayPlannerResponse)
             !planner.isEmpty()? planner.first():null
         } catch (HttpClientResponseException e) {
-            e.printStackTrace()
+//            e.printStackTrace()
             if(findLocation){
                 def location = getLocation(destination.place.country.name, destination.place.name)
                 return getDayPlanner(destination, false)
@@ -77,7 +76,7 @@ class TriposoService implements GrailsConfigurationAware {
             }
             return []
         } catch (HttpClientResponseException e) {
-            e.printStackTrace()
+//            e.printStackTrace()
             return []
         }
     }

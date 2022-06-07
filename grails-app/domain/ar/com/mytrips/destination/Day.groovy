@@ -47,4 +47,10 @@ class Day {
         cost
     }
 
+    Day duplicate(Destination destination){
+        def day = new Day(date:date, destination:destination )
+        day.itinerary = itinerary.collect{ it.duplicate(day)}
+        day
+    }
+
 }

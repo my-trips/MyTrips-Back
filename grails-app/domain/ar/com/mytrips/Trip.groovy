@@ -13,7 +13,7 @@ class Trip {
     Boolean deleted = false
     User owner
     String image
-    LocalDateTime lastUpdated
+    LocalDateTime lastUpdated = LocalDateTime.now()
 
     static hasMany = [destinations: Destination]
 
@@ -41,6 +41,12 @@ class Trip {
         }
 
         this.destinations = destinations
+    }
+
+    Trip duplicate(){
+        def trip = new Trip(owner: owner, image: image)
+        trip.addDestinations(destinations.collect { it.duplicate()})
+        trip
     }
 
     Integer getTotalDays(){

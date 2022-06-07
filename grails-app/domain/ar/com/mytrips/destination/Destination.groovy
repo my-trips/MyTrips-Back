@@ -90,6 +90,14 @@ class Destination {
         arriveDate = newDate
     }
 
+    Destination duplicate(){
+        def destination = new Destination(relevance: relevance, color: color, arriveDate: arriveDate, departDate: departDate, images: images.toList())
+        destination.place = place.duplicate(destination)
+        destination.departTransport = departTransport?.duplicate(destination)
+        destination.days = days.collect{it.duplicate(destination)}
+        destination
+    }
+
     Destination nextDestination() {
       departTransport.destination
     }
