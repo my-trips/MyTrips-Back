@@ -2,38 +2,38 @@ package ar.com.mytrips
 
 import ar.com.mytrips.destination.Day
 import ar.com.mytrips.destination.Destination
-import ar.com.mytrips.destination.Itinerary
-import ar.com.mytrips.request.ItineraryCommand
+import ar.com.mytrips.destination.Activity
+import ar.com.mytrips.request.ActivityCommand
 import grails.converters.JSON
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional
 @Secured("ROLE_USER")
-class ItineraryController implements ModelRequestResolver {
+class ActivityController implements ModelRequestResolver {
 
-    ItineraryService itineraryService
+    ActivityService activityService
     TripService tripService
 
     def delete(String tripId, String destinationId, String dayId, String id) {
         def trip = assertExistence(tripService.get(tripId), "El trip no existe")
         def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
         def day = assertExistence(Day.findByIdAndDestination(dayId, destination), "El day no existe")
-        def itinerary = assertExistence(Itinerary.findById(id), "El itinerario no existe")
-        itineraryService.delete(trip, day, itinerary)
+        def activity = assertExistence(Activity.findById(id), "El itinerario no existe")
+        activityService.delete(trip, day, activity)
         render(contentType: "application/json", text: [:] as JSON)
     }
 
 
     def update(String tripId, String destinationId, String dayId, String id) {
-        def trip = assertExistence(tripService.get(tripId), "El trip no existe")
-        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
-        def day = assertExistence(Day.findByIdAndDestination(dayId, destination), "El day no existe")
-        def itinerary = assertExistence(Itinerary.findByIdAndDay(id, day), "El itinerario no existe")
+        def trip = assertExistence(tripService.get(tripId), "tripNotFound")
+        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "destinationNotFound")
+        def day = assertExistence(Day.findByIdAndDestination(dayId, destination), "dayNotfound")
+        def activity = assertExistence(Activity.findByIdAndDay(id, day), "activityNotFound")
 
-        def request = getBody(ItineraryCommand)
-        itineraryService.update(trip, itinerary, request)
-        respond  itinerary, view: 'show'
+        def request = getBody(ActivityCommand)
+        activityService.update(trip, activity, request)
+        respond  activity, view: 'show'
     }
 
     def save(String tripId, String destinationId, String dayId) {
@@ -41,9 +41,9 @@ class ItineraryController implements ModelRequestResolver {
         def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
         def day = assertExistence(Day.findByIdAndDestination(dayId, destination), "El day no existe")
 
-        def request = getBody(ItineraryCommand)
-        def itinerary = itineraryService.create(trip, day, request.toModel())
-        respond  itinerary, view: 'show'
+        def request = getBody(ActivityCommand)
+        def activity = activityService.create(trip, day, request.toModel())
+        respond  activity, view: 'show'
     }
 
 

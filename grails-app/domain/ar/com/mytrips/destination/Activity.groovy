@@ -2,11 +2,11 @@ package ar.com.mytrips.destination
 
 import ar.com.mytrips.Cost
 import ar.com.mytrips.Currency
-import ar.com.mytrips.request.TriposoItinerary
+import ar.com.mytrips.request.TriposoActivity
 
 import java.time.LocalTime
 
-class Itinerary {
+class Activity {
     String id
     String title
     String description
@@ -42,22 +42,22 @@ class Itinerary {
     static mapping = {
         description type: "text"
         snippet type: "text"
-        images joinTable:[name:'itinerary_images', key:'itinerary_id', column:'image', type:"text"]
+        images joinTable:[name:'activity_images', key:'activity_id', column:'image', type:"text"]
         id generator: 'uuid'
         notes type: "text"
     }
 
-    static Itinerary fromTriposo(TriposoItinerary itinerary, Day day){
-        return new Itinerary(day:day, title: itinerary.title, description: itinerary.description, name: itinerary.poi.name,
-        snippet: itinerary.poi.snippet, images: itinerary.poi.images.collect{it.sourceUrl}.toSet(), latitude: itinerary.poi.coordinates?.latitude,
-        longitude: itinerary.poi.coordinates?.longitude)
+    static Activity fromTriposo(TriposoActivity activity, Day day){
+        return new Activity(day:day, title: activity.title, description: activity.description, name: activity.poi.name,
+        snippet: activity.poi.snippet, images: activity.poi.images.collect{it.sourceUrl}.toSet(), latitude: activity.poi.coordinates?.latitude,
+        longitude: activity.poi.coordinates?.longitude)
     }
 
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost) {
         this.cost?.accumulate(cost)
     }
 
-    Itinerary duplicate(Day day){
-        new Itinerary(this.properties + [id:null, day:day, images: images.toList()])
+    Activity duplicate(Day day){
+        new Activity(this.properties + [id:null, day:day, images: images.toList()])
     }
 }

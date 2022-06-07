@@ -6,13 +6,10 @@ import ar.com.mytrips.TransportType
 import ar.com.mytrips.Trip
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
-import ar.com.mytrips.destination.Itinerary
+import ar.com.mytrips.destination.Activity
 import ar.com.mytrips.destination.Place
 import ar.com.mytrips.destination.Transport
 import io.micronaut.core.annotation.Introspected
-
-import java.time.LocalTime
-
 
 class CreateTripRequest implements ModelRequest<Trip> {
     List<DestinationCommand> destinations
@@ -135,7 +132,7 @@ class CountryCommand implements ModelRequest<Country>  {
     }
 }
 
-class ItineraryCommand  implements ModelRequest<Itinerary>  {
+class ActivityCommand implements ModelRequest<Activity>  {
     String title
     String description
     String name
@@ -165,8 +162,8 @@ class ItineraryCommand  implements ModelRequest<Itinerary>  {
     }
 
     @Override
-    Itinerary toModel() {
-        new Itinerary(changes())
+    Activity toModel() {
+        new Activity(changes())
     }
 
     @Override

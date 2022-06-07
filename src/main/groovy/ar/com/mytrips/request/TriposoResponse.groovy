@@ -64,12 +64,12 @@ class TriposoDayPlanner {
 class TriposoDay {
     LocalDate date
     @JsonProperty("itinerary_items")
-    List<TriposoItinerary> itineraryItems
+    List<TriposoActivity> itineraryItems
 }
 
 @Introspected
 @CompileStatic
-class TriposoItinerary {
+class TriposoActivity {
     String description
     String title
     TriposoPoi poi

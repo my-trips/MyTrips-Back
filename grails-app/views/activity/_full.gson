@@ -1,0 +1,25 @@
+import ar.com.mytrips.destination.Activity
+
+model {
+	Activity activity
+}
+
+json {
+
+	id activity.id
+	title activity.title
+	description activity.description
+	name activity.name
+	snippet activity.snippet
+	longitude activity.longitude
+	latitude activity.latitude
+	images activity.images
+	notes activity.notes
+	startTime activity.startTime
+	endTime activity.endTime
+	score activity.score
+	cost  {
+		currency activity.cost?.currency
+		amount activity.cost?.amount
+	}
+}
