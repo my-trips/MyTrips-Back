@@ -1,6 +1,5 @@
 package ar.com.mytrips.domain
 
-import ar.com.mytrips.Cost
 import ar.com.mytrips.Currency
 import ar.com.mytrips.Trip
 import grails.testing.gorm.DomainUnitTest

@@ -5,14 +5,8 @@ import ar.com.mytrips.Country
 import ar.com.mytrips.TransportType
 import ar.com.mytrips.Trip
 import ar.com.mytrips.auth.User
-import ar.com.mytrips.destination.Destination
-import ar.com.mytrips.destination.Itinerary
-import ar.com.mytrips.destination.Place
-import ar.com.mytrips.destination.Transport
+import ar.com.mytrips.destination.*
 import io.micronaut.core.annotation.Introspected
-
-import java.time.LocalTime
-
 
 class CreateTripRequest implements ModelRequest<Trip> {
     List<DestinationCommand> destinations
@@ -26,7 +20,7 @@ class CreateTripRequest implements ModelRequest<Trip> {
 }
 
 @Introspected
-class DestinationCommand  implements ModelRequest<Destination> {
+class DestinationCommand implements ModelRequest<Destination> {
     Integer relevance
     String color
     String arriveDate
@@ -77,7 +71,7 @@ class PlaceCommand implements ModelRequest<Place>  {
     }
 }
 
-class TransportCommand  implements ModelRequest<Transport>  {
+class TransportCommand implements ModelRequest<Transport>  {
     String id
     TransportType type
     String depart
@@ -135,7 +129,7 @@ class CountryCommand implements ModelRequest<Country>  {
     }
 }
 
-class ItineraryCommand  implements ModelRequest<Itinerary>  {
+class ItineraryCommand implements ModelRequest<Itinerary>  {
     String title
     String description
     String name
@@ -173,5 +167,40 @@ class ItineraryCommand  implements ModelRequest<Itinerary>  {
     Map<String, Closure> getTransformations() {
         ["startTime": STRING_TO_TIME, "endTime": STRING_TO_TIME]
     }
+}
+
+class StayCommand implements ModelRequest<Stay>  {
+
+    String title
+    String name
+    String address
+    Double longitude
+    Double latitude
+    String notes
+    String checkIn
+    String checkOut
+    Cost cost
+    String reservation
+    String link
+
+    static constraints = {
+        title nullable: true
+        name nullable: true
+        address nullable: true
+        longitude nullable: true
+        latitude nullable: true
+        notes nullable: true
+        checkOut nullable: true
+        checkIn nullable: true
+        cost nullable: true
+        reservation nullable: true
+        link nullable: true
+    }
+
+    @Override
+    Stay toModel() { new Stay(changes()) }
+
+    @Override
+    Map<String, Closure> getTransformations() { ["checkIn": STRING_TO_DATETIME, "checkOut": STRING_TO_DATETIME] }
 }
 

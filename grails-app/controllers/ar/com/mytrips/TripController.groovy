@@ -1,6 +1,5 @@
 package ar.com.mytrips
 
-
 import ar.com.mytrips.request.CreateTripRequest
 import grails.converters.JSON
 import grails.gorm.transactions.Transactional

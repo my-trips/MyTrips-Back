@@ -3,22 +3,23 @@ package ar.com.mytrips.destination
 import ar.com.mytrips.Cost
 import ar.com.mytrips.Currency
 import ar.com.mytrips.exception.ServiceException
-
 import java.time.LocalDate
-
 
 class Day {
 
     String id
     LocalDate date
     List<Itinerary> itinerary = []
+    List<Stay> stay = []
 
     static belongsTo = [destination:Destination]
 
-    static hasMany = [itinerary: Itinerary]
+    static hasMany = [itinerary: Itinerary, stay: Stay]
+
     static mapping = {
         id generator: 'uuid'
         itinerary cascade: 'all', sort: 'startTime'
+        stay cascade: 'all', sort: 'checkIn'
     }
 
     LocalDate plusDay(Integer day) {
@@ -40,6 +41,11 @@ class Day {
     def addItinerary(Itinerary itinerary){
         itinerary.day = this
         addToItinerary(itinerary)
+    }
+
+    def addStay(Stay stay) {
+        stay.day = this
+        addToStay(stay)
     }
 
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost){

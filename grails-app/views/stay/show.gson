@@ -1,0 +1,7 @@
+import ar.com.mytrips.destination.Stay
+
+model {
+	Stay stay
+}
+
+json tmpl.full(stay)

@@ -1,0 +1,25 @@
+import ar.com.mytrips.destination.Stay
+
+model {
+	Stay stay
+}
+
+json {
+
+	id stay.id
+	title stay.title
+	name stay.name
+	address stay.address
+	longitude stay.longitude
+	latitude stay.latitude
+	notes stay.notes
+	checkIn stay.checkIn
+	checkOut stay.checkOut
+	cost  {
+		currency stay.cost?.currency
+		amount stay.cost?.amount
+	}
+	reservation stay.reservation
+	link stay.link
+}
+

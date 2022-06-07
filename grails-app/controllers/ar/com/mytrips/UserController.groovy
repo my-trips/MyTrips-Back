@@ -1,8 +1,6 @@
 package ar.com.mytrips
 
-
 import ar.com.mytrips.request.CreateUserRequest
-import grails.converters.JSON
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
@@ -19,6 +17,4 @@ class UserController implements ModelRequestResolver {
         userService.save(user)
         render model: [user:user], view: 'save'
     }
-
-
 }

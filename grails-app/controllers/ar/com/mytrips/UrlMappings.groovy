@@ -27,5 +27,7 @@ class UrlMappings {
         "/api/trip/$tripId/destination/$destinationId/day/$dayId/itinerary/$id"(controller: 'itinerary', action: "delete", method: 'DELETE')
         "/api/trip/$tripId/destination/$destinationId/day/$dayId/itinerary/$id"(controller: 'itinerary', action: "update", method: 'PUT')
         "/api/trip/$tripId/destination/$destinationId/day/$dayId/itinerary"(controller: 'itinerary', action: "save", method: 'POST')
+
+        "/api/trip/$tripId/destination/$destinationId/day/$dayId/stay"(controller: 'stay', action: "save", method: 'POST')
     }
 }
