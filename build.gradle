@@ -140,6 +140,7 @@ gradle.taskGraph.whenReady {
 
 bootJar { //Exclude test files when pack boot jar file
     enabled = true
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     classifier = 'boot'
     exclude "test/**"
     exclude "test/**/**"
