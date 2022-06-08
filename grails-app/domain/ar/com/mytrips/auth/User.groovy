@@ -1,5 +1,7 @@
 package ar.com.mytrips.auth
 
+import ar.com.mytrips.Trip
+
 
 class User {
 
@@ -13,6 +15,8 @@ class User {
     boolean accountLocked
     boolean passwordExpired
 
+    static hasMany = [trips: Trip]
+
     static constraints = {
         password blank: false, password: true
         email blank: false, unique: true
@@ -24,6 +28,8 @@ class User {
         id generator: 'uuid'
         password column: '`password`'
     }
+
+    static mappedBy = [trips: 'owner']
 
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>

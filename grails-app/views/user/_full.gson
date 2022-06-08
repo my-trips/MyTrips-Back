@@ -6,7 +6,7 @@ model {
 
 json {
 	id user.id
-	username user.email
+	email user.email
 	firstName user.firstName
 	lastName user.lastName
 }

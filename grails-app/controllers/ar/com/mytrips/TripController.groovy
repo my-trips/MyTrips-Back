@@ -41,17 +41,17 @@ class TripController implements ModelRequestResolver {
         respond  newTrip, view: 'show'
     }
 
-    def addCollaborator(String id, String userId) {
+    def addTraveller(String id, String email) {
         def trip = assertExistence(tripService.get(id), "invalidTrip")
-        def collaborator = assertExistence(userService.get(userId), "invalidCollaborator")
-        def newTrip = tripService.addCollaborator(trip, collaborator)
+        def traveller = assertExistence(userService.getByEmail(email), "userNotFound")
+        def newTrip = tripService.addTraveller(trip, traveller)
         respond  newTrip, view: 'show'
     }
 
-    def removeCollaborator(String id, String userId) {
+    def removeTraveller(String id, String userId) {
         def trip = assertExistence(tripService.get(id), "invalidTrip")
-        def collaborator = assertExistence(userService.get(userId), "invalidCollaborator")
-        def newTrip = tripService.removeCollaborator(trip, collaborator)
+        def traveller = assertExistence(userService.get(userId), "userNotFound")
+        def newTrip = tripService.removeTraveller(trip, traveller)
         respond  newTrip, view: 'show'
     }
 }

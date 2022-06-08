@@ -13,7 +13,7 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
     private UserService userService
     private UnsplashService unsplashService
     private User user
-    private User collaborator
+    private User traveller
 
     def setup() {
         userService = Mock()
@@ -21,7 +21,7 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
         user = new User(firstName:"Susan", lastName: "Rosito", email:"rosisusa@gmail.com", password:"12345")
         userService.currentUser >> user
 
-        collaborator = new User(firstName:"Pepe", lastName: "Argento", email:"pepe@gmail.com", password:"12345")
+        traveller = new User(firstName:"Pepe", lastName: "Argento", email:"pepe@gmail.com", password:"12345")
         unsplashService.getImage("Lima") >> "IMAGE_LIMA_URL"
 
         service.userService = userService
@@ -117,85 +117,85 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
         duplicatedTrip.destinations.size() == trip.destinations.size()
     }
 
-    void "when a collaborator is added, it should should increase the list of collaborators"() {
+    void "when a traveller is added, it should should increase the list of travellers"() {
         given:
             service.create(trip)
         when:
-          service.addCollaborator(trip, collaborator)
+          service.addTraveller(trip, traveller)
 
         then:
-        trip.collaborators.size() == 1
-        trip.collaborators.first() == collaborator
+        trip.travellers.size() == 1
+        trip.travellers.first() == traveller
     }
 
-    void "when add a collaborator that already exists, it should throw an exception"() {
+    void "when add a traveller that already exists, it should throw an exception"() {
         given:
         service.create(trip)
-        service.addCollaborator(trip, collaborator)
+        service.addTraveller(trip, traveller)
 
         when:
-            service.addCollaborator(trip, collaborator)
-
-        then:
-        def exception = thrown(ServiceException)
-        exception.status == HttpStatus.BAD_REQUEST
-        exception.message == "invalidCollaborator"
-    }
-
-    void "when the owner is added as a collaborator, it should throw an exception"() {
-        given:
-        service.create(trip)
-        when:
-        service.addCollaborator(trip, trip.owner)
+            service.addTraveller(trip, traveller)
 
         then:
         def exception = thrown(ServiceException)
         exception.status == HttpStatus.BAD_REQUEST
-        exception.message == "invalidCollaborator"
+        exception.message == "invalidTraveller"
     }
 
-    void "when a collaborator is removed, it should be removed from the list of collaborators"() {
-        given:
-        service.create(trip)
-        service.addCollaborator(trip, collaborator)
-
-        when:
-        service.removeCollaborator(trip, collaborator)
-
-        then:
-        trip.collaborators.isEmpty()
-    }
-
-    void "when removing a collaborator that doesn't exist, it should throw an exception"() {
+    void "when the owner is added as a traveller, it should throw an exception"() {
         given:
         service.create(trip)
         when:
-        service.removeCollaborator(trip, collaborator)
+        service.addTraveller(trip, trip.owner)
 
         then:
         def exception = thrown(ServiceException)
         exception.status == HttpStatus.BAD_REQUEST
-        exception.message == "invalidCollaborator"
+        exception.message == "invalidTraveller"
     }
 
-    void "when the owner is removed as a collaborator, it should throw an exception"() {
+    void "when a traveller is removed, it should be removed from the list of travellers"() {
+        given:
+        service.create(trip)
+        service.addTraveller(trip, traveller)
+
+        when:
+        service.removeTraveller(trip, traveller)
+
+        then:
+        trip.travellers.isEmpty()
+    }
+
+    void "when removing a traveller that doesn't exist, it should throw an exception"() {
         given:
         service.create(trip)
         when:
-        service.removeCollaborator(trip, trip.owner)
+        service.removeTraveller(trip, traveller)
 
         then:
         def exception = thrown(ServiceException)
         exception.status == HttpStatus.BAD_REQUEST
-        exception.message == "invalidCollaborator"
+        exception.message == "invalidTraveller"
     }
 
-    void "when a non-owner user removes a collaborator, it should throw an exception"() {
+    void "when the owner is removed as a traveller, it should throw an exception"() {
         given:
         service.create(trip)
-        trip.owner = collaborator
         when:
-        service.removeCollaborator(trip, collaborator)
+        service.removeTraveller(trip, trip.owner)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "invalidTraveller"
+    }
+
+    void "when a non-owner user removes a traveller, it should throw an exception"() {
+        given:
+        service.create(trip)
+        trip.owner = traveller
+        when:
+        service.removeTraveller(trip, traveller)
 
         then:
         def exception = thrown(ServiceException)

@@ -13,4 +13,6 @@ json {
 	endDate trip.endDate
 	lastUpdated trip.lastUpdated?.toString()
 	totalCost trip.totalCost.collect { [currency: it?.key, value: it?.value?.amount]}
+	travellers g.render(template:"/user/full", collection: trip.travellers, var:'user')
+	owner tmpl."/user/full"(trip.owner)
 }

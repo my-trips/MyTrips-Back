@@ -61,7 +61,7 @@ class MyTripServiceTest extends Specification implements  DataTest {
 
         destinations = [destInit, destLima, destSantiago, destFin]
 
-        trip = new Trip(deleted: false, owner: new User(), image: "image", lastUpdated: LocalDateTime.now())
+        trip = new Trip(deleted: false, owner: new User(email: "user@gmail.com"), image: "image", lastUpdated: LocalDateTime.now())
         trip.addDestinations(destinations)
     }
 
