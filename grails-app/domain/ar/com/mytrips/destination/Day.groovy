@@ -10,15 +10,13 @@ class Day {
     String id
     LocalDate date
     List<Activity> activities = []
-    List<Stay> stay = []
 
     static belongsTo = [destination:Destination]
 
-    static hasMany = [activities: Activity, stay: Stay]
+    static hasMany = [activities: Activity]
     static mapping = {
         id generator: 'uuid'
         activities cascade: 'all', sort: 'startTime'
-        stay cascade: 'all', sort: 'checkIn'
     }
 
     LocalDate plusDay(Integer day) {
@@ -42,11 +40,6 @@ class Day {
         addToActivities(activity)
     }
 
-    def addStay(Stay stay) {
-        stay.day = this
-        addToStay(stay)
-    }
-
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost){
         activities.forEach{it.addCost(cost)}
         cost
@@ -57,5 +50,4 @@ class Day {
         day.activities = activities.collect{ it.duplicate(day)}
         day
     }
-
 }

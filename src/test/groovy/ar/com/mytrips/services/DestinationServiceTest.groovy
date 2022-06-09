@@ -39,7 +39,7 @@ class DestinationServiceTest extends MyTripServiceTest implements ServiceUnitTes
         exception.message == "daysCannotBeEmpty"
     }
 
-    def "hen a trip is subtract a day to one of its destinations, it should return the updated destination"() {
+    def "when a trip is subtract a day to one of its destinations, it should return the updated destination"() {
         given:
         def destination = trip.destinationsWithoutOrigin.first()
         def destinationNext = destination.departTransport.destination
