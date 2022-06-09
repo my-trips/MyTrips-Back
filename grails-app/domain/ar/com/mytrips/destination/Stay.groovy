@@ -19,7 +19,7 @@ class Stay {
     String reservation
     String link
 
-    static belongsTo = [day:Day]
+    static belongsTo = [destination:Destination]
 
     static constraints = {
         title nullable: true

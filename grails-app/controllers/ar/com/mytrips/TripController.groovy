@@ -12,7 +12,6 @@ class TripController implements ModelRequestResolver {
     TripService tripService
     UserService userService
 
-
     def list(Integer max, Integer offset) {
         def trips = tripService.list(max, offset)
         respond  trips, view: 'index'

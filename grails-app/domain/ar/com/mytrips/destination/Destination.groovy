@@ -20,19 +20,21 @@ class Destination {
     LocalDateTime departDate
     Transport departTransport
     List<Day> days = []
+    List<Stay> stays = []
 
     static belongsTo = [trip: Trip]
 
-    static hasMany = [images: String, days:Day]
+    static hasMany = [images: String, days:Day, stays:Stay]
 
     static mapping = {
         id generator: 'uuid'
         days sort: "date", order: "asc", cascade: 'all'
+        stays sort: "checkIn", order: "asc", cascade: 'all'
         departTransport cascade: 'all'
         images cascade: "all", joinTable:[name:'destination_images', key:'destination_id', column:'image', type:"text"]
     }
 
-    static mappedBy = [days: "destination", departTransport: "origin"]
+    static mappedBy = [days: "destination", stays: "destination", departTransport: "origin"]
 
     static constraints = {
         images nullable: true
@@ -153,6 +155,11 @@ class Destination {
         (1..n).each {
             this.days.add(0, new Day(date: firstDay.minusDay(1), activities: [], destination: this))
         }
+    }
+
+    def addStay(Stay stay) {
+        stay.destination = this
+        addToStays(stay)
     }
 
     protected def generateDays(){
