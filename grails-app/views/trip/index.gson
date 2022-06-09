@@ -4,5 +4,5 @@ model {
 	Iterable<Trip> tripList
 }
 
-json tmpl.mini(tripList ?: [])
+json tmpl.full(tripList ?: [])
 

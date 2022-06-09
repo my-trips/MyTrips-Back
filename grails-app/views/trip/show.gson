@@ -4,4 +4,4 @@ model {
 	Trip trip
 }
 
-json tmpl.mini(trip)
+json tmpl.full(trip)

@@ -20,6 +20,10 @@ class UserService {
         User.get(id)
     }
 
+    User getByEmail(String email) {
+        User.findByEmail(email)
+    }
+
     void save(User user) {
         if(User.findByEmail(user.email) != null){
             throw ServiceException.badRequest("duplicateEmail", [email: user.email])

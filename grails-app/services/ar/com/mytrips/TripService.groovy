@@ -8,8 +8,12 @@ import ar.com.mytrips.external.UnsplashService
 import grails.events.annotation.Publisher
 import grails.events.annotation.Subscriber
 import grails.gorm.services.Service
+
+import javax.persistence.criteria.JoinType
 import javax.transaction.Transactional
-import static grails.async.Promises.*
+
+import static grails.async.Promises.task
+import static grails.async.Promises.tasks
 
 @Service(Trip)
 @Transactional
@@ -19,23 +23,37 @@ class TripService {
     UserService userService
 
 
-    def get(String anId) {
+    Trip get(String anId) {
+        def user = userService.currentUser
         Trip.where {
+            join("travellers",  JoinType.LEFT)
             id == anId
             deleted == false
-            (
-                owner{
-                    id == userService.currentUser.id
-                } ||
-                collaborators {
-                    id == userService.currentUser.id
+            or{
+                owner {
+                    eq("id", user.id)
                 }
-            )
+                travellers {
+                    eq("id", user.id)
+                }
+            }
         }.get()
     }
 
-    def list(Integer max = 25, Integer offset = 0 ) {
-        Trip.findAllByOwnerAndDeleted(userService.currentUser,false, [max:max, offset:offset])
+    List<Trip> list(Integer max = 25, Integer offset = 0 ) {
+        def user = userService.currentUser
+        Trip.where {
+            join("travellers",  JoinType.LEFT)
+            deleted == false
+            or{
+                owner {
+                    eq("id", user.id)
+                }
+                travellers {
+                    eq("id", user.id)
+                }
+            }
+        }.list([max:max, offset:offset])
     }
 
     Trip create(Trip trip){
@@ -45,7 +63,7 @@ class TripService {
         }
         trip.image = unsplashService.getImage(trip.firstDestination.place.name)
         trip.save()
-//        publishSuggestedItinerary(trip)
+        publishSuggestedItinerary(trip)
         trip
     }
 
@@ -55,17 +73,17 @@ class TripService {
         return newTrip
     }
 
-    Trip addCollaborator(Trip trip, User user){
-        trip.addCollaborator(user)
+    Trip addTraveller(Trip trip, User user){
+        trip.addTraveller(user)
         trip.save()
         return trip
     }
 
-    Trip removeCollaborator(Trip trip, User user){
+    Trip removeTraveller(Trip trip, User user){
         if(trip.owner != userService.currentUser){
             throw ServiceException.badRequest("invalidUser")
         }
-        trip.removeCollaborator(user)
+        trip.removeTraveller(user)
         trip.save()
         return trip
     }

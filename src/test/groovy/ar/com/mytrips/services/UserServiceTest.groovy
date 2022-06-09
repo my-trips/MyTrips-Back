@@ -70,6 +70,18 @@ class UserServiceTest extends MyTripServiceTest implements ServiceUnitTest<UserS
         retrievedUser == user
     }
 
+    void "when fetch a user for email, if the user exists it should return it"() {
+        given:
+        user.save()
+
+        when:
+        def users = service.search("rosisusa@gmail.com")
+
+        then:
+        users.size() == 1
+        users.first() == user
+    }
+
     void "when I search by email, it returns the users that match"() {
         given:
         user.save()

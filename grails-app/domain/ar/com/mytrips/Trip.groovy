@@ -12,23 +12,24 @@ class Trip {
 
     String id
     Boolean deleted = false
-    User owner
     String image
     LocalDateTime lastUpdated = LocalDateTime.now()
-    Set<User> collaborators = []
+    Set<User> travellers = []
 
-    static hasMany = [destinations: Destination, collaborators:User]
+    static belongsTo = [owner: User]
+    static hasMany = [destinations: Destination, travellers:User]
 
     static constraints = {
         deleted nullable: false
         image nullable: true
         lastUpdated nullable: true
-        collaborators nullable: true
+        travellers nullable: true
     }
 
     static mapping = {
         id generator: 'uuid'
         destinations sort: 'relevance', cascade: 'all-delete-orphan'
+        owner cascade: 'all'
     }
     static mappedBy = [destinations: 'trip']
 
@@ -46,18 +47,18 @@ class Trip {
         this.destinations = destinations
     }
 
-    def addCollaborator(User user) {
-        if(user == owner || collaborators.contains(user)){
-            throw ServiceException.badRequest("invalidCollaborator")
+    def addTraveller(User user) {
+        if(user == owner || travellers.contains(user)){
+            throw ServiceException.badRequest("invalidTraveller")
         }
-        addToCollaborators(user)
+        addToTravellers(user)
     }
 
-    def removeCollaborator(User user) {
-        if(!collaborators.contains(user)) {
-            throw ServiceException.badRequest("invalidCollaborator")
+    def removeTraveller(User user) {
+        if(!travellers.contains(user)) {
+            throw ServiceException.badRequest("invalidTraveller")
         }
-        removeFromCollaborators(user)
+        removeFromTravellers(user)
     }
 
     Trip duplicate(){

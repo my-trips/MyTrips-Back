@@ -21,8 +21,8 @@ class UrlMappings {
         "/api/location/$country/$city"(controller: 'location', action: "location", method: 'GET')
 
         "/api/trip/$id/copy"(controller: 'trip', action: "copy", method: 'POST')
-        "/api/trip/$id/collaborators/$userId"(controller: 'trip', action: "addCollaborator", method: 'POST')
-        "/api/trip/$id/collaborators/$userId"(controller: 'trip', action: "removeCollaborator", method: 'DELETE')
+        "/api/trip/$id/travellers/$email"(controller: 'trip', action: "addTraveller", method: 'POST')
+        "/api/trip/$id/travellers/$userId"(controller: 'trip', action: "removeTraveller", method: 'DELETE')
 
         "/api/trip/$tripId/destination/$destinationId/plusDay"(controller: 'destination', action: "plusDay", method: 'GET')
         "/api/trip/$tripId/destination/$destinationId/minusDay"(controller: 'destination', action: "minusDay", method: 'GET')
