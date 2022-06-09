@@ -8,6 +8,7 @@ import ar.com.mytrips.external.UnsplashService
 import grails.events.annotation.Publisher
 import grails.events.annotation.Subscriber
 import grails.gorm.services.Service
+import org.hibernate.criterion.CriteriaSpecification
 
 import javax.persistence.criteria.JoinType
 import javax.transaction.Transactional
@@ -46,9 +47,7 @@ class TripService {
             join("travellers",  JoinType.LEFT)
             deleted == false
             or{
-                owner {
-                    eq("id", user.id)
-                }
+                eq("owner.id", user.id)
                 travellers {
                     eq("id", user.id)
                 }
