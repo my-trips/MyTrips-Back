@@ -15,6 +15,7 @@ class Trip {
     String image
     LocalDateTime lastUpdated = LocalDateTime.now()
     Set<User> travellers = []
+    Boolean isPublic = false
 
     static belongsTo = [owner: User]
     static hasMany = [destinations: Destination, travellers:User]
