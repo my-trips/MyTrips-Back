@@ -106,7 +106,10 @@ class TripService {
             join("travellers",  JoinType.LEFT)
             deleted == false
             or{
-                eq("owner.id", user.id)
+
+                owner {
+                    eq("id", user.id)
+                }
                 travellers {
                     eq("id", user.id)
                 }
