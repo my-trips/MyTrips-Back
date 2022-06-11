@@ -7,7 +7,9 @@ import ar.com.mytrips.external.TriposoService
 import ar.com.mytrips.external.UnsplashService
 import grails.events.annotation.Publisher
 import grails.events.annotation.Subscriber
+import grails.gorm.DetachedCriteria
 import grails.gorm.services.Service
+import org.hibernate.criterion.CriteriaSpecification
 
 import javax.persistence.criteria.JoinType
 import javax.transaction.Transactional
@@ -25,35 +27,12 @@ class TripService {
 
     Trip get(String anId) {
         def user = userService.currentUser
-        Trip.where {
-            join("travellers",  JoinType.LEFT)
-            id == anId
-            deleted == false
-            or{
-                owner {
-                    eq("id", user.id)
-                }
-                travellers {
-                    eq("id", user.id)
-                }
-            }
-        }.get()
+        getTripCriteria(user, anId).get()
     }
 
     List<Trip> list(Integer max = 25, Integer offset = 0 ) {
         def user = userService.currentUser
-        Trip.where {
-            join("travellers",  JoinType.LEFT)
-            deleted == false
-            or{
-                owner {
-                    eq("id", user.id)
-                }
-                travellers {
-                    eq("id", user.id)
-                }
-            }
-        }.list([max:max, offset:offset])
+        listTripCriteria(user).list([max:max, offset:offset])
     }
 
     Trip create(Trip trip){
@@ -88,6 +67,14 @@ class TripService {
         return trip
     }
 
+    def delete(Trip trip) {
+        if(userService.currentUser != trip.owner){
+            throw ServiceException.forbidden("invalidUser")
+        }
+        trip.deleted = true
+        trip.save()
+    }
+
     @Publisher("SuggestedItinerary")
     protected List<String> publishSuggestedItinerary(Trip trip) {
         trip.destinations*.id
@@ -114,11 +101,38 @@ class TripService {
 
     }
 
-    def delete(Trip trip) {
-        if(userService.currentUser != trip.owner){
-            throw ServiceException.forbidden("invalidUser")
+    private DetachedCriteria<Trip> listTripCriteria(User user){
+        Trip.where {
+            join("travellers",  JoinType.LEFT)
+            deleted == false
+            or{
+
+                owner {
+                    eq("id", user.id)
+                }
+                travellers {
+                    eq("id", user.id)
+                }
+            }
         }
-        trip.deleted = true
-        trip.save()
     }
+    private DetachedCriteria<Trip> getTripCriteria(User user, String anId){
+        Trip.where {
+            join("travellers",  JoinType.LEFT)
+            deleted == false
+            id == anId
+            or{
+                eq("isPublic", true)
+                owner {
+                    eq("id", user.id)
+                }
+                travellers {
+                    eq("id", user.id)
+                }
+            }
+        }
+    }
+
+
+
 }

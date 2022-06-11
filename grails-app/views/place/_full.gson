@@ -5,18 +5,18 @@ model {
 }
 
 json {
-	id place.id
-	placeId place.placeId
-	relevance place.relevance
-	name place.name
-	placeName place.placeName
-	latitude place.latitude
-	longitude place.longitude
-	district place.district
-	region place.region
+	id place?.id
+	placeId place?.placeId
+	relevance place?.relevance
+	name place?.name
+	placeName place?.placeName
+	latitude place?.latitude
+	longitude place?.longitude
+	district place?.district
+	region place?.region
 	country {
-		name place.country?.name
-		code place.country?.code
+		name place?.country?.name
+		code place?.country?.code
 	}
-	bbox place.bbox
+	bbox place?.bbox
 }
