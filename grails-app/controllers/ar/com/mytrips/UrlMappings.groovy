@@ -23,6 +23,8 @@ class UrlMappings {
         "/api/trip/$id/copy"(controller: 'trip', action: "copy", method: 'POST')
         "/api/trip/$id/travellers/$email"(controller: 'trip', action: "addTraveller", method: 'POST')
         "/api/trip/$id/travellers/$userId"(controller: 'trip', action: "removeTraveller", method: 'DELETE')
+        "/api/trip/$id/changeVisibility"(controller: 'trip', action: "makePublic", method: 'POST')
+        "/api/trip/public/$destinationName"(controller: 'trip', action: "publicTripsInDestination", method: 'GET')
 
         "/api/trip/$tripId/destination/$destinationId/plusDay"(controller: 'destination', action: "plusDay", method: 'GET')
         "/api/trip/$tripId/destination/$destinationId/minusDay"(controller: 'destination', action: "minusDay", method: 'GET')

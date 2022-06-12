@@ -27,12 +27,32 @@ class TripService {
 
     Trip get(String anId) {
         def user = userService.currentUser
-        getTripCriteria(user, anId).get()
+        getTripCriteria(user).where {
+            eq("id", anId)
+        }.get()
+    }
+
+    Trip getPublic(String anId) {
+        def user = userService.currentUser
+        getPublicTripCriteria(user, anId).get()
     }
 
     List<Trip> list(Integer max = 25, Integer offset = 0 ) {
         def user = userService.currentUser
-        listTripCriteria(user).list([max:max, offset:offset])
+        getTripCriteria(user).list([max:max, offset:offset])
+    }
+
+    List<Trip> publicTripsInDestination(String destinationName, Integer max , Integer offset ) {
+        def user = userService.currentUser
+        return Trip.where {
+            deleted == false
+            isPublic == true
+            destinations {
+                place {
+                    name == destinationName
+                }
+            }
+        }.list([max:max, offset:offset])
     }
 
     Trip create(Trip trip){
@@ -53,26 +73,35 @@ class TripService {
     }
 
     Trip addTraveller(Trip trip, User user){
+        validateOwner(trip)
         trip.addTraveller(user)
         trip.save()
         return trip
     }
 
     Trip removeTraveller(Trip trip, User user){
-        if(trip.owner != userService.currentUser){
-            throw ServiceException.badRequest("invalidUser")
-        }
+        validateOwner(trip)
         trip.removeTraveller(user)
         trip.save()
         return trip
     }
 
     def delete(Trip trip) {
-        if(userService.currentUser != trip.owner){
-            throw ServiceException.forbidden("invalidUser")
-        }
+        validateOwner(trip)
         trip.deleted = true
         trip.save()
+    }
+
+    def changeVisibility(Trip trip, Boolean isVisible) {
+        validateOwner(trip)
+        trip.isPublic = isVisible
+        trip.save()
+    }
+
+    private void validateOwner(Trip trip) {
+        if (userService.currentUser != trip.owner) {
+            throw ServiceException.forbidden("invalidUser")
+        }
     }
 
     @Publisher("SuggestedItinerary")
@@ -101,7 +130,7 @@ class TripService {
 
     }
 
-    private DetachedCriteria<Trip> listTripCriteria(User user){
+    private DetachedCriteria<Trip> getTripCriteria(User user){
         Trip.where {
             join("travellers",  JoinType.LEFT)
             deleted == false
@@ -116,7 +145,8 @@ class TripService {
             }
         }
     }
-    private DetachedCriteria<Trip> getTripCriteria(User user, String anId){
+
+    private DetachedCriteria<Trip> getPublicTripCriteria(User user, String anId){
         Trip.where {
             join("travellers",  JoinType.LEFT)
             deleted == false

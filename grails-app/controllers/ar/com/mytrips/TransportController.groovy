@@ -13,7 +13,7 @@ class TransportController implements ModelRequestResolver {
     TripService tripService
 
     def update(String tripId, String destinationId) {
-        def trip = assertExistence(tripService.get(tripId), "El trip no existe")
+        def trip = assertExistence(tripService.get(tripId), "tripNotFound")
         def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
         def request = getBody(TransportCommand)
         def transport = transportService.update(trip, destination.departTransport, request)

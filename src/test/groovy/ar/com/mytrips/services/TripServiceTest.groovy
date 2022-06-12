@@ -199,7 +199,16 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
 
         then:
         def exception = thrown(ServiceException)
-        exception.status == HttpStatus.BAD_REQUEST
+        exception.status == HttpStatus.FORBIDDEN
         exception.message == "invalidUser"
+    }
+
+    void "when changeVisibility is called with true, the trip becomes public"() {
+        given:
+        service.create(trip)
+        when:
+        service.changeVisibility(trip, true)
+        then:
+        trip.isPublic
     }
 }
