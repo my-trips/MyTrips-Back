@@ -21,7 +21,7 @@ class TriposoService implements GrailsConfigurationAware {
                 part_of: country,
                 tag_labels: "city",
                 count: 1,
-                fields: "name,id,snippet,parent_id,score,type,images",
+                fields: "name,id,snippet,parent_id,score,type,images,generated_intro,country_id,coordinates",
                 annotate: "trigram:${place}",
                 trigram: ">=1",
                 order_by: "-score",

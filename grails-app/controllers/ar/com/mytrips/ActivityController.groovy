@@ -16,7 +16,7 @@ class ActivityController implements ModelRequestResolver {
     TripService tripService
 
     def delete(String tripId, String destinationId, String dayId, String id) {
-        def trip = assertExistence(tripService.get(tripId), "El trip no existe")
+        def trip = assertExistence(tripService.get(tripId), "tripNotFound")
         def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
         def day = assertExistence(Day.findByIdAndDestination(dayId, destination), "El day no existe")
         def activity = assertExistence(Activity.findById(id), "El itinerario no existe")
@@ -37,7 +37,7 @@ class ActivityController implements ModelRequestResolver {
     }
 
     def save(String tripId, String destinationId, String dayId) {
-        def trip = assertExistence(tripService.get(tripId), "El trip no existe")
+        def trip = assertExistence(tripService.get(tripId), "tripNotFound")
         def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
         def day = assertExistence(Day.findByIdAndDestination(dayId, destination), "El day no existe")
 

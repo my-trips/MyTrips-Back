@@ -40,6 +40,11 @@ class TriposoLocation {
     String snippet
     String type
     List<TriposoImage> images
+    TriposoCoordinates coordinates
+    @JsonProperty("country_id")
+    String country
+    @JsonProperty("generated_intro")
+    String intro
 
 }
 
