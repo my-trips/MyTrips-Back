@@ -180,8 +180,8 @@ class StayCommand implements ModelRequest<Stay>  {
     String checkIn
     String checkOut
     Cost cost
-    String reservation
-    String link
+    String placeReservation
+    String confirmation
 
     static constraints = {
         title nullable: true
@@ -193,8 +193,8 @@ class StayCommand implements ModelRequest<Stay>  {
         checkOut nullable: true
         checkIn nullable: true
         cost nullable: true
-        reservation nullable: true
-        link nullable: true
+        placeReservation nullable: true
+        confirmation nullable: true
     }
 
     @Override

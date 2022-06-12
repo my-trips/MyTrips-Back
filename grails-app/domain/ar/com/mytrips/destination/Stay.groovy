@@ -16,8 +16,8 @@ class Stay {
     LocalDateTime checkIn
     LocalDateTime checkOut
     Cost cost
-    String reservation
-    String link
+    String confirmation
+    String placeReservation
 
     static belongsTo = [destination:Destination]
 
@@ -30,8 +30,8 @@ class Stay {
         checkIn nullable: true
         checkOut nullable: true
         cost nullable: true
-        reservation nullable: true
-        link nullable: true
+        placeReservation nullable: true
+        confirmation nullable: true
     }
 
     static embedded = ['cost']

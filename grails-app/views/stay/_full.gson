@@ -19,7 +19,7 @@ json {
 		currency stay.cost?.currency
 		amount stay.cost?.amount
 	}
-	reservation stay.reservation
-	link stay.link
+	placeReservation stay.placeReservation
+	confirmation stay.confirmation
 }
 
