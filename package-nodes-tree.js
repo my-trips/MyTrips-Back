@@ -91,7 +91,7 @@ var Packages = {
     "text": "request",
     "package": "ar.com.mytrips.request",
     "url": "ar/com/mytrips/request/pkg-summary.html",
-            "coverage": "37.3%",
+            "coverage": "36.8%",
         "icon": "aui-icon aui-icon-small aui-iconfont-devtools-folder-closed",
             "li_attr": {"data-is-link": "true"},
         "a_attr": {"href": "ar/com/mytrips/request/pkg-summary.html"},
