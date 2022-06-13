@@ -18,6 +18,7 @@ class Stay {
     Cost cost
     String confirmation
     String placeReservation
+    String link
 
     static belongsTo = [destination:Destination]
 
@@ -32,6 +33,7 @@ class Stay {
         cost nullable: true
         placeReservation nullable: true
         confirmation nullable: true
+        link nullable: true
     }
 
     static embedded = ['cost']

@@ -21,5 +21,6 @@ json {
 	}
 	placeReservation stay.placeReservation
 	confirmation stay.confirmation
+	link stay.link
 }
 
