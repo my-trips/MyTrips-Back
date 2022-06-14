@@ -7,8 +7,8 @@ import grails.plugin.springsecurity.annotation.Secured
 class LocationController {
 	TriposoService triposoService
 	
-    def attractions(String location) {
-        def attractions = triposoService.getAttractions(location)
+    def attractions(String location, String name, Integer max, Integer offset) {
+        def attractions = triposoService.getAttractions(location, name, max?:10, offset?:0)
         render(model: [list: attractions], view: "attractions")
     }
 

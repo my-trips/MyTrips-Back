@@ -47,6 +47,7 @@ class TripService {
         return Trip.where {
             deleted == false
             isPublic == true
+            owner != user
             destinations {
                 place {
                     name == destinationName

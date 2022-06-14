@@ -30,15 +30,18 @@ class TriposoService implements GrailsConfigurationAware {
         return !location.isEmpty()? location.first():null
     }
 
-    List<TriposoAttraction> getAttractions(String locationId) {
+    List<TriposoAttraction> getAttractions(String locationId, String name="", Integer max, Integer offset) {
         def params = [
                 tag_labels:
                         "poitype-Canal|city|poitype-Church|poitype-City_hall|diving|history|poitype-Lake|poitype-Mausoleum|location|poitype-Mountain_pass|poitype-Obelisk|poitype-Necropolis|poitype-Park|poitype-Palace|shopping|topattractions|poitype-Tower|poitype-Volcano|poitype-View_point",
                 location_id: locationId.replaceAll(" ", "_"),
-                count: 10,
+                count: max,
                 fields: "id,name,coordinates,facebook_id,score,intro,images,price_tier",
                 order_by: "-score",
         ]
+        if(name != null){
+            params.annotate = "trigram:$name".toString()
+        }
         return get("poi.json", params, TriposoAttractionResponse)
     }
 
