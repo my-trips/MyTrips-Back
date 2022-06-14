@@ -1,8 +1,8 @@
 package ar.com.mytrips
 
+import ar.com.mytrips.destination.Activity
 import ar.com.mytrips.destination.Day
 import ar.com.mytrips.destination.Destination
-import ar.com.mytrips.destination.Activity
 import ar.com.mytrips.request.ActivityCommand
 import grails.converters.JSON
 import grails.gorm.transactions.Transactional
@@ -45,6 +45,4 @@ class ActivityController implements ModelRequestResolver {
         def activity = activityService.create(trip, day, request.toModel())
         respond  activity, view: 'show'
     }
-
-
 }

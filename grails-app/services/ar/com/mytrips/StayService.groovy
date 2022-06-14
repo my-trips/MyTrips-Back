@@ -19,4 +19,9 @@ class StayService {
         trip.changeLastUpdated()
         stay.save()
     }
+
+    def delete(Trip trip, Destination destination, Stay stay) {
+        destination.removeStay(stay)
+        trip.changeLastUpdated()
+    }
 }

@@ -162,6 +162,15 @@ class Destination {
         addToStays(stay)
     }
 
+    def removeStay(Stay stay){
+        if(!stays.contains(stay)){
+            throw ServiceException.badRequest("invalidStay")
+        }
+        stay.destination = null
+        removeFromStays(stay)
+        stay.delete()
+    }
+
     protected def generateDays(){
         if(arriveDate && departDate){
             days = (0..(arriveDate.until(departDate, ChronoUnit.DAYS)-1)).collect {

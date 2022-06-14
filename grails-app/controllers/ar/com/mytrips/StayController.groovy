@@ -3,6 +3,7 @@ package ar.com.mytrips
 import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.destination.Stay
 import ar.com.mytrips.request.StayCommand
+import grails.converters.JSON
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
@@ -30,5 +31,14 @@ class StayController implements ModelRequestResolver {
         def request = getBody(StayCommand)
         stayService.update(trip, stay, request)
         respond  stay, view: 'show'
+    }
+
+    def delete(String tripId, String destinationId, String stayId) {
+        def trip = assertExistence(tripService.get(tripId), "tccripNotFound")
+        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "destinoNoFound")
+        def stay = assertExistence(Stay.findByIdAndDestination(stayId, destination), "La estadia no existe")
+
+        stayService.delete(trip, destination, stay)
+        render(contentType: "application/json", text: [:] as JSON)
     }
 }
