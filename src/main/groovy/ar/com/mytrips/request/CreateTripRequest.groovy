@@ -203,6 +203,8 @@ class StayCommand implements ModelRequest<Stay>  {
     Stay toModel() { new Stay(changes()) }
 
     @Override
-    Map<String, Closure> getTransformations() { ["checkIn": STRING_TO_DATETIME, "checkOut": STRING_TO_DATETIME] }
+    Map<String, Closure> getTransformations() {
+        ["checkIn": STRING_TO_DATETIME, "checkOut": STRING_TO_DATETIME]
+    }
 }
 

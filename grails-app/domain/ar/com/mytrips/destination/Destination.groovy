@@ -191,6 +191,7 @@ class Destination {
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost){
         departTransport?.cost?.accumulate(cost)
         days.forEach {    it.addCost(cost)}
+        stays.forEach{it.addCost(cost)}
         cost
     }
 }
