@@ -1,10 +1,10 @@
 var clover = new Object();
 
 // JSON: {classes : [{name, id, sl, el,  methods : [{sl, el}, ...]}, ...]}
-clover.pageData = {"classes":[{"el":33,"id":167,"methods":[{"el":32,"sc":5,"sl":12}],"name":"StayServiceTest","sl":10}]}
+clover.pageData = {"classes":[{"el":123,"id":167,"methods":[{"el":48,"sc":5,"sl":19},{"el":84,"sc":5,"sl":50},{"el":108,"sc":5,"sl":86},{"el":122,"sc":5,"sl":110}],"name":"StayServiceTest","sl":13}]}
 
 // JSON: {test_ID : {"methods": [ID1, ID2, ID3...], "name" : "testXXX() void"}, ...};
-clover.testTargets = {"test_24":{"methods":[{"sl":12}],"name":"when a dfsfsdf is subtract a day to one of its destinations, it should return the updated destination","pass":true,"statements":[{"sl":14},{"sl":24},{"sl":27},{"sl":30},{"sl":31}]}}
+clover.testTargets = {"test_17":{"methods":[{"sl":19}],"name":"when create an stay for a destination, it should return the full stay.","pass":true,"statements":[{"sl":21},{"sl":34},{"sl":37},{"sl":40},{"sl":41},{"sl":42},{"sl":43},{"sl":44},{"sl":45},{"sl":46},{"sl":47}]},"test_21":{"methods":[{"sl":110}],"name":"when delete an stay for a destination, but the stay is invalid, it should throw an exception","pass":true,"statements":[{"sl":112},{"sl":113},{"sl":116},{"sl":119},{"sl":120},{"sl":121}]},"test_31":{"methods":[{"sl":86}],"name":"when delete an stay for a destination, but the stay is valid, should be able to delete it","pass":true,"statements":[{"sl":88},{"sl":100},{"sl":101},{"sl":104},{"sl":107}]},"test_32":{"methods":[{"sl":50}],"name":"when update an stay for a destination, it should return an updated stay","pass":true,"statements":[{"sl":52},{"sl":64},{"sl":65},{"sl":67},{"sl":73},{"sl":76},{"sl":77},{"sl":78},{"sl":79},{"sl":80},{"sl":81},{"sl":82}]}}
 
 // JSON: { lines : [{tests : [testid1, testid2, testid3, ...]}, ...]};
-clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [24], [], [24], [], [], [], [], [], [], [], [], [], [24], [], [], [24], [], [], [24], [24], [], []]
+clover.srcFileLines = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [17], [], [17], [], [], [], [], [], [], [], [], [], [], [], [], [17], [], [], [17], [], [], [17], [17], [17], [17], [17], [17], [17], [17], [], [], [32], [], [32], [], [], [], [], [], [], [], [], [], [], [], [32], [32], [], [32], [], [], [], [], [], [32], [], [], [32], [32], [32], [32], [32], [32], [32], [], [], [], [31], [], [31], [], [], [], [], [], [], [], [], [], [], [], [31], [31], [], [], [31], [], [], [31], [], [], [21], [], [21], [21], [], [], [21], [], [], [21], [21], [21], [], []]
