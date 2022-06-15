@@ -1,6 +1,6 @@
-var treeMapJson = {"id":"Clover database Wed Jun 15 2022 05:15:22 UTC0","name":"","data":{
-    "$area":916.0,"$color":59.606987,"title":
-    " 916 Elements, 59.6% Coverage"},"children":[{"id":
+var treeMapJson = {"id":"Clover database Wed Jun 15 2022 05:48:06 UTC0","name":"","data":{
+    "$area":918.0,"$color":59.586056,"title":
+    " 918 Elements, 59.6% Coverage"},"children":[{"id":
       "ar.com.mytrips.services0","name":"ar.com.mytrips.services","data":{
         "$area":15.0,"$color":100.0,"title":
         "ar.com.mytrips.services 15 Elements, 100% Coverage"},"children":[]},
@@ -20,12 +20,12 @@ var treeMapJson = {"id":"Clover database Wed Jun 15 2022 05:15:22 UTC0","name":"
         375.0,"$color":50.666664,"title":
         "ar.com.mytrips 375 Elements, 50.7% Coverage"},"children":[]},{"id":
       "ar.com.mytrips.destination822","name":"ar.com.mytrips.destination",
-      "data":{"$area":265.0,"$color":84.528305,"title":
-        "ar.com.mytrips.destination 265 Elements, 84.5% Coverage"},
-      "children":[]},{"id":"ar.com.mytrips.auth1087","name":
+      "data":{"$area":267.0,"$color":84.26966,"title":
+        "ar.com.mytrips.destination 267 Elements, 84.3% Coverage"},
+      "children":[]},{"id":"ar.com.mytrips.auth1089","name":
       "ar.com.mytrips.auth","data":{"$area":62.0,"$color":75.80645,"title":
         "ar.com.mytrips.auth 62 Elements, 75.8% Coverage"},"children":[]},{
-      "id":"ar.com.mytrips.external1149","name":"ar.com.mytrips.external",
+      "id":"ar.com.mytrips.external1151","name":"ar.com.mytrips.external",
       "data":{"$area":83.0,"$color":0.0,"title":
         "ar.com.mytrips.external 83 Elements, 0% Coverage"},"children":[]}]}
 ;

@@ -1,6 +1,6 @@
-var treeMapJson = {"id":"Clover database Wed Jun 15 2022 05:15:22 UTC0","name":"","data":{
-    "$area":916.0,"$color":59.606987,"title":
-    " 916 Elements, 59.6% Coverage"},"children":[{"id":
+var treeMapJson = {"id":"Clover database Wed Jun 15 2022 05:48:06 UTC0","name":"","data":{
+    "$area":918.0,"$color":59.586056,"title":
+    " 918 Elements, 59.6% Coverage"},"children":[{"id":
       "ar.com.mytrips.services0","name":"ar.com.mytrips.services","data":{
         "$area":15.0,"$color":100.0,"title":
         "ar.com.mytrips.services 15 Elements, 100% Coverage"},"children":[{
@@ -228,9 +228,8 @@ var treeMapJson = {"id":"Clover database Wed Jun 15 2022 05:15:22 UTC0","name":"
             "ar/com/mytrips/ActivityService.html#ActivityService","title":
             "ActivityService 15 Elements, 93.3% Coverage"},"children":[]}]},{
       "id":"ar.com.mytrips.destination822","name":
-      "ar.com.mytrips.destination","data":{"$area":265.0,"$color":
-        84.528305,"title":
-        "ar.com.mytrips.destination 265 Elements, 84.5% Coverage"},
+      "ar.com.mytrips.destination","data":{"$area":267.0,"$color":84.26966,
+        "title":"ar.com.mytrips.destination 267 Elements, 84.3% Coverage"},
       "children":[{"id":"Transport822","name":"Transport","data":{"$area":
             26.0,"$color":96.15385,"path":
             "ar/com/mytrips/destination/Transport.html#Transport","title":
@@ -241,37 +240,37 @@ var treeMapJson = {"id":"Clover database Wed Jun 15 2022 05:15:22 UTC0","name":"
           "Place869","name":"Place","data":{"$area":16.0,"$color":100.0,
             "path":"ar/com/mytrips/destination/Place.html#Place","title":
             "Place 16 Elements, 100% Coverage"},"children":[]},{"id":
-          "Destination885","name":"Destination","data":{"$area":138.0,
-            "$color":84.78261,"path":
+          "Destination885","name":"Destination","data":{"$area":140.0,
+            "$color":84.28571,"path":
             "ar/com/mytrips/destination/Destination.html#Destination",
-            "title":"Destination 138 Elements, 84.8% Coverage"},"children":[]},
-        {"id":"Day1023","name":"Day","data":{"$area":30.0,"$color":
+            "title":"Destination 140 Elements, 84.3% Coverage"},"children":[]},
+        {"id":"Day1025","name":"Day","data":{"$area":30.0,"$color":
             93.333336,"path":"ar/com/mytrips/destination/Day.html#Day",
             "title":"Day 30 Elements, 93.3% Coverage"},"children":[]},{"id":
-          "Activity1053","name":"Activity","data":{"$area":34.0,"$color":
+          "Activity1055","name":"Activity","data":{"$area":34.0,"$color":
             61.764706,"path":
             "ar/com/mytrips/destination/Activity.html#Activity","title":
             "Activity 34 Elements, 61.8% Coverage"},"children":[]}]},{"id":
-      "ar.com.mytrips.auth1087","name":"ar.com.mytrips.auth","data":{"$area":
+      "ar.com.mytrips.auth1089","name":"ar.com.mytrips.auth","data":{"$area":
         62.0,"$color":75.80645,"title":
         "ar.com.mytrips.auth 62 Elements, 75.8% Coverage"},"children":[{"id":
-          "UserRole1087","name":"UserRole","data":{"$area":41.0,"$color":
+          "UserRole1089","name":"UserRole","data":{"$area":41.0,"$color":
             65.85366,"path":"ar/com/mytrips/auth/UserRole.html#UserRole",
             "title":"UserRole 41 Elements, 65.9% Coverage"},"children":[]},{
-          "id":"User1128","name":"User","data":{"$area":15.0,"$color":
+          "id":"User1130","name":"User","data":{"$area":15.0,"$color":
             93.333336,"path":"ar/com/mytrips/auth/User.html#User","title":
             "User 15 Elements, 93.3% Coverage"},"children":[]},{"id":
-          "Role1143","name":"Role","data":{"$area":6.0,"$color":100.0,"path":
+          "Role1145","name":"Role","data":{"$area":6.0,"$color":100.0,"path":
             "ar/com/mytrips/auth/Role.html#Role","title":
             "Role 6 Elements, 100% Coverage"},"children":[]}]},{"id":
-      "ar.com.mytrips.external1149","name":"ar.com.mytrips.external","data":{
+      "ar.com.mytrips.external1151","name":"ar.com.mytrips.external","data":{
         "$area":83.0,"$color":0.0,"title":
         "ar.com.mytrips.external 83 Elements, 0% Coverage"},"children":[{
-          "id":"UnsplashService1149","name":"UnsplashService","data":{
+          "id":"UnsplashService1151","name":"UnsplashService","data":{
             "$area":35.0,"$color":0.0,"path":
             "ar/com/mytrips/external/UnsplashService.html#UnsplashService",
             "title":"UnsplashService 35 Elements, 0% Coverage"},"children":[]},
-        {"id":"TriposoService1184","name":"TriposoService","data":{"$area":
+        {"id":"TriposoService1186","name":"TriposoService","data":{"$area":
             48.0,"$color":0.0,"path":
             "ar/com/mytrips/external/TriposoService.html#TriposoService",
             "title":"TriposoService 48 Elements, 0% Coverage"},"children":[]}]}]}
