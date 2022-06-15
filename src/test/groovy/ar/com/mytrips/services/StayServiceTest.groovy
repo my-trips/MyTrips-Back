@@ -1,26 +1,36 @@
 package ar.com.mytrips.services
 
-
+import ar.com.mytrips.Cost
 import ar.com.mytrips.StayService
 import ar.com.mytrips.destination.Stay
+import ar.com.mytrips.exception.ServiceException
+import ar.com.mytrips.request.StayCommand
 import grails.testing.services.ServiceUnitTest
+import org.springframework.http.HttpStatus
 
 import java.time.LocalDateTime
 
 class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayService> {
 
-    def "when a dfsfsdf is subtract a day to one of its destinations, it should return the updated destination"() {
+    Stay stay
+    StayCommand stayCommand
+
+
+    def "when create an stay for a destination, it should return the full stay."() {
         given:
-        def stay = new Stay(
-            title: "Hostel",
-            name: "Saranata",
-            address: "Av Siempre Viva 2013",
-            longitude: 0.0,
-            latitude: 0.0,
+        stay = new Stay(
+            name: "Paris Puro Hotel",
+            title: "Hotel",
+            address: "",
             notes: "Tiene buena ubicacion",
             checkIn: LocalDateTime.of(2022, 10, 10, 12, 50),
             checkOut: LocalDateTime.of(2022, 10, 14, 17, 50),
+            cost: new Cost(),
+            confirmation: "#Cod.Confirmation",
+            placeReservation: "Despegar",
+            link: "Link-pagina-de-reserva"
         )
+
         def destination = trip.destinationsWithoutOrigin.first()
 
         when:
@@ -28,6 +38,86 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
 
         then:
         destination.stays.size() != 0
-        destination.stays.first().name == "Saranata"
+        def stayOfDestination =  destination.stays.first()
+        stayOfDestination.is(stay)
+        stayOfDestination.destination.is(destination)
+        stayOfDestination.name == "Paris Puro Hotel"
+        stayOfDestination.confirmation == "#Cod.Confirmation"
+        stayOfDestination.checkIn.toString() == "2022-10-10T12:50"
+        stayOfDestination.checkOut.toString() == "2022-10-14T17:50"
+    }
+
+    def "when update an stay for a destination, it should return an updated stay"() {
+        given:
+        stay = new Stay(
+            name: "Paris Puro Hotel",
+            title: "Hotel",
+            address: "",
+            notes: "Tiene buena ubicacion",
+            checkIn: LocalDateTime.of(2022, 10, 10, 12, 50),
+            checkOut: LocalDateTime.of(2022, 10, 14, 17, 50),
+            cost: new Cost(),
+            confirmation: "#Cod.Confirmation",
+            placeReservation: "Despegar",
+            link: "Link-pagina-de-reserva"
+        )
+        def destination = trip.destinationsWithoutOrigin.first()
+        service.create(trip, destination, stay)
+
+        def stayCommand = new StayCommand(name: "Apart Paris Hol", title: "Apartment",
+                address: "Av Siempre Viva 2013", notes: "La vista es bellisima", checkIn: "2022-10-09T12:50",
+                checkOut: "2022-10-15T17:50", confirmation: "#237654345", placeReservation: "Booking", link: "Other-link-Page"
+        )
+
+        when:
+        service.update(trip, stay, stayCommand)
+
+        then:
+        destination.stays.size() != 0
+        def stayOfDestination =  destination.stays.first()
+        stayOfDestination.destination.is(destination)
+        stayOfDestination.name == "Apart Paris Hol"
+        stayOfDestination.confirmation == "#237654345"
+        stayOfDestination.checkIn.toString() == "2022-10-09T12:50"
+        stayOfDestination.checkOut.toString() == "2022-10-15T17:50"
+
+    }
+
+    def "when delete an stay for a destination, but the stay is valid, should be able to delete it"() {
+        given:
+        stay = new Stay(
+            name: "Paris Puro Hotel",
+            title: "Hotel",
+            address: "",
+            notes: "Tiene buena ubicacion",
+            checkIn: LocalDateTime.of(2022, 10, 10, 12, 50),
+            checkOut: LocalDateTime.of(2022, 10, 14, 17, 50),
+            cost: new Cost(),
+            confirmation: "#Cod.Confirmation",
+            placeReservation: "Despegar",
+            link: "Link-pagina-de-reserva"
+        )
+        def destination = trip.destinationsWithoutOrigin.first()
+        service.create(trip, destination, stay)
+
+        when:
+        service.delete(trip, destination, stay)
+
+        then:
+        destination.stays.isEmpty()
+    }
+
+    def "when delete an stay for a destination, but the stay is invalid, it should throw an exception"() {
+        given:
+        stay = new Stay(title: "Apartment", notes: "Es un lugar muy bonito", name: "Apart Paris Hol", confirmation: "#346432312")
+        def destination = trip.destinationsWithoutOrigin.first()
+
+        when:
+        service.delete(trip, destination, stay)
+
+        then:
+        def exception = thrown(ServiceException)
+        exception.status == HttpStatus.BAD_REQUEST
+        exception.message == "invalidStay"
     }
 }

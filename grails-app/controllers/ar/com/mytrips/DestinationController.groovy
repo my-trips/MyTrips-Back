@@ -13,14 +13,16 @@ class DestinationController implements ModelRequestResolver {
 
     def plusDay(String tripId, String destinationId) {
         def trip = assertExistence(tripService.get(tripId), "tripNotFound")
-        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "El destino no existe")
+        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "destinationNotFound")
+
         destinationService.plusDay(destination, trip)
         respond  trip, view: '/trip/show'
     }
 
     def minusDay(String tripId, String destinationId) {
         def trip = assertExistence(tripService.get(tripId), "tripNotFound")
-        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "El destino no existe")
+        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "destinationNotFound")
+
         destinationService.minusDay(destination, trip)
         respond  trip, view: '/trip/show'
     }

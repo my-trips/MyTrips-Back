@@ -16,7 +16,7 @@ class StayController implements ModelRequestResolver {
 
     def save(String tripId, String destinationId) {
         def trip = assertExistence(tripService.get(tripId), "tripNotFound")
-        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
+        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "destinationNotFound")
 
         def request = getBody(StayCommand)
         def stay = stayService.create(trip, destination, request.toModel())
@@ -25,8 +25,8 @@ class StayController implements ModelRequestResolver {
 
     def update(String tripId, String destinationId, String stayId) {
         def trip = assertExistence(tripService.get(tripId), "tripNotFound")
-        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "La destino no existe")
-        def stay = assertExistence(Stay.findByIdAndDestination(stayId, destination), "La estadia no existe")
+        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "destinationNotFound")
+        def stay = assertExistence(Stay.findByIdAndDestination(stayId, destination), "stayNotFound")
 
         def request = getBody(StayCommand)
         stayService.update(trip, stay, request)
@@ -34,9 +34,9 @@ class StayController implements ModelRequestResolver {
     }
 
     def delete(String tripId, String destinationId, String stayId) {
-        def trip = assertExistence(tripService.get(tripId), "tccripNotFound")
-        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "destinoNoFound")
-        def stay = assertExistence(Stay.findByIdAndDestination(stayId, destination), "La estadia no existe")
+        def trip = assertExistence(tripService.get(tripId), "tripNotFound")
+        def destination = assertExistence(Destination.findByIdAndTrip(destinationId, trip), "destinationNotFound")
+        def stay = assertExistence(Stay.findByIdAndDestination(stayId, destination), "stayNotFound")
 
         stayService.delete(trip, destination, stay)
         render(contentType: "application/json", text: [:] as JSON)

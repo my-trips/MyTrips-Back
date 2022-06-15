@@ -28,7 +28,7 @@ class ActivityServiceTest extends MyTripServiceTest implements ServiceUnitTest<A
 
     void "when create an activity for a day, it should return the full activity."() {
         given:
-        activity = new Activity(title: "El Coliseo", description: "El coliseo es grande", name: "COLISEO")
+        activity = new Activity(title: "El Coliseo", description: "El coliseo es grande", name: "COLISEO", images: [])
         def day = trip.firstDestination.days.first()
 
         when:
@@ -39,11 +39,12 @@ class ActivityServiceTest extends MyTripServiceTest implements ServiceUnitTest<A
         resultActivity.description == "El coliseo es grande"
         resultActivity.name == "COLISEO"
         resultActivity.day.is(day)
+        day.activities.contains(resultActivity)
     }
 
     def "when update an activity for a day, it should return an updated activity"() {
         given:
-        activity = new Activity(title: "Las Piramides", description: "Las Piramides de Egipto", name: "PIRAMIDES")
+        activity = new Activity(title: "Las Piramides", description: "Las Piramides de Egipto", name: "PIRAMIDES", images: [])
         def day = trip.firstDestination.days.first()
         service.create(trip, day, activity)
 
@@ -65,7 +66,7 @@ class ActivityServiceTest extends MyTripServiceTest implements ServiceUnitTest<A
 
     def "when delete an activity for a day, but the activity is valid, should be able to delete it"() {
         given:
-        activity = new Activity(title: "Las Piramides", description: "Las Piramides de Egipto", name: "PIRAMIDES")
+        activity = new Activity(title: "Las Piramides", description: "Las Piramides de Egipto", name: "PIRAMIDES", images: [])
         def day = trip.firstDestination.days.first()
         service.create(trip, day, activity)
 
@@ -78,7 +79,7 @@ class ActivityServiceTest extends MyTripServiceTest implements ServiceUnitTest<A
 
     def "when delete an activity for a day, but the activity is invalid, it should throw an exception"() {
         given:
-        activity = new Activity(title: "Las Piramides", description: "Las Piramides de Egipto", name: "PIRAMIDES")
+        activity = new Activity(title: "Las Piramides", description: "Las Piramides de Egipto", name: "PIRAMIDES", images: [])
         def day = trip.firstDestination.days[0]
 
         when:
