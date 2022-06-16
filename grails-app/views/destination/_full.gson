@@ -8,7 +8,6 @@ json {
 	id destination?.id
 	relevance destination?.relevance
 	color destination?.color
-	images destination?.images
 	departTransport destination?.departTransport? g.render(template:"/transport/full", model:[transport:destination?.departTransport]) : null
 	place g.render(template:"/place/full", model:[place:destination?.place])
 	days g.render(template:"/day/full", collection: destination?.days, var:'day')

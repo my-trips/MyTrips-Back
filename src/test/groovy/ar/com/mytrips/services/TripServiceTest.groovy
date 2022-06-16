@@ -4,6 +4,7 @@ import ar.com.mytrips.TripService
 import ar.com.mytrips.UserService
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.exception.ServiceException
+import ar.com.mytrips.external.TriposoService
 import ar.com.mytrips.external.UnsplashService
 import grails.testing.services.ServiceUnitTest
 import org.springframework.http.HttpStatus
@@ -12,12 +13,14 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
 
     private UserService userService
     private UnsplashService unsplashService
+    private TriposoService triposoService
     private User user
     private User traveller
 
     def setup() {
         userService = Mock()
         unsplashService = Mock()
+        triposoService = Mock()
         user = new User(firstName:"Susan", lastName: "Rosito", email:"rosisusa@gmail.com", password:"12345")
         userService.currentUser >> user
 
@@ -26,6 +29,7 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
 
         service.userService = userService
         service.unsplashService = unsplashService
+        service.triposoService = triposoService
 
     }
 

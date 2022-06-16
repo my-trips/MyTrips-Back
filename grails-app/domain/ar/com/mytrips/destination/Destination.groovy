@@ -6,7 +6,6 @@ import ar.com.mytrips.Trip
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.request.TriposoDay
 import ar.com.mytrips.request.TriposoDayPlanner
-
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
 
@@ -24,20 +23,18 @@ class Destination {
 
     static belongsTo = [trip: Trip]
 
-    static hasMany = [images: String, days:Day, stays:Stay]
+    static hasMany = [days:Day, stays:Stay]
 
     static mapping = {
         id generator: 'uuid'
         days sort: "date", order: "asc", cascade: 'all'
         stays sort: "checkIn", order: "asc", cascade: 'all'
         departTransport cascade: 'all'
-        images cascade: "all", joinTable:[name:'destination_images', key:'destination_id', column:'image', type:"text"]
     }
 
     static mappedBy = [days: "destination", stays: "destination", departTransport: "origin"]
 
     static constraints = {
-        images nullable: true
         departTransport nullable: true
         arriveDate nullable: true
         departDate nullable: true
@@ -93,8 +90,7 @@ class Destination {
     }
 
     Destination duplicate(){
-        def destination = new Destination(relevance: relevance, color: color, arriveDate: arriveDate, departDate: departDate, images: images?.toList())
-        destination.place = place.duplicate(destination)
+        def destination = new Destination(relevance: relevance, color: color, place: place, arriveDate: arriveDate, departDate: departDate)
         destination.departTransport = departTransport?.duplicate(destination)
         destination.days = days.collect{it.duplicate(destination)}
         destination
@@ -180,8 +176,6 @@ class Destination {
     }
 
     def setDataFromPlanner(TriposoDayPlanner dayPlanner) {
-        place.placeId = dayPlanner.location.id
-        images = dayPlanner.location.images.collect{ it.sourceUrl}.toSet()
         dayPlanner.days.collect { TriposoDay it ->
             def day = days.find {day->  day.date == it.date}
             day?.activities =  it.itineraryItems.collect{Activity.fromTriposo(it, day)}

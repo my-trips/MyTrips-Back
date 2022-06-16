@@ -65,9 +65,13 @@ class PlaceCommand implements ModelRequest<Place>  {
 
     @Override
     Place toModel() {
-        def params = changes()
-        params.place = country.toModel()
-        new Place(params)
+        def place = Place.findByPlaceName(placeName)
+        if(!place){
+            def params = changes()
+            params.place = country.toModel()
+            place = new Place(params)
+        }
+        return place
     }
 }
 

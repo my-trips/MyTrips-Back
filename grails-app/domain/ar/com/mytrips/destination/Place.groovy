@@ -1,12 +1,12 @@
 package ar.com.mytrips.destination
 
 import ar.com.mytrips.Country
+import ar.com.mytrips.request.TriposoLocation
 
 class Place {
 
     String id
     String placeId
-    Integer relevance
     String name
     String placeName
     Double latitude
@@ -15,12 +15,15 @@ class Place {
     String region
     Country country
     List<Double> bbox
+    String description
+    String type
+    String shortDescription
 
-    static hasMany = [bbox: Double]
-    static belongsTo = [destination: Destination]
+    static hasMany = [bbox: Double, images: String]
     static embedded = ['country']
 
     static constraints = {
+        images nullable: true
         latitude nullable: true
         longitude nullable: true
         district nullable: true
@@ -28,14 +31,23 @@ class Place {
         country nullable: true
         bbox nullable: true
         placeId nullable: true
-        relevance nullable: true
+        description  nullable: true
+        type  nullable: true
+        shortDescription  nullable: true
     }
     static mapping = {
         id generator: 'uuid'
+        description type: 'text'
+        shortDescription  type: 'text'
+        images cascade: "all", joinTable:[name:'place_images', key:'place_id', column:'image', type:"text"]
     }
 
-    Place duplicate(Destination destination){
-        new Place(this.properties +  [destination: destination, id:null])
+    def setDataFromLocation(TriposoLocation location) {
+        placeId = location.id
+        description = location.intro
+        type = location.type
+        shortDescription = location.snippet
+        images = location.images.collect{ it.sourceUrl}.toSet()
     }
 
 }

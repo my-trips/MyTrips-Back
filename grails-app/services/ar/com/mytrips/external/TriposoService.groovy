@@ -9,6 +9,7 @@ import io.micronaut.http.client.BlockingHttpClient
 import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.http.uri.UriBuilder
+import org.apache.commons.lang3.StringUtils
 
 class TriposoService implements GrailsConfigurationAware {
 
@@ -18,11 +19,11 @@ class TriposoService implements GrailsConfigurationAware {
 
     TriposoLocation getLocation(String country, String place) {
         def params = [
-                part_of: country,
+                part_of: country.replaceAll(" ", "_"),
                 tag_labels: "city",
                 count: 1,
                 fields: "name,id,snippet,parent_id,score,type,images,generated_intro,country_id,coordinates",
-                annotate: "trigram:${place}",
+                annotate: "trigram:${place.replaceAll(" ", "_")}",
                 trigram: ">=1",
                 order_by: "-score",
         ]
@@ -79,7 +80,7 @@ class TriposoService implements GrailsConfigurationAware {
             }
             return []
         } catch (HttpClientResponseException e) {
-//            e.printStackTrace()
+            e.printStackTrace()
             return []
         }
     }

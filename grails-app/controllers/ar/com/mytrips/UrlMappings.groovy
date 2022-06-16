@@ -37,5 +37,8 @@ class UrlMappings {
         "/api/trip/$tripId/destination/$destinationId/stay"(controller: 'stay', action: "save", method: 'POST')
         "/api/trip/$tripId/destination/$destinationId/stay/$stayId"(controller: 'stay', action: "update", method: 'PUT')
         "/api/trip/$tripId/destination/$destinationId/stay/$stayId"(controller: 'stay', action: "delete", method: 'DELETE')
+
+        "/api/place/$country/$name"(controller: 'place', action: "getByName", method: 'GET')
+        "/api/place/trending"(controller: 'place', action: "trending", method: 'GET')
     }
 }

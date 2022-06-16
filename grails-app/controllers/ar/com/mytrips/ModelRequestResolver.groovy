@@ -14,9 +14,9 @@ trait ModelRequestResolver implements ExceptionHandler, ServletAttributes {
         modelResolverService.getModel(type, request.getJSON() as JSONObject)
     }
 
-     def <T> T assertExistence(T object, String message){
+     def <T> T assertExistence(T object, String message, Map data=[:]){
         if(!object){
-            throw ServiceException.badRequest(message)
+            throw ServiceException.badRequest(message, data)
         }
         return object
     }

@@ -2,6 +2,7 @@ package ar.com.mytrips
 
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.Destination
+import ar.com.mytrips.destination.Place
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.external.TriposoService
 import ar.com.mytrips.external.UnsplashService
@@ -9,7 +10,6 @@ import grails.events.annotation.Publisher
 import grails.events.annotation.Subscriber
 import grails.gorm.DetachedCriteria
 import grails.gorm.services.Service
-import org.hibernate.criterion.CriteriaSpecification
 
 import javax.persistence.criteria.JoinType
 import javax.transaction.Transactional
@@ -64,6 +64,7 @@ class TripService {
         trip.image = unsplashService.getImage(trip.firstDestination.place.name)
         trip.save()
         publishSuggestedItinerary(trip)
+        fetchPlaceData(trip)
         trip
     }
 
@@ -108,6 +109,31 @@ class TripService {
     @Publisher("SuggestedItinerary")
     protected List<String> publishSuggestedItinerary(Trip trip) {
         trip.destinations*.id
+    }
+
+    protected void fetchPlaceData(Trip trip) {
+        trip.destinations*.place.forEach{
+            if(it.placeId == null){
+                fetchPlaceData(it)
+            }
+        }
+    }
+
+    @Publisher("FetchPlaceData")
+    protected Map<String, String> fetchPlaceData(Place place) {
+        [id: place.id, name: place.name, countryName:place.country.name]
+    }
+
+    @Subscriber("FetchPlaceData")
+    def onFetchPlaceData(Map<String, String> placeData) {
+        def  location = triposoService.getLocation(placeData.countryName, placeData.name)
+        if (location) {
+            Place.withNewTransaction {
+                def place = Place.findById(placeData.id)
+                place.setDataFromLocation(location)
+                place.save(flush: true)
+            }
+        }
     }
 
     @Subscriber('SuggestedItinerary')

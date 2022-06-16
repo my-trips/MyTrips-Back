@@ -1,6 +1,7 @@
 package ar.com.mytrips.services
 
 import ar.com.mytrips.Cost
+import ar.com.mytrips.Country
 import ar.com.mytrips.TransportType
 import ar.com.mytrips.Trip
 import ar.com.mytrips.auth.User
@@ -23,13 +24,13 @@ class MyTripServiceTest extends Specification implements  DataTest {
     }
 
     def setup() {
-        def destFin = new Destination(relevance: 4, color: "green", place: new Place(),
+        def destFin = new Destination(relevance: 4, color: "green", place: new Place(country: new Country(name:"Argentina")),
                 arriveDate: LocalDateTime.of(2022, 10, 14, 12, 50),
                 departDate: null,
                 departTransport: new Transport())
 
         def paramsDestSantiago = HashMap.of("relevance", 3,
-                "color", "green", "place", new Place(),
+                "color", "green", "place", new Place(country: new Country(name:"Argentina")),
                 "arriveDate", LocalDateTime.of(2022, 10, 12, 12, 50),
                 "departDate", LocalDateTime.of(2022, 10, 14, 12, 50),
                 "departTransport", new Transport(destination: destFin))
@@ -37,7 +38,7 @@ class MyTripServiceTest extends Specification implements  DataTest {
         def destSantiago = Destination.create(paramsDestSantiago)
 
         def paramsDestLima = HashMap.of("relevance", 2,
-                "color", "yellow", "place", new Place(name: "Lima"),
+                "color", "yellow", "place", new Place(name: "Lima", country: new Country(name:"Peru")),
                 "arriveDate", LocalDateTime.of(2022, 10, 10, 12, 50),
                 "departDate",LocalDateTime.of(2022, 10, 12, 12, 50),
                 "departTransport", new Transport(destination: destSantiago))
@@ -53,7 +54,7 @@ class MyTripServiceTest extends Specification implements  DataTest {
                 "destination", destLima))
 
         def paramsInit = HashMap.of("relevance", 1,
-                "color", "", "place", new Place(),
+                "color", "", "place", new Place(country: new Country(name:"Argentina")),
                 "departDate", LocalDateTime.of(2022, 10, 10, 12, 50),
                 "departTransport", transport)
 

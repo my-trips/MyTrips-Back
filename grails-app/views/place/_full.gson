@@ -7,16 +7,19 @@ model {
 json {
 	id place?.id
 	placeId place?.placeId
-	relevance place?.relevance
 	name place?.name
 	placeName place?.placeName
 	latitude place?.latitude
 	longitude place?.longitude
 	district place?.district
 	region place?.region
+	images place?.images
 	country {
 		name place?.country?.name
 		code place?.country?.code
 	}
 	bbox place?.bbox
+	description place?.description
+	type place?.type
+	shortDescription place?.shortDescription
 }
