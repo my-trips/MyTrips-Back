@@ -9,7 +9,6 @@ import io.micronaut.http.client.BlockingHttpClient
 import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.http.uri.UriBuilder
-import org.apache.commons.lang3.StringUtils
 
 class TriposoService implements GrailsConfigurationAware {
 
@@ -31,13 +30,13 @@ class TriposoService implements GrailsConfigurationAware {
         return !location.isEmpty()? location.first():null
     }
 
-    List<TriposoAttraction> getAttractions(String locationId, String name="", Integer max, Integer offset) {
+    List<TriposoPoi> getAttractions(String locationId, String name="", Integer max, Integer offset) {
         def params = [
                 tag_labels:
                         "poitype-Canal|city|poitype-Church|poitype-City_hall|diving|history|poitype-Lake|poitype-Mausoleum|location|poitype-Mountain_pass|poitype-Obelisk|poitype-Necropolis|poitype-Park|poitype-Palace|shopping|topattractions|poitype-Tower|poitype-Volcano|poitype-View_point",
                 location_id: locationId.replaceAll(" ", "_"),
                 count: max,
-                fields: "id,name,coordinates,facebook_id,score,intro,images,price_tier",
+                fields: "id,name,coordinates,snippet,score,intro,images,price_tier,generated_intro,properties",
                 order_by: "-score",
         ]
         if(name != null){

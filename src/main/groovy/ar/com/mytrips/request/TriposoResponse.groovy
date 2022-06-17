@@ -21,8 +21,8 @@ class TriposoLocationResponse implements TriposoResponse<TriposoLocation>{
 
 @Introspected
 @CompileStatic
-class TriposoAttractionResponse implements TriposoResponse<TriposoAttraction>{
-    List<TriposoAttraction> results
+class TriposoAttractionResponse implements TriposoResponse<TriposoPoi>{
+    List<TriposoPoi> results
 }
 
 @Introspected
@@ -80,25 +80,28 @@ class TriposoActivity {
     TriposoPoi poi
 }
 
+//@Introspected
+//@CompileStatic
+//class TriposoPo3i {
+//    String name
+//    String id
+//    String snippet
+//    List<TriposoImage> images
+//    @JsonProperty("location_id")
+//    String locationId
+//    BigDecimal score
+//    TriposoCoordinates coordinates
+//}
+
 @Introspected
 @CompileStatic
 class TriposoPoi {
     String name
     String id
-    String snippet
-    List<TriposoImage> images
-    @JsonProperty("location_id")
-    String locationId
-    BigDecimal score
-    TriposoCoordinates coordinates
-}
-
-@Introspected
-@CompileStatic
-class TriposoAttraction {
-    String name
-    String id
     String intro
+    String snippet
+    @JsonProperty("generated_intro")
+    String description
     TriposoCoordinates coordinates
     List<TriposoImage> images
     BigDecimal score
@@ -106,7 +109,28 @@ class TriposoAttraction {
     String facebookId
     @JsonProperty("booking_info")
     TriposoBookingInfo cost
+    List<TriposoProperty> properties
+    @JsonProperty("tag_labels")
+    List<String> labels
+
+    String  getDirection(){
+        return properties?.find { it.key == "address"}?.value
+    }
+
+    String  getLink(){
+        return properties?.find { it.key == "website"}?.value
+    }
 }
+
+@Introspected
+@CompileStatic
+class TriposoProperty {
+    String key
+    String name
+    String value
+}
+
+
 
 @Introspected
 @CompileStatic

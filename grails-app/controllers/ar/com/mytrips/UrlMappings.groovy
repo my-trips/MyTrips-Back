@@ -25,6 +25,7 @@ class UrlMappings {
         "/api/trip/$id/travellers/$userId"(controller: 'trip', action: "removeTraveller", method: 'DELETE')
         "/api/trip/$id/changeVisibility"(controller: 'trip', action: "makePublic", method: 'POST')
         "/api/trip/public/$destinationName"(controller: 'trip', action: "publicTripsInDestination", method: 'GET')
+        "/api/trip/$id/plan"(controller: 'trip', action: "plan", method: 'GET')
 
         "/api/trip/$tripId/destination/$destinationId/plusDay"(controller: 'destination', action: "plusDay", method: 'GET')
         "/api/trip/$tripId/destination/$destinationId/minusDay"(controller: 'destination', action: "minusDay", method: 'GET')
@@ -38,7 +39,9 @@ class UrlMappings {
         "/api/trip/$tripId/destination/$destinationId/stay/$stayId"(controller: 'stay', action: "update", method: 'PUT')
         "/api/trip/$tripId/destination/$destinationId/stay/$stayId"(controller: 'stay', action: "delete", method: 'DELETE')
 
-        "/api/place/$country/$name"(controller: 'place', action: "getByName", method: 'GET')
+
         "/api/place/trending"(controller: 'place', action: "trending", method: 'GET')
+        "/api/place/$id/attractions"(controller: 'place', action: "attractions", method: 'GET')
+        "/api/place/$country/$name"(controller: 'place', action: "getByName", method: 'GET')
     }
 }

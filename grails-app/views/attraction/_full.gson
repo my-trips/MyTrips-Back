@@ -1,0 +1,20 @@
+import ar.com.mytrips.destination.Attraction
+
+model {
+	Attraction attraction
+}
+
+json {
+	id attraction.id
+	description attraction.description
+	name attraction.name
+	snippet attraction.snippet
+	longitude attraction.longitude
+	latitude attraction.latitude
+	score attraction.score
+	link attraction.link
+	direction attraction.direction
+	images attraction.images
+    labels attraction.labels
+	referenceId attraction.referenceId
+}

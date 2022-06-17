@@ -1,7 +1,7 @@
-import ar.com.mytrips.request.TriposoAttraction
+import ar.com.mytrips.request.TriposoPoi
 
 model {
-    TriposoAttraction triposoAttraction
+    TriposoPoi triposoAttraction
 }
 
 json g.render(triposoAttraction)

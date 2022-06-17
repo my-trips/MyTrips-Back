@@ -65,4 +65,12 @@ class TripController implements ModelRequestResolver {
         def trips = tripService.publicTripsInDestination(destinationName, max?:25, offset?:0)
         respond  trips, view: 'index'
     }
+
+    @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
+    def plan(String id){
+        def trip = Trip.get(id)
+        tripService.publishSuggestedItinerary(trip)
+        respond  trip, view: 'index'
+    }
+
 }

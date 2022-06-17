@@ -1,7 +1,7 @@
 package ar.com.mytrips.services
 
 import ar.com.mytrips.Cost
-import ar.com.mytrips.Country
+import ar.com.mytrips.destination.Country
 import ar.com.mytrips.TransportType
 import ar.com.mytrips.Trip
 import ar.com.mytrips.auth.User

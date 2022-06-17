@@ -5,15 +5,7 @@ model {
 }
 
 json {
-
 	id activity.id
-	title activity.title
-	description activity.description
-	name activity.name
-	snippet activity.snippet
-	longitude activity.longitude
-	latitude activity.latitude
-	images activity.images
 	notes activity.notes
 	startTime activity.startTime
 	endTime activity.endTime
@@ -22,4 +14,5 @@ json {
 		currency activity.cost?.currency
 		amount activity.cost?.amount
 	}
+	attraction g.render(template:"/attraction/full", model: [attraction: activity.attraction])
 }

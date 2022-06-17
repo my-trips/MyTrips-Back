@@ -25,8 +25,9 @@ class ActivityService {
     }
 
     Activity create(Trip trip, Day day, Activity activity) {
-        if(!activity.images || activity.images.isEmpty()){
-            activity.images = unsplashService.getImages(day.destination.place.name + ", " +activity.name, 5)
+        if(!activity.attraction.id) {
+            activity.attraction.place = day.destination.place
+            activity.attraction.images = unsplashService.getImages(day.destination.place.name + ", " +activity.attraction.name, 5)
         }
         day.addActivity(activity)
         trip.changeLastUpdated()

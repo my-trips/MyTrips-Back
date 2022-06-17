@@ -1,6 +1,6 @@
 package ar.com.mytrips.destination
 
-import ar.com.mytrips.Country
+
 import ar.com.mytrips.request.TriposoLocation
 
 class Place {
@@ -19,8 +19,8 @@ class Place {
     String type
     String shortDescription
 
-    static hasMany = [bbox: Double, images: String]
-    static embedded = ['country']
+    static hasMany = [bbox: Double, images: String, attractions: Attraction]
+    static mappedBy = [attractions: "place"]
 
     static constraints = {
         images nullable: true
@@ -39,6 +39,7 @@ class Place {
         id generator: 'uuid'
         description type: 'text'
         shortDescription  type: 'text'
+        attractions cascade: "all"
         images cascade: "all", joinTable:[name:'place_images', key:'place_id', column:'image', type:"text"]
     }
 

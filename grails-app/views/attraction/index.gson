@@ -1,0 +1,8 @@
+import ar.com.mytrips.destination.Attraction
+
+model {
+	Iterable<Attraction> attractionList
+}
+
+json tmpl.full(attractionList ?: [])
+

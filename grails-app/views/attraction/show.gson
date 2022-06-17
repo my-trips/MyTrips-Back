@@ -1,0 +1,7 @@
+import ar.com.mytrips.destination.Attraction
+
+model {
+	Attraction attraction
+}
+
+json tmpl.full(attraction)

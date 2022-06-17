@@ -178,7 +178,9 @@ class Destination {
     def setDataFromPlanner(TriposoDayPlanner dayPlanner) {
         dayPlanner.days.collect { TriposoDay it ->
             def day = days.find {day->  day.date == it.date}
-            day?.activities =  it.itineraryItems.collect{Activity.fromTriposo(it, day)}
+            if(day){
+                day?.activities =  it.itineraryItems.collect{Activity.fromTriposo(it, day)}
+            }
         }
     }
 

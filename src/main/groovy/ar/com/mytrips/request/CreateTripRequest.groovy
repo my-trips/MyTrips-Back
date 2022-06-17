@@ -1,12 +1,13 @@
 package ar.com.mytrips.request
 
 import ar.com.mytrips.Cost
-import ar.com.mytrips.Country
 import ar.com.mytrips.TransportType
 import ar.com.mytrips.Trip
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.*
 import io.micronaut.core.annotation.Introspected
+
+import java.time.LocalTime
 
 class CreateTripRequest implements ModelRequest<Trip> {
     List<DestinationCommand> destinations
@@ -129,48 +130,82 @@ class CountryCommand implements ModelRequest<Country>  {
 
     @Override
     Country toModel() {
-        new Country(changes())
+        def country = Country.findByName(name)
+        if(!country){
+            country = new Country(changes())
+        }
+        return country
     }
 }
 
+
 class ActivityCommand implements ModelRequest<Activity>  {
-    String title
-    String description
-    String name
-    String snippet
-    Double longitude
-    Double latitude
     String notes
     String startTime
     String endTime
-    Double score
     Cost cost
-
-    static hasMany = [images:String]
+    Double score
+    AttractionCommand attraction
 
     static constraints = {
-        title nullable: true
-        description nullable: true
-        name  nullable: true
-        snippet nullable: true
-        longitude nullable: true
-        latitude nullable: true
         notes nullable: true
         endTime nullable: true
         startTime nullable: true
         cost nullable: true
         score   nullable: true
+        attraction nullable: true
     }
 
     @Override
     Activity toModel() {
-        new Activity(changes())
+        def values = changes()
+        if(attraction){
+            values.attraction = attraction.toModel()
+        }
+
+        new Activity(values)
     }
 
     @Override
     Map<String, Closure> getTransformations() {
         ["startTime": STRING_TO_TIME, "endTime": STRING_TO_TIME]
     }
+}
+
+class AttractionCommand implements ModelRequest<Attraction>  {
+    String id
+    String description
+    String name
+    String snippet
+    Double longitude
+    Double latitude
+    Double score
+    String link
+    List<String> images
+    List<String> labels
+
+    static constraints = {
+        id nullable: true
+        description nullable: true
+        name  nullable: true
+        snippet nullable: true
+        longitude nullable: true
+        latitude nullable: true
+        score   nullable: true
+        link nullable: true
+        images nullable: true
+        labels nullable: true
+    }
+
+    @Override
+    Attraction toModel() {
+        def attraction = Attraction.get(id)
+        if(!attraction){
+            attraction = new Attraction(changes())
+        }
+        return attraction
+    }
+
 }
 
 class StayCommand implements ModelRequest<Stay>  {

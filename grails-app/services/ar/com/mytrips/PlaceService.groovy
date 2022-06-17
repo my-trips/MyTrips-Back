@@ -1,6 +1,5 @@
 package ar.com.mytrips
 
-
 import ar.com.mytrips.destination.Place
 import grails.gorm.services.Service
 

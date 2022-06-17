@@ -1,6 +1,7 @@
 package ar.com.mytrips
 
 import ar.com.mytrips.auth.User
+import ar.com.mytrips.destination.Attraction
 import ar.com.mytrips.destination.Destination
 import ar.com.mytrips.destination.Place
 import ar.com.mytrips.exception.ServiceException
@@ -108,7 +109,7 @@ class TripService {
 
     @Publisher("SuggestedItinerary")
     protected List<String> publishSuggestedItinerary(Trip trip) {
-        trip.destinations*.id
+        trip.destinationsWithoutOrigin*.id
     }
 
     protected void fetchPlaceData(Trip trip) {
@@ -128,10 +129,12 @@ class TripService {
     def onFetchPlaceData(Map<String, String> placeData) {
         def  location = triposoService.getLocation(placeData.countryName, placeData.name)
         if (location) {
+            def attractions = triposoService.getAttractions(location.id, location.name, 50, 0)
             Place.withNewTransaction {
                 def place = Place.findById(placeData.id)
                 place.setDataFromLocation(location)
-                place.save(flush: true)
+                place.attractions = attractions.collect { Attraction.fromTriposo(place, it)}
+                place.save()
             }
         }
     }
@@ -152,6 +155,9 @@ class TripService {
                     }
                 }
             })
+            tasks.onError { Throwable err ->
+                err.printStackTrace()
+            }
             tasks.get()
         }
 

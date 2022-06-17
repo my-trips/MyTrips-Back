@@ -71,8 +71,8 @@ trait ModelRequest<T> extends Validateable{
     Map changes(){
         Map changes = [:]
         commandProperties().each {
-            if(!requestJson || requestJson.has(it.key as String)){
-                if(transformations.containsKey(it.key)){
+            if(!requestJson || requestJson.has(it.key as String)) {
+                if(transformations.containsKey(it.key)) {
                     changes[it.key] = transformations[it.key.toString()](it.value)
                 } else {
                     switch (it.value) {

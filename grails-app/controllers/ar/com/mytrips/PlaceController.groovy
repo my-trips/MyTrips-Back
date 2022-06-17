@@ -1,6 +1,5 @@
 package ar.com.mytrips
 
-
 import ar.com.mytrips.external.TriposoService
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
@@ -24,5 +23,10 @@ class PlaceController implements ModelRequestResolver {
     def trending(){
         def places  = placeService.trending()
         respond  places, view: 'index'
+    }
+
+    def attractions(String id, Integer max) {
+        def place = assertExistence(placeService.get(id), "placeNotFound")
+        respond place.attractions.take(max?:10), view: "/attraction/list"
     }
 }
