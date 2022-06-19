@@ -9,6 +9,7 @@ import grails.plugin.springsecurity.annotation.Secured
 class PlaceController implements ModelRequestResolver {
 	TriposoService triposoService
     PlaceService placeService
+    TripService tripService
 
     def get(String id) {
         def place = assertExistence(placeService.get(id), "placeNotFound")
@@ -22,6 +23,12 @@ class PlaceController implements ModelRequestResolver {
 
     def trending(){
         def places  = placeService.trending()
+        respond  places, view: 'index'
+    }
+
+    def placesForTrip(String tripId){
+        def trip = assertExistence(tripService.getPublic(tripId), "tripNotFound")
+        def places = placeService.placesForTrip(trip)
         respond  places, view: 'index'
     }
 

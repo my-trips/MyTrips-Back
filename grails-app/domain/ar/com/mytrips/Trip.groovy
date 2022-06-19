@@ -1,7 +1,9 @@
 package ar.com.mytrips
 
 import ar.com.mytrips.auth.User
+import ar.com.mytrips.destination.Country
 import ar.com.mytrips.destination.Destination
+import ar.com.mytrips.destination.Place
 import ar.com.mytrips.exception.ServiceException
 
 import java.time.LocalDate
@@ -98,6 +100,14 @@ class Trip {
     Boolean isNotLastDestination(Destination destination) {
         def positionLast = destinations.size() - 1
         destination.relevance !== positionLast
+    }
+
+    Set<Country> getCountries() {
+        return destinationsWithoutOrigin*.place*.country.toSet()
+    }
+
+    Set<Place> getPlaces() {
+        return destinationsWithoutOrigin*.place.toSet()
     }
     
     def beforeInsert() {

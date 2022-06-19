@@ -18,6 +18,7 @@ class Place {
     String description
     String type
     String shortDescription
+    List<String> images
 
     static hasMany = [bbox: Double, images: String, attractions: Attraction]
     static mappedBy = [attractions: "place"]

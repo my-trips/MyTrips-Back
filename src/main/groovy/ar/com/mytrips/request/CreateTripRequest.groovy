@@ -69,8 +69,8 @@ class PlaceCommand implements ModelRequest<Place>  {
         def place = Place.findByPlaceName(placeName)
         if(!place){
             def params = changes()
-            params.place = country.toModel()
-            place = new Place(params)
+            params.country = country.toModel()
+            place = new Place(params).save()
         }
         return place
     }
@@ -130,9 +130,9 @@ class CountryCommand implements ModelRequest<Country>  {
 
     @Override
     Country toModel() {
-        def country = Country.findByName(name)
+        def country = Country.findByNameOrCode(name, code)
         if(!country){
-            country = new Country(changes())
+            country = new Country(changes()).save()
         }
         return country
     }
@@ -201,7 +201,7 @@ class AttractionCommand implements ModelRequest<Attraction>  {
     Attraction toModel() {
         def attraction = Attraction.get(id)
         if(!attraction){
-            attraction = new Attraction(changes())
+            attraction = new Attraction(changes()).save()
         }
         return attraction
     }

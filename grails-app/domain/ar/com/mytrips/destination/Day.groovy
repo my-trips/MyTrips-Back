@@ -31,6 +31,7 @@ class Day {
             throw ServiceException.badRequest("invalidActivity")
         }
         activity.day = null
+        activity.attraction = null
         removeFromActivities(activity)
         activity.delete()
     }

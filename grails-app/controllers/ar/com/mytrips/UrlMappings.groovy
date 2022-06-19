@@ -41,6 +41,7 @@ class UrlMappings {
 
 
         "/api/place/trending"(controller: 'place', action: "trending", method: 'GET')
+        "/api/place/placesForTrip/$tripId"(controller: 'place', action: "placesForTrip", method: 'GET')
         "/api/place/$id/attractions"(controller: 'place', action: "attractions", method: 'GET')
         "/api/place/$country/$name"(controller: 'place', action: "getByName", method: 'GET')
     }

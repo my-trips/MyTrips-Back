@@ -33,7 +33,7 @@ class TriposoService implements GrailsConfigurationAware {
     List<TriposoPoi> getAttractions(String locationId, String name="", Integer max, Integer offset) {
         def params = [
                 tag_labels:
-                        "poitype-Canal|city|poitype-Church|poitype-City_hall|diving|history|poitype-Lake|poitype-Mausoleum|location|poitype-Mountain_pass|poitype-Obelisk|poitype-Necropolis|poitype-Park|poitype-Palace|shopping|topattractions|poitype-Tower|poitype-Volcano|poitype-View_point",
+                        "city|diving|history|location|shopping|topattractions|sightseeing",
                 location_id: locationId.replaceAll(" ", "_"),
                 count: max,
                 fields: "id,name,coordinates,snippet,score,intro,images,price_tier,generated_intro,properties",
