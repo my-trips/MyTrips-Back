@@ -4,5 +4,4 @@ model {
 	Iterable<Place> placeList
 }
 
-json tmpl.full(placeList?:[] )
-
+json tmpl.full(placeList?: [] )
