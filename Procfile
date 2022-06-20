@@ -1,1 +1,1 @@
-web: java -Dgrails.env=heroku -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/*.jar
+web: java -Dgrails.env=heroku -Dserver.port=$PORT $JAVA_OPTS -Xms512M -Xmx512M -XX:MaxPermSize=256M -XX:PermSize=128M  -jar build/libs/*.jar
