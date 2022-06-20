@@ -94,7 +94,6 @@ class TriposoActivity {
 //}
 
 @Introspected
-@CompileStatic
 class TriposoPoi {
     String name
     String id
