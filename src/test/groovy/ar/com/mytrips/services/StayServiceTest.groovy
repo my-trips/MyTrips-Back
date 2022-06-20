@@ -1,6 +1,7 @@
 package ar.com.mytrips.services
 
 import ar.com.mytrips.Cost
+import ar.com.mytrips.Currency
 import ar.com.mytrips.StayService
 import ar.com.mytrips.destination.Stay
 import ar.com.mytrips.exception.ServiceException
@@ -15,7 +16,6 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
     Stay stay
     StayCommand stayCommand
 
-
     def "when create an stay for a destination, it should return the full stay."() {
         given:
         stay = new Stay(
@@ -25,7 +25,7 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
             notes: "Tiene buena ubicacion",
             checkIn: LocalDateTime.of(2022, 10, 10, 12, 50),
             checkOut: LocalDateTime.of(2022, 10, 14, 17, 50),
-            cost: new Cost(),
+            cost: new Cost(currency: Currency.EUR, amount: 500),
             confirmation: "#Cod.Confirmation",
             placeReservation: "Despegar",
             link: "Link-pagina-de-reserva"
@@ -45,6 +45,7 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
         stayOfDestination.confirmation == "#Cod.Confirmation"
         stayOfDestination.checkIn.toString() == "2022-10-10T12:50"
         stayOfDestination.checkOut.toString() == "2022-10-14T17:50"
+        stayOfDestination.cost.getAmount() == 500
     }
 
     def "when update an stay for a destination, it should return an updated stay"() {
@@ -56,7 +57,7 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
             notes: "Tiene buena ubicacion",
             checkIn: LocalDateTime.of(2022, 10, 10, 12, 50),
             checkOut: LocalDateTime.of(2022, 10, 14, 17, 50),
-            cost: new Cost(),
+            cost: new Cost(currency: Currency.EUR, amount: 500),
             confirmation: "#Cod.Confirmation",
             placeReservation: "Despegar",
             link: "Link-pagina-de-reserva"
@@ -64,9 +65,17 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
         def destination = trip.destinationsWithoutOrigin.first()
         service.create(trip, destination, stay)
 
-        def stayCommand = new StayCommand(name: "Apart Paris Hol", title: "Apartment",
-                address: "Av Siempre Viva 2013", notes: "La vista es bellisima", checkIn: "2022-10-09T12:50",
-                checkOut: "2022-10-15T17:50", confirmation: "#237654345", placeReservation: "Booking", link: "Other-link-Page"
+        stayCommand = new StayCommand(
+            name: "Apart Paris Hol",
+            title: "Apartment",
+            address: "Av Siempre Viva 2013",
+            notes: "La vista es bellisima",
+            checkIn: "2022-10-09T12:50",
+            checkOut: "2022-10-15T17:50",
+            confirmation: "#237654345",
+            placeReservation: "Booking",
+            cost: new Cost(currency: Currency.USD, amount: 700),
+            link: "Other-link-Page"
         )
 
         when:
@@ -80,6 +89,8 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
         stayOfDestination.confirmation == "#237654345"
         stayOfDestination.checkIn.toString() == "2022-10-09T12:50"
         stayOfDestination.checkOut.toString() == "2022-10-15T17:50"
+        stayOfDestination.cost.getCurrency() == Currency.USD
+        stayOfDestination.cost.getAmount() == 700
 
     }
 
@@ -92,7 +103,7 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
             notes: "Tiene buena ubicacion",
             checkIn: LocalDateTime.of(2022, 10, 10, 12, 50),
             checkOut: LocalDateTime.of(2022, 10, 14, 17, 50),
-            cost: new Cost(),
+            cost: new Cost(currency: Currency.EUR, amount: 500),
             confirmation: "#Cod.Confirmation",
             placeReservation: "Despegar",
             link: "Link-pagina-de-reserva"
@@ -109,7 +120,12 @@ class StayServiceTest extends MyTripServiceTest implements ServiceUnitTest<StayS
 
     def "when delete an stay for a destination, but the stay is invalid, it should throw an exception"() {
         given:
-        stay = new Stay(title: "Apartment", notes: "Es un lugar muy bonito", name: "Apart Paris Hol", confirmation: "#346432312")
+        stay = new Stay(
+            title: "Apartment",
+            notes: "Es un lugar muy bonito",
+            name: "Apart Paris Hol",
+            confirmation: "#346432312"
+        )
         def destination = trip.destinationsWithoutOrigin.first()
 
         when:

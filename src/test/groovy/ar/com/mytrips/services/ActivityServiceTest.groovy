@@ -6,7 +6,6 @@ import ar.com.mytrips.destination.Attraction
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.external.UnsplashService
 import ar.com.mytrips.request.ActivityCommand
-import ar.com.mytrips.request.AttractionCommand
 import com.google.common.collect.Lists
 import grails.testing.services.ServiceUnitTest
 import org.springframework.http.HttpStatus

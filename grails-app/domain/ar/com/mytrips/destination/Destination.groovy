@@ -93,6 +93,7 @@ class Destination {
         def destination = new Destination(relevance: relevance, color: color, place: place, arriveDate: arriveDate, departDate: departDate)
         destination.departTransport = departTransport?.duplicate(destination)
         destination.days = days.collect{it.duplicate(destination)}
+        destination.stays = stays.collect{ it.duplicate(destination)}
         destination
     }
 

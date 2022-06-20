@@ -215,4 +215,20 @@ class TripServiceTest extends MyTripServiceTest implements ServiceUnitTest<TripS
         then:
         trip.isPublic
     }
+
+    void "when get public a trip, it should return a trip published"() {
+        given:
+        trip.setIsPublic(true)
+        def tripCreated = service.create(trip)
+
+        when:
+        def resultTrip = service.getPublic(tripCreated.id)
+
+        then:
+        resultTrip.getIsPublic()
+        resultTrip.owner.getFirstName() == "Susan"
+        resultTrip.image == "IMAGE_LIMA_URL"
+        resultTrip.destinations.size() == 4
+        resultTrip.destinations.every{dest -> dest.trip.is(trip)}
+    }
 }

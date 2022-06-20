@@ -46,6 +46,10 @@ class Stay {
     Map<Currency, Cost> addCost(Map<Currency, Cost> cost) {
         this.cost?.accumulate(cost)
     }
+
+    Stay duplicate(destination){
+        new Stay(this.properties + [id:null, destination:destination])
+    }
 }
 
 
