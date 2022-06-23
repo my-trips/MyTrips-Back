@@ -22,4 +22,10 @@ class UserController implements ModelRequestResolver {
         def users = userService.search(query, max?: 20, offset?:0)
         render model: [users:users], view: 'list'
     }
+
+    def profile() {
+        def user = userService.currentUser
+        respond  user, view: 'show'
+    }
+
 }

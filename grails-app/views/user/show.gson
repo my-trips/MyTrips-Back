@@ -1,7 +1,7 @@
 import ar.com.mytrips.auth.User
 
 model {
-	User user
+    User user
 }
 
-json tmpl.full(user)
+json tmplll(user)

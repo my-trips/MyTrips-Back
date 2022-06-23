@@ -44,5 +44,7 @@ class UrlMappings {
         "/api/place/placesForTrip/$tripId"(controller: 'place', action: "placesForTrip", method: 'GET')
         "/api/place/$id/attractions"(controller: 'place', action: "attractions", method: 'GET')
         "/api/place/$country/$name"(controller: 'place', action: "getByName", method: 'GET')
+
+        "/api/user/profile"(controller: 'user', action: "profile", method: 'GET')
     }
 }
