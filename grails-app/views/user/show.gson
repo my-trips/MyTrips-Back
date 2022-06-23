@@ -4,4 +4,4 @@ model {
     User user
 }
 
-json tmplll(user)
+json tmpl.full(user)
