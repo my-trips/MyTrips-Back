@@ -130,7 +130,7 @@ class UserCommand implements ModelRequest<User> {
     static constraints = {
         firstName nullable: true
         lastName nullable: true
-        email nullable: true
+        email nullable: true, email: true
     }
 
     @Override
