@@ -4,6 +4,7 @@ import ar.com.mytrips.auth.Role
 import ar.com.mytrips.auth.User
 import ar.com.mytrips.auth.UserRole
 import ar.com.mytrips.exception.ServiceException
+import ar.com.mytrips.request.UserCommand
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.SpringSecurityService
 
@@ -39,5 +40,10 @@ class UserService {
     List<User> search(String query, Integer max = 20, Integer offset = 0) {
         def filter = "${query}%"
         User.findAllByEmailLikeOrFirstNameLikeOrLastNameLike(filter, filter, filter, [sort:"id",  max: max, offset:offset])
+    }
+
+    def updateProfile(User user, UserCommand command) {
+        user.properties = command.changes()
+        user.save()
     }
 }

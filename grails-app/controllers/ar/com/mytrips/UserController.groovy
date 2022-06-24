@@ -1,6 +1,7 @@
 package ar.com.mytrips
 
 import ar.com.mytrips.request.CreateUserRequest
+import ar.com.mytrips.request.UserCommand
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
@@ -28,4 +29,10 @@ class UserController implements ModelRequestResolver {
         respond  user, view: 'show'
     }
 
+    def updateProfile(){
+        def user = userService.currentUser
+        def request = getBody(UserCommand)
+        userService.updateProfile(user, request)
+        respond  user, view: 'show'
+    }
 }

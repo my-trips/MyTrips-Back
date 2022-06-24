@@ -46,5 +46,7 @@ class UrlMappings {
         "/api/place/$country/$name"(controller: 'place', action: "getByName", method: 'GET')
 
         "/api/user/profile"(controller: 'user', action: "profile", method: 'GET')
+        "/api/user/profile/update"(controller: 'user', action: "updateProfile", method: 'PUT')
+
     }
 }

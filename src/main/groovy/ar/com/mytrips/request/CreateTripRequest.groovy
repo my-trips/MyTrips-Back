@@ -7,8 +7,6 @@ import ar.com.mytrips.auth.User
 import ar.com.mytrips.destination.*
 import io.micronaut.core.annotation.Introspected
 
-import java.time.LocalTime
-
 class CreateTripRequest implements ModelRequest<Trip> {
     List<DestinationCommand> destinations
 
@@ -123,6 +121,24 @@ class CreateUserRequest implements ModelRequest<User> {
         new User(changes())
     }
 }
+
+class UserCommand implements ModelRequest<User> {
+    String firstName
+    String lastName
+    String email
+
+    static constraints = {
+        firstName nullable: true
+        lastName nullable: true
+        email nullable: true
+    }
+
+    @Override
+    User toModel() {
+        new User(changes())
+    }
+}
+
 
 class CountryCommand implements ModelRequest<Country>  {
     String name
