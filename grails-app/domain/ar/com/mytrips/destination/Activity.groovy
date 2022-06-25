@@ -14,6 +14,7 @@ class Activity {
     Cost cost
     Double score
     Attraction attraction
+    Boolean done = false
 
     static belongsTo = [day:Day]
 
@@ -23,6 +24,7 @@ class Activity {
         endTime nullable: true
         cost nullable: true
         score nullable: true
+        done nullable: true
     }
 
     static embedded = ['cost']
