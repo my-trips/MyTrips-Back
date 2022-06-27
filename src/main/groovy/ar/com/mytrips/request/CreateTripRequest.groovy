@@ -177,6 +177,7 @@ class ActivityCommand implements ModelRequest<Activity>  {
     Cost cost
     Double score
     AttractionCommand attraction
+    Boolean done
 
     static constraints = {
         notes nullable: true
@@ -185,6 +186,7 @@ class ActivityCommand implements ModelRequest<Activity>  {
         cost nullable: true
         score   nullable: true
         attraction nullable: true
+        done nullable: true
     }
 
     @Override

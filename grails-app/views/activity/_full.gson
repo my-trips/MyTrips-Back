@@ -14,5 +14,6 @@ json {
 		currency activity.cost?.currency
 		amount activity.cost?.amount
 	}
+	done activity.done
 	attraction g.render(template:"/attraction/full", model: [attraction: activity.attraction])
 }
