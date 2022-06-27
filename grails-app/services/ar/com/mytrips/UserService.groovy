@@ -5,8 +5,10 @@ import ar.com.mytrips.auth.User
 import ar.com.mytrips.auth.UserRole
 import ar.com.mytrips.exception.ServiceException
 import ar.com.mytrips.request.UserCommand
+import ar.com.mytrips.request.UserPasswordCommand
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.SpringSecurityService
+import org.springframework.security.crypto.password.PasswordEncoder
 
 @Transactional
 class UserService {
@@ -44,6 +46,15 @@ class UserService {
 
     def updateProfile(User user, UserCommand command) {
         user.properties = command.changes()
+        user.save()
+    }
+
+    def updatePassword(User user, UserPasswordCommand command) {
+        PasswordEncoder passwordEncoder = springSecurityService.passwordEncoder
+        if (!passwordEncoder.matches(command.currentPassword, user.password)) {
+            throw ServiceException.badRequest("wrongCurrentPassword")
+        }
+        user.password = springSecurityService.encodePassword(command.password)
         user.save()
     }
 }

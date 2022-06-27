@@ -140,6 +140,21 @@ class UserCommand implements ModelRequest<User> {
 }
 
 
+class UserPasswordCommand implements ModelRequest<User> {
+    String currentPassword
+    String password
+    String confirmNewPassword
+
+    static constraints = {
+        confirmNewPassword nullable: true
+    }
+
+        @Override
+    User toModel() {
+        new User(changes())
+    }
+}
+
 class CountryCommand implements ModelRequest<Country>  {
     String name
     String code

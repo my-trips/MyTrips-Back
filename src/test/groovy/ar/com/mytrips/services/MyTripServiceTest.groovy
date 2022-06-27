@@ -24,41 +24,36 @@ class MyTripServiceTest extends Specification implements  DataTest {
     }
 
     def setup() {
-        def destFin = new Destination(relevance: 4, color: "green", place: new Place(country: new Country(name:"Argentina")),
+        def destFin = new Destination(relevance: 4,
+                color: "green", place: new Place(country: new Country(name:"Argentina")),
                 arriveDate: LocalDateTime.of(2022, 10, 14, 12, 50),
                 departDate: null,
                 departTransport: new Transport())
 
-        def paramsDestSantiago = HashMap.of("relevance", 3,
-                "color", "green", "place", new Place(country: new Country(name:"Argentina")),
-                "arriveDate", LocalDateTime.of(2022, 10, 12, 12, 50),
-                "departDate", LocalDateTime.of(2022, 10, 14, 12, 50),
-                "departTransport", new Transport(destination: destFin))
+        def destSantiago = Destination.create("relevance": 3,
+                "color": "green", "place": new Place(country: new Country(name:"Argentina")),
+                "arriveDate": LocalDateTime.of(2022, 10, 12, 12, 50),
+                "departDate": LocalDateTime.of(2022, 10, 14, 12, 50),
+                "departTransport": new Transport(destination: destFin))
 
-        def destSantiago = Destination.create(paramsDestSantiago)
+        def destLima = Destination.create("relevance": 2,
+                "color": "yellow", "place": new Place(name: "Lima", country: new Country(name:"Peru")),
+                "arriveDate": LocalDateTime.of(2022, 10, 10, 12, 50),
+                "departDate": LocalDateTime.of(2022, 10, 12, 12, 50),
+                "departTransport": new Transport(destination: destSantiago))
 
-        def paramsDestLima = HashMap.of("relevance", 2,
-                "color", "yellow", "place", new Place(name: "Lima", country: new Country(name:"Peru")),
-                "arriveDate", LocalDateTime.of(2022, 10, 10, 12, 50),
-                "departDate",LocalDateTime.of(2022, 10, 12, 12, 50),
-                "departTransport", new Transport(destination: destSantiago))
+        transport = new Transport("type": TransportType.FLY,
+                "arrive": LocalDateTime.of(2022, 10, 10, 12, 50, 00),
+                "depart": LocalDateTime.of(2022, 10, 10, 12, 50, 00),
+                "arriveLocation": "Lima",
+                "departLocation": "Buenos Aires",
+                "cost": new Cost(),
+                "destination": destLima)
 
-        def destLima = Destination.create(paramsDestLima)
-
-        transport = new Transport(HashMap.of("type", TransportType.FLY,
-                "arrive", LocalDateTime.of(2022, 10, 10, 12, 50, 00),
-                "depart", LocalDateTime.of(2022, 10, 10, 12, 50, 00),
-                "arriveLocation", "Lima",
-                "departLocation", "Buenos Aires",
-                "cost", new Cost(),
-                "destination", destLima))
-
-        def paramsInit = HashMap.of("relevance", 1,
-                "color", "", "place", new Place(country: new Country(name:"Argentina")),
-                "departDate", LocalDateTime.of(2022, 10, 10, 12, 50),
-                "departTransport", transport)
-
-        def destInit = Destination.create(paramsInit)
+        def destInit = Destination.create("relevance": 1,
+                "color": "", "place": new Place(country: new Country(name:"Argentina")),
+                "departDate": LocalDateTime.of(2022, 10, 10, 12, 50),
+                "departTransport": transport)
 
         destinations = [destInit, destLima, destSantiago, destFin]
 

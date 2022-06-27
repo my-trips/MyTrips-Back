@@ -2,6 +2,7 @@ package ar.com.mytrips
 
 import ar.com.mytrips.request.CreateUserRequest
 import ar.com.mytrips.request.UserCommand
+import ar.com.mytrips.request.UserPasswordCommand
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
@@ -33,6 +34,13 @@ class UserController implements ModelRequestResolver {
         def user = userService.currentUser
         def request = getBody(UserCommand)
         userService.updateProfile(user, request)
+        respond  user, view: 'show'
+    }
+
+    def updatePassword() {
+        def user = userService.currentUser
+        def request = getBody(UserPasswordCommand)
+        userService.updatePassword(user, request)
         respond  user, view: 'show'
     }
 }

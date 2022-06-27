@@ -47,6 +47,6 @@ class UrlMappings {
 
         "/api/user/profile"(controller: 'user', action: "profile", method: 'GET')
         "/api/user/profile/update"(controller: 'user', action: "updateProfile", method: 'PUT')
-
+        "/api/user/password/update"(controller: 'user', action: "updatePassword", method: 'PUT')
     }
 }
